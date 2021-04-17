@@ -1,0 +1,22 @@
+/node_modules
+/public/hot
+/public/storage
+/public/js
+/public/css
+/public/plugins
+/public/assets
+/public/mix-manifest.json
+/storage/*.key
+/vendor
+/bootstrap/cache
+/storage/framework/views
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+# *.xlsx
+public/plugins/global/plugins.bundle.js
+public/plugins/custom/prismjs/prismjs.bundle.js
