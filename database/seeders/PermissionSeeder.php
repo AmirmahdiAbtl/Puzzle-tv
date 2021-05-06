@@ -14,6 +14,7 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
+        
         DB::table('permissions')->insert([
             'name' => 'user CRUD',
             'persian_name' => 'مدیریت کاربران',
@@ -24,13 +25,6 @@ class PermissionSeeder extends Seeder
         DB::table('permissions')->insert([
             'name' => 'file CRUD',
             'persian_name' => 'مدیریت فایل',
-            'created_at'=>now(),
-            'updated_at'=>now(),
-        ]);
-
-        DB::table('permissions')->insert([
-            'name' => 'test CRUD',
-            'persian_name' => 'مدیریت آزمایش',
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
@@ -48,6 +42,7 @@ class PermissionSeeder extends Seeder
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
+
         DB::table('permission_role')->insert([
             'permission_id' => '1',
             'role_id' => '1',
@@ -72,11 +67,6 @@ class PermissionSeeder extends Seeder
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
-        DB::table('permission_role')->insert([
-            'permission_id' => '5',
-            'role_id' => '1',
-            'created_at'=>now(),
-            'updated_at'=>now(),
-        ]);
+
     }
 }

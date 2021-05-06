@@ -9,7 +9,7 @@
 	<meta name="description" content="دایرکتوری آزمایشگاهی شرکت پل ایده آل پارس" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<!--begin::Fonts-->
-	<link rel="stylesheet" href="https://v1.fontapi.ir/css/Shabnam" />
+	<link href="https://v1.fontapi.ir/css/Sahel" rel="stylesheet">
 	<!--end::Fonts-->
 	<!--begin::Page Vendors Styles(used by this page)-->
     @yield('css')
@@ -477,7 +477,7 @@
 					"gray-900": "#181C32"
 				}
 			},
-			"font-family": "Shabnam"
+			"font-family": "Sahel"
 		};
 	</script>
 	<!--end::Global Config-->

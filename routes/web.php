@@ -24,16 +24,7 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-Route::get('/invoice', function () {
-    return view('invoice');
-})->name('invoice');
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'can:admin dashboard'], function () {
-        Route::get('/', function () {
-            return view('admin.index');
-        })->name('dashboard');
-    });
-});
+Route::view('/login', 'auth.login');
+Route::view('/register', 'auth.register');
 
 require __DIR__ . '/auth.php';

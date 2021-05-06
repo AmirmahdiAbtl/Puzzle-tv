@@ -15,19 +15,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'fname' => 'erfan',
-            'lname'=>'mirzaee',
-            'mobile'=>'09120643390',
-            'email'=>'erfan.mirzaee8620@gmail.com',
-            'password' => Hash::make('123456789'),
-            'created_at'=>now(),
-            'updated_at'=>now(),
-        ]);
 
         DB::table('users')->insert([
-            'fname' => 'faraz',
-            'lname'=>'sadri',
+            'fname' => 'فراز',
+            'lname'=>'صدری علمداری',
             'mobile'=>'09392676126',
             'email'=>'ifarazir@gmail.com',
             'password' => Hash::make('123456789'),
@@ -42,11 +33,6 @@ class UserSeeder extends Seeder
 
         DB::table('role_user')->insert([
             'user_id'=>1,
-            'role_id'=>1,
-        ]);
-
-        DB::table('role_user')->insert([
-            'user_id'=>2,
             'role_id'=>1,
         ]);
     }

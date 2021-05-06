@@ -81,7 +81,7 @@
                 noneditable_noneditable_class: 'mceNonEditable',
                 toolbar_mode: 'sliding',
                 contextmenu: 'link image imagetools table',
-                content_style: 'body { font-family:Shabnam,Arial,sans-serif; font-size:14px }'
+                content_style: 'body { font-family:Sahel,Arial,sans-serif; font-size:14px }'
             });
 
             tinymce.init({
@@ -154,7 +154,7 @@
                 noneditable_noneditable_class: 'mceNonEditable',
                 toolbar_mode: 'sliding',
                 contextmenu: 'link image imagetools table',
-                content_style: 'body { font-family:Shabnam,Arial,sans-serif; font-size:14px }'
+                content_style: 'body { font-family:Sahel,Arial,sans-serif; font-size:14px }'
             });
         }
 
