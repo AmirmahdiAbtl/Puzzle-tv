@@ -57,7 +57,7 @@
                 </div>
             </div> --}}
             <button class="btn btn-light mr-2 ml-3 btn-text-dark px-md-15 px-3">خرید اشتراک</button>
-            <a href="{{ route('login') }}"
+            <a href="{{ route('auth.login') }}"
                 class="btn btn-outline-light btn-text-light btn-hover-text-dark px-md-5 px-3">ورود | ثبت
                 نام</a>
         </div>

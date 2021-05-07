@@ -18,26 +18,27 @@
                     <div class="mb-10">
                         <h3 class="opacity-40 font-weight-normal">ثبت نام</h3>
                     </div>
-                    <form class="form text-center fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signup_form">
+                    @include('partials.alerts')
+                    <form class="form text-center fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signup_form" method="post" action="{{ route('auth.register') }}">
                         @csrf
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="text" placeholder="نام و نام خانوادگی" name="fullname">
+                                type="text" placeholder="نام" name="fname">
                             <div class="fv-plugins-message-container"></div>
                         </div>
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="text" placeholder="شماره موبایل" name="email" autocomplete="off">
+                                type="text" placeholder="نام خانوادگی" name="lname">
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                        <div class="form-group fv-plugins-icon-container">
+                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
+                                type="tel" placeholder="شماره موبایل" name="mobile" autocomplete="off">
                             <div class="fv-plugins-message-container"></div>
                         </div>
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
                                 type="password" placeholder="رمز عبور" name="password">
-                            <div class="fv-plugins-message-container"></div>
-                        </div>
-                        <div class="form-group fv-plugins-icon-container">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="password" placeholder="تکرار رمز عبور" name="cpassword">
                             <div class="fv-plugins-message-container"></div>
                         </div>
                         <div class="form-group text-left px-8 fv-plugins-icon-container">
@@ -53,7 +54,7 @@
                         <div class="form-group mb-2">
                             <button id="kt_login_signup_submit"
                                 class="btn btn-danger opacity-90 px-15 py-3 w-100">ثبت نام</button>
-                            <a href="{{ route('login') }}"
+                            <a href="{{ route('auth.login') }}"
                                 class="btn btn-outline-white opacity-70 px-15 py-3 mt-5 mb-0 w-100">بازگشت به صفحه ورود</a>
                         </div>
                         <div></div>

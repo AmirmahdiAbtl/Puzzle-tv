@@ -24,7 +24,5 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-Route::view('/login', 'auth.login');
-Route::view('/register', 'auth.register');
 
 require __DIR__ . '/auth.php';
