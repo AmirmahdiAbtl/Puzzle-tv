@@ -11,6 +11,8 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
 
+use App\Models\Course;
+// use App\Models\SEason;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +34,12 @@ Route::get('/admin',function () {
 Route::get('/dashboard',function () {
     return view('layouts.admin');
 })->name('dashboard');
+
+Route::get('/test',function(){
+    $course = Course::with('seasons')->find(1);
+
+    dd($course->seasons()->first()->episodes);
+});
 
 
 

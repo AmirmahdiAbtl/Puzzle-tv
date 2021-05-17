@@ -17,12 +17,11 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('teacher_id');
             $table->foreign('teacher_id')->references('id')->on('users');
-            $table->string('body');
+            $table->longText('discription')->nullable();
             $table->string('title');
             $table->string('image');
-            $table->string('link');
+            $table->string('slug')->unique();
             $table->boolean('status');
-            // $table->integer('views');
             $table->timestamps();
 
         });

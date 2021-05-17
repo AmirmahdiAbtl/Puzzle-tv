@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Season extends Model
 {
+    public $fillable = [
+        'tilte',
+    ];
+    public function episodes(){
+        return $this->hasMany(Episode::class);
+    }
+    public function course(){
+        return $this->belongsTo(Course::class);
+    }
     use HasFactory;
 }

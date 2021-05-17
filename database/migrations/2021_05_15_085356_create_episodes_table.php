@@ -17,7 +17,6 @@ class CreateEpisodesTable extends Migration
             $table->id();
             $table->foreignId('season_id')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->string('title');
-            $table->string('season')->nullable();
             $table->integer('episode_number');
             $table->string('slug');
             $table->boolean('freeable')->default(0);

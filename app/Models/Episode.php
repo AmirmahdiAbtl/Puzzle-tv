@@ -14,8 +14,8 @@ class Episode extends Model
         'freeable',
         'episode_number'
     ];
-    public function course(){
-        return $this->belongsTo(Course::class);
+    public function season(){
+        return $this->belongsTo(Season::class);
     }
     use HasFactory;
 }
