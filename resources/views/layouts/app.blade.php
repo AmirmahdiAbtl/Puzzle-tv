@@ -28,9 +28,9 @@ __________                     .__         ________
     <link href="{{ asset('css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Global Theme Styles-->
     <!--begin::Layout Themes(used by all pages)-->
-    <link href="{{ asset('css/header/base/light.rtl.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/header/menu/light.rtl.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/brand/dark.rtl.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/themes/layout/header/base/light.rtl.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/themes/layout/header/menu/light.rtl.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/themes/layout/brand/dark.rtl.css') }}" rel="stylesheet" type="text/css" />
 
 
     <!--end::Layout Themes-->
