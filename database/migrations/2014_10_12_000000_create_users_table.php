@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('mobile')->unique();
             $table->timestamp('mobile_verified_at')->nullable();
             $table->string('password');
+            $table->integer('age')->nullable();
+            $table->string('country');
+            $table->string('city');
             $table->rememberToken();
             $table->timestamps();
         });
