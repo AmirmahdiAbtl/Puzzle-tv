@@ -41,7 +41,7 @@
 </div>
 
 <div class="container-fluid my-10">
-    <div class="row">
+    <div class="row ">
         <div class="col-md-4">
             <div class="card card-custom overlay">
                 <div class="card-body p-0">
@@ -96,15 +96,17 @@
 </div>
 
 <div class="container-fluid my-10">
-    <div class="row">
-        <div class="col-12 mb-7">
-            <h2 class="text-white font-weight-boldest display5-md">جدیدترین ویدیوها</h2>
-        </div>
+    <div class="col-12 mb-7">
+        <h2 class="text-white font-weight-boldest display5-md">جدیدترین ویدیوها</h2>
+    </div>
+    <div class="row main-slider">
+        
         <div class="col-md">
             <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
                 class="w-100 rounded" height="269.44px" alt="">
             <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
             <h4 class="small text-white">قسمت ۳</h4>
+
         </div>
         <div class="col-md">
             <img src="https://ir-dl.com/wp-content/uploads/2019/06/LezateAshpazi.jpg" class="w-100 rounded" alt="">
@@ -149,13 +151,14 @@
 </div>
 
 <div class="container-fluid my-10">
-    <div class="row">
-        <div class="col-12 mb-7">
-            <h2 class="text-white font-weight-boldest display5-md">محبوب‌‌ترین‌ها</h2>
-        </div>
-        <div class="col-md">
+    <div class="col-12 mb-7">
+        <h2 class="text-white font-weight-boldest display5-md">محبوب‌‌ترین‌ها</h2>
+    </div>
+    <div class="row main-slider">
+        
+        <div class="col-md rounded" >
             <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                class="w-100 rounded" height="269.44px" alt="">
+                class="w-100 rounded"  alt="" id="first" >
             <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
             <h4 class="small text-white">قسمت ۳</h4>
         </div>
@@ -200,12 +203,35 @@
         </div>
     </div>
 </div>
+<div id="content" class=" container-fluid my-10" style="visibility: hidden; display:none">
+    <div class="container-fluid my-10 ">
+        <div class="card card-custom overlay">
+            <div class="card-body p-0">
+                <div class="overlay-wrapper">
+                    <img src="https://static.namava.ir/Content/Upload/Images/4ba7b1c6-29d3-4559-8af7-bcb9972d45d4.jpg?anchor=middlecenter&amp;crop=auto&amp;scale=both&amp;w=1920&amp;h=900"
+                        width="100%" height="500px" alt="" class="w-100 rounded" />
+                </div>
+                <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start" >
+                    <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="d-flex flex-column   align-items-start ">
+                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-5  ml-10  mt-11">فیلم ها </a>
+                        <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark">نمایش قسمت‌ها</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <div class="container-fluid my-10">
-    <div class="row">
-        <div class="col-12 mb-7">
-            <h2 class="text-white font-weight-boldest display5-md">آموزش کنکور</h2>
-        </div>
+    <div class="col-12 mb-7">
+        <h2 class="text-white font-weight-boldest display5-md">آموزش کنکور</h2>
+    </div>
+    <div class="row main-slider">
+        
         <div class="col-md">
             <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
                 class="w-100 rounded" height="269.44px" alt="">
@@ -279,7 +305,25 @@
     $(".top-slider").owlCarousel({
         items: 1,
         rtl: true,
+       
     });
+    $(".main-slider").owlCarousel({
+        items: 7,
+        rtl: true,
+       
+    });
+    
+    $( "#first" ).click(function() {
+            $("#content").css("visibility", "visible");
+            $("#content").css("display", "inline")
+    });
+    $("#close1").click(function(){
+        
+        $("#content").css("visibility", "hidden");
+        $("#content").css("display", "none")
+
+    })
+   
 });
 </script>
 @endsection
