@@ -16,10 +16,19 @@
                     <div class="mb-20">
                         <h3 class="opacity-40 font-weight-normal">ورود به حساب کاربری</h3>
                     </div>
-                    <form class="form fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signin_form" novalidate="novalidate">
+                    <form class="form fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signin_form" novalidate="novalidate" method="POST">
+                        @if (count($errors)>0)
+                        <div class="alert">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         @csrf
                         <div class="form-group fv-plugins-icon-container">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="text" placeholder="شماره موبایل" name="username" autocomplete="off">
+                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="text" placeholder="شماره موبایل" name="mobile" autocomplete="off">
                         <div class="fv-plugins-message-container"></div></div>
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="password" placeholder="رمز عبور" name="password">
@@ -47,3 +56,21 @@
     <!--end::Login-->
 </div>
 @endsection
+
+{{-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{ route('login') }}" method="POST">
+        @csrf
+        <input type="text" name="mobile" placeholder="mobile">
+        <input type="text" name="password" placeholder="password">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html> --}}

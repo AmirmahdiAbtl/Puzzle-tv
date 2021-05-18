@@ -8,9 +8,10 @@ use App\Models\Course;
 
 class CourseController extends Controller
 {
-    public function index($id){
-        $course = Course::with('episode')->find($id);
-        $course->increment('views'); 
+    public function index($slug){
+        $course = Course::with(['seasons'])->where('slug',$slug)->first();
+        // $course->increment('views');
+        // dd($course->seasons->episodes);
         return view('post-info',compact('course'));
     }
     

@@ -9,8 +9,8 @@ class HomeController extends Controller
 {
     public function index(){
 
-        $course = Course::with('episode');
+        $course = Course::all();
 
-        return view('index');
+        return view('index',compact('course'));
     }
 }

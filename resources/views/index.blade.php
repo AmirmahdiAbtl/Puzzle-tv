@@ -156,54 +156,18 @@
     </div>
     <div class="row main-slider">
         
-        <div class="col-md rounded" >
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                class="w-100 rounded"  alt="" id="first" >
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://ir-dl.com/wp-content/uploads/2019/06/LezateAshpazi.jpg" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">آشپزی با سامان گلریز</h4>
-            <h4 class="small text-white">قسمت ۱۵۴</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://cdn.isna.ir/d/off/khouzestan/2021/01/04/3/61818296.jpg" class="w-100 rounded"
-                height="269.44px" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">مستند ده روایت</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://lh3.googleusercontent.com/proxy/qUZ1tQEzo5lFLDW6DahrCMHjLL6zbAaowZaa7EDKRDrC9pVX7RLf2sSDfbc4QpAAHb3KiNDpsfHGNwYbNpZWOXAi0UCqTImpblgtlJfjcfxY"
-                class="w-100 rounded" height="269.44px" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">مستند حیات وحش</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://civilica.com/images/calendar/posters/TAHAVOL01_poster.jpg" height="269.44px"
-                class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">پخش رویداد تحول در آموزش</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                height="269.44px" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                height="269.44px" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                height="269.44px" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
+        @foreach ($course as $item)
+            <div class="col-md rounded first" id="{{ $item->id }}">
+                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
+                    class="w-100 rounded"  alt="">
+                <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $item->title }}</h4>
+                <h4 class="small text-white">قسمت ۳</h4>
+            </div>
+        @endforeach
+       
     </div>
 </div>
-<div id="content" class=" container-fluid my-10" style="visibility: hidden; display:none">
+<div id="content" class=" container-fluid my-10" style="display:none">
     <div class="container-fluid my-10 ">
         <div class="card card-custom overlay">
             <div class="card-body p-0">
@@ -216,14 +180,16 @@
                              <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-5  ml-10  mt-11">فیلم ها </a>
-                        <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark">نمایش قسمت‌ها</button>
+                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle">فیلم ها </a>
+                        <p class=" mb-2  ml-10  mt-11" id="contentDetail">hello</p>
+                        <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink">
+                            <a href="">نمایش قسمت‌ها</a>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="container-fluid my-10">
@@ -312,10 +278,32 @@
         rtl: true,
        
     });
-    
-    $( "#first" ).click(function() {
-            $("#content").css("visibility", "visible");
-            $("#content").css("display", "inline")
+    async function courses(proms) {
+        let url = 'http://localhost:8000/api/coursebanner/' + proms;
+        const response = await fetch(url);
+        const json = await response.json();
+        
+        $("#contentTitle").text(json.title)
+        $("#contentDetail").text(json.discription)
+        $("#contentLink a").attr('href','http://localhost:8000/course/' + json.slug)
+
+    }
+    $( ".first" ).click(function() {
+        if($(this).hasClass('slide-was-down')){
+            $("#content").slideUp()
+            $(this).removeClass("slide-was-down");
+        }else{
+            $("#content").slideDown()
+            let currentId = this.getAttribute("id");
+            courses(currentId)
+            $(this).addClass("slide-was-down");
+            $(this).parent().siblings().each(function(index){
+                if($(this).children().hasClass('slide-was-down')){
+                    $(this).children().removeClass('slide-was-down')
+                }
+            })
+            
+        }
     });
     $("#close1").click(function(){
         

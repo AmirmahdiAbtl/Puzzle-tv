@@ -19,7 +19,16 @@
                         <h3 class="opacity-40 font-weight-normal">ثبت نام</h3>
                     </div>
                     @include('partials.alerts')
-                    <form class="form text-center fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signup_form" method="post" action="{{ route('auth.register') }}">
+                    <form class="form text-center fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signup_form" method="post" action="{{ route('register') }}">
+                        @if (count($errors)>0)
+                        <div class="alert">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         @csrf
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
@@ -29,6 +38,21 @@
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
                                 type="text" placeholder="نام خانوادگی" name="lname">
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                        <div class="form-group fv-plugins-icon-container">
+                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
+                                type="text" placeholder="کشور" name="country">
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                        <div class="form-group fv-plugins-icon-container">
+                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
+                                type="text" placeholder="شهر" name="city">
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                        <div class="form-group fv-plugins-icon-container">
+                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
+                                type="text" placeholder="سن" name="age">
                             <div class="fv-plugins-message-container"></div>
                         </div>
                         <div class="form-group fv-plugins-icon-container">
@@ -54,7 +78,7 @@
                         <div class="form-group mb-2">
                             <button id="kt_login_signup_submit"
                                 class="btn btn-danger opacity-90 px-15 py-3 w-100">ثبت نام</button>
-                            <a href="{{ route('auth.login') }}"
+                            <a href="{{ route('login') }}"
                                 class="btn btn-outline-white opacity-70 px-15 py-3 mt-5 mb-0 w-100">بازگشت به صفحه ورود</a>
                         </div>
                         <div></div>

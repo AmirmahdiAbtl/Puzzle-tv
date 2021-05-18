@@ -26,13 +26,13 @@ class LoginRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
-        return [
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ];
-    }
+        public function rules()
+        {
+            return [
+                'mobile' => 'required|numeric|digits:11',
+                'password' => 'required|string',
+            ];
+        }
 
     /**
      * Attempt to authenticate the request's credentials.
@@ -43,13 +43,14 @@ class LoginRequest extends FormRequest
      */
     public function authenticate()
     {
+
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->filled('remember'))) {
+        if (!Auth::attempt($this->only('mobile', 'password'), $this->filled('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
+                'mobile' => 'شماره تلفن و یا رمز عبور صحیح نمیباشد.',
             ]);
         }
 
@@ -74,7 +75,7 @@ class LoginRequest extends FormRequest
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
         throw ValidationException::withMessages([
-            'email' => trans('auth.throttle', [
+            'mobile' => trans('auth.throttle', [
                 'seconds' => $seconds,
                 'minutes' => ceil($seconds / 60),
             ]),
@@ -88,6 +89,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey()
     {
-        return Str::lower($this->input('email')).'|'.$this->ip();
+        return Str::lower($this->input('mobile')).'|'.$this->ip();
     }
 }

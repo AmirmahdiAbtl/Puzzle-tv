@@ -8,7 +8,6 @@
                 <div class="slider h-lg-700px h-500px"
                     style="background: url('https://static.namava.ir/Content/Upload/Images/4ba7b1c6-29d3-4559-8af7-bcb9972d45d4.jpg?anchor=middlecenter&amp;crop=auto&amp;scale=both&amp;w=1920&amp;h=900');background-size:cover;">
                     <div class="col-md-8 bg-slider align-items-center px-20 d-flex h-100">
-
                     </div>
                 </div>
                 <div class="overlay-layer bg-dark-o-100  rounded align-items-start  justify-content-start">
@@ -16,8 +15,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column  mt-35   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-white mb-5  ml-10  mt-11">فیلم ها </a>
-                        <span class="font-size-h3 font-weight-bolder text-white mb-5  ml-10  mt-1">لورم اپسوم </span>
+                        <a href="#" class="font-size-h3 font-weight-bolder text-white mb-5  ml-10  mt-11"> {{ $course->title }} </a>
+                        <span class="font-size-h5 text-white mb-5  ml-10  mt-1 col-md-4 text-justify"> {{ $course->discription }} </span>
                         <span class="font-size-h3 font-weight-bolder text-white mb-5  ml-10  mt-1">لورم اپسوم </span>
                         <span class="font-size-h3 font-weight-bolder text-white mb-5  ml-10  mt-1">لورم اپسوم </span>
                         <span class="font-size-h3 font-weight-bolder text-white mb-5  ml-10  mt-1">لورم اپسوم </span>
@@ -39,9 +38,11 @@
                                 </button>
                             </div>
                             <div class=" flex d-flex">
-                                <button
-                                    class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11  btn-hover-bg-dark">نمایش
-                                    قسمت‌ها</button>
+                                <a href="">
+                                    <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11  btn-hover-bg-dark">
+                                        نمایش قسمت‌ها
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -54,8 +55,26 @@
         <div class="row">
             <div class="main-content mx-15">
                 <h2 id="data" class=" text-white  "> خلاصه فیلم  <h2>
-                 <h5 class=" text-white " id="data-main">  lorem epsom </h5>
+                <h5 class=" text-white " id="data-main">  lorem epsom </h5>
             </div>
+        </div>
+        <div class="mx-10 accordion accordion-solid accordion-toggle-plus" id="accordionExample3">
+           @foreach ($course->seasons as $season)
+            <div class="card">
+                <div class="card-header" id="headingOne3">
+                    <div class="card-title" data-toggle="collapse" data-target="#collapseOne3">
+                        {{ $season->title }}
+                    </div>
+                </div>
+                <div id="collapseOne3" class="collapse show" data-parent="#accordionExample3">
+                    @foreach ($season->episodes as $episode)
+                        <div class="card-body">
+                            {{ $episode->title }}
+                        </div>
+                     @endforeach
+                </div>
+            </div>
+           @endforeach
         </div>
     </div>
     <div class="container-fluid my-10  ">
