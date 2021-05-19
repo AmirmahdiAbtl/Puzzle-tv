@@ -16,6 +16,7 @@ use App\Http\Controllers\CourseController;
 
 Route::get('/', [HomeController::class ,'index'])->name('home');
 Route::get('/course/{slug}',[CourseController::class ,'index'])->name('course');
+Route::get('/course/{slug}/{seasonId}/{episode}',[CourseController::class ,'player'])->name('player');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

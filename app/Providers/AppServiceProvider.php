@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // View::share('recent_course',Course::orderBy('id','desc')->limit('10')->get());
+        View::share('recent_course',Course::orderBy('created_at','desc')->limit('10')->get());
         // View::share('popular_course',Course::orderBy('views','desc')->limit('10')->get());
     }
 }

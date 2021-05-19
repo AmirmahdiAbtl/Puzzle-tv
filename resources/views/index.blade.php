@@ -100,53 +100,16 @@
         <h2 class="text-white font-weight-boldest display5-md">جدیدترین ویدیوها</h2>
     </div>
     <div class="row main-slider">
-        
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                class="w-100 rounded" height="269.44px" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-
-        </div>
-        <div class="col-md">
-            <img src="https://ir-dl.com/wp-content/uploads/2019/06/LezateAshpazi.jpg" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">آشپزی با سامان گلریز</h4>
-            <h4 class="small text-white">قسمت ۱۵۴</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://cdn.isna.ir/d/off/khouzestan/2021/01/04/3/61818296.jpg" class="w-100 rounded"
-                height="269.44px" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">مستند ده روایت</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://lh3.googleusercontent.com/proxy/qUZ1tQEzo5lFLDW6DahrCMHjLL6zbAaowZaa7EDKRDrC9pVX7RLf2sSDfbc4QpAAHb3KiNDpsfHGNwYbNpZWOXAi0UCqTImpblgtlJfjcfxY"
-                class="w-100 rounded" height="269.44px" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">مستند حیات وحش</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://civilica.com/images/calendar/posters/TAHAVOL01_poster.jpg" height="269.44px"
-                class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">پخش رویداد تحول در آموزش</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                height="269.44px" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                height="269.44px" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                height="269.44px" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
+        @foreach ($recent_course as $recent)
+        <a href="{{ route('course',['slug' => $recent->slug]) }}">
+            <div class="col-12">
+                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
+                    class="w-100 rounded" height="269.44px" alt="">
+                <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $recent->title }}</h4>
+                {{-- <h4 class="small text-white">قسمت ۳</h4> --}}
+            </div>
+        </a>
+    @endforeach
     </div>
 </div>
 
@@ -198,51 +161,15 @@
     </div>
     <div class="row main-slider">
         
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                class="w-100 rounded" height="269.44px" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://ir-dl.com/wp-content/uploads/2019/06/LezateAshpazi.jpg" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">آشپزی با سامان گلریز</h4>
-            <h4 class="small text-white">قسمت ۱۵۴</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://cdn.isna.ir/d/off/khouzestan/2021/01/04/3/61818296.jpg" class="w-100 rounded"
-                height="269.44px" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">مستند ده روایت</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://lh3.googleusercontent.com/proxy/qUZ1tQEzo5lFLDW6DahrCMHjLL6zbAaowZaa7EDKRDrC9pVX7RLf2sSDfbc4QpAAHb3KiNDpsfHGNwYbNpZWOXAi0UCqTImpblgtlJfjcfxY"
-                class="w-100 rounded" height="269.44px" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">مستند حیات وحش</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://civilica.com/images/calendar/posters/TAHAVOL01_poster.jpg" height="269.44px"
-                class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">پخش رویداد تحول در آموزش</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                height="269.44px" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                height="269.44px" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
-        <div class="col-md">
-            <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
-                height="269.44px" class="w-100 rounded" alt="">
-            <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">جابجایی‌های غول‌آسا</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
-        </div>
+        @foreach ($course as $item)
+            <div class="col-md rounded" id="{{ $item->id }}">
+                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
+                    class="w-100 rounded"  alt="">
+                <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $item->title }}</h4>
+                <h4 class="small text-white">قسمت ۳</h4>
+            </div>
+        @endforeach
+
     </div>
 </div>
 

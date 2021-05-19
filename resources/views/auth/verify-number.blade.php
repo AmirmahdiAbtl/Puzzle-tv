@@ -14,7 +14,7 @@
                 <!--begin::Login Sign in form-->
                 <div class="login-signin">
                     <div class="mb-20">
-                        <h3 class="opacity-40 font-weight-normal">ورود به حساب کاربری</h3>
+                        <h3 class="opacity-40 font-weight-normal">تایید شماره همراه</h3>
                     </div>
                     <form class="form fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signin_form" novalidate="novalidate" method="POST">
                         @if (count($errors)>0)
@@ -28,20 +28,10 @@
                         @endif
                         @csrf
                         <div class="form-group fv-plugins-icon-container">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="text" placeholder="شماره موبایل" name="mobile" autocomplete="off">
+                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="text" placeholder="تاییدیه شماره همراه" name="mobile" autocomplete="off">
                         <div class="fv-plugins-message-container"></div></div>
-                        <div class="form-group fv-plugins-icon-container">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="password" placeholder="رمز عبور" name="password">
-                        <div class="fv-plugins-message-container"></div></div>
-                        <div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8 opacity-60">
-                            <div class="checkbox-inline">
-                                <label class="checkbox checkbox-outline checkbox-white text-white m-0">
-                                <input type="checkbox" name="remember">
-                                <span></span>مرا به خاطر بسپار</label>
-                            </div>
-                        </div>
                         <div class="form-group text-center mt-10">
-                            <button id="kt_login_signin_submit" class="btn btn-danger w-100 text-white px-15 py-3">ورود</button>
+                            <button id="kt_login_signin_submit" class="btn btn-danger w-100 text-white px-15 py-3">تایید</button>
                         </div>
                     <input type="hidden"><div></div></form>
                     <div class="mt-10">
@@ -56,21 +46,3 @@
     <!--end::Login-->
 </div>
 @endsection
-
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form action="{{ route('login') }}" method="POST">
-        @csrf
-        <input type="text" name="mobile" placeholder="mobile">
-        <input type="text" name="password" placeholder="password">
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html> --}}

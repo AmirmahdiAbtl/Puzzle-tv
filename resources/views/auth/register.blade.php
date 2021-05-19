@@ -21,10 +21,10 @@
                     @include('partials.alerts')
                     <form class="form text-center fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signup_form" method="post" action="{{ route('register') }}">
                         @if (count($errors)>0)
-                        <div class="alert">
+                        <div class="alert alert-danger">
                                 <ul>
                                     @foreach ($errors->all() as $error)
-                                        <li>{{$error}}</li>
+                                        <li class="text-left pt-2">{{$error}}</li>
                                     @endforeach
                                 </ul>
                             </div>
