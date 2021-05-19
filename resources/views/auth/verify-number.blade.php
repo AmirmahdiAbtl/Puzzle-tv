@@ -26,9 +26,23 @@
                                 </ul>
                             </div>
                         @endif
+                        @if (session('messages'))
+                        <div class="alert alert-danger">
+                            <ul>
+                                <li class="text-left pt-2">زمان 2 دقیقه به پایان رسید لطفا بار دیگر ارسال نمایید</li>
+                            </ul>
+                        </div>
+                        @endif
+                        {{-- @if (season('messages'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li class="text-left pt-2">زمان 2 دقیقه به پایان رسید لطفا بار دیگر ارسال نمایید</li>
+                                </ul>
+                            </div>
+                        @endif --}}
                         @csrf
                         <div class="form-group fv-plugins-icon-container">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="text" placeholder="تاییدیه شماره همراه" name="mobile" autocomplete="off">
+                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="text" placeholder="تاییدیه شماره همراه" name="number" autocomplete="off">
                         <div class="fv-plugins-message-container"></div></div>
                         <div class="form-group text-center mt-10">
                             <button id="kt_login_signin_submit" class="btn btn-danger w-100 text-white px-15 py-3">تایید</button>

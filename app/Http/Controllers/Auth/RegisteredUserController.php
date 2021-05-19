@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Models\tofactor;
+
+use Kavenegar;
+use Kavenegar\Exceptions\ApiException;
+use Kavenegar\Exceptions\HttpException;
 
 class RegisteredUserController extends Controller
 {
@@ -37,9 +42,6 @@ class RegisteredUserController extends Controller
         $request->validate([
             'fname'=> 'required|string|max:255',
             'lname'=> 'required|string|max:255',
-            'country'=> 'required|string|max:255',
-            'city'=> 'required|string|max:255',
-            'age' => 'required',
             'mobile'=> 'required|numeric|digits:11|unique:users',
             'password'=> 'required',
         ]);
@@ -47,17 +49,31 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'fname' => $request->fname ,
             'lname' => $request->lname ,
-            'country' => $request->country ,
-            'city' => $request->city ,
-            'age' => $request->age ,
             'mobile' => $request->mobile ,
             'password' => Hash::make($request->password) ,
         ]);
 
+        
+        
+        $phone = $user->mobile;
+        $text = rand(10000,99999);
+        $receptor =  "$phone";
+        $template =  "newlogin";
+        $type =  "sms";
+        $token = $text;
+        $token2 =  "";
+        $token3 =  "";
+        $result = Kavenegar::VerifyLookup($receptor, $token, $token2, $token3, $template, $type);
+
+
+        $tofactor = tofactor::create([
+            'user_id' => $user->id,
+            'verify_number' => $text,
+            'created_at' => now()
+        ]);
         event(new Registered($user));
 
         Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('verification.notice',["id" => auth()->user()->id]);
     }
 }

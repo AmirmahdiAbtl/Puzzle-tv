@@ -17,9 +17,39 @@ class CourseController extends Controller
         $season = $course->seasons->where('id',$seasonId)->first();
         $ep = $season->episodes->where('slug',$episode)->first();
         dd($ep);
-        // $seasons = $course->seasons->where('');
-        // $episode = $course->seasons->episodes->where("slug" ,$episede);
-        // dd($course->seasons->);
     }
-    
+    public function create()
+    {
+        return view('create_post');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => ['required','string','max:255'],
+            'discription' => ['required'],
+            'poster' => ['required','image'],
+            'banner' => ['required','image'],
+            'status' => ['required'],
+        ]);
+        $banner_file = $request->file('banner');
+        $banner_file_name = $banner_file->getClientOriginalName();
+        $banner_file->storeAs('images/banner',$banner_file_name);
+        
+        $poster_file = $request->file('poster');
+        $poster_file_name = $poster_file->getClientOriginalName();
+        $poster_file->storeAs('images/poster',$poster_file_name);
+
+        $posts = [
+            'title' => $request->title,
+            'discription' => $request->tags,
+            'poster' => $poster_file_name,
+            'banner' => $banner_file_name, 
+            'status' => $request->status,
+            'slug' => $request->title
+        ];
+        $posts['teacher_id'] = auth()->user()->id;
+        $post = Course::create($posts);
+        return redirect()->route('home');
+    }
 }

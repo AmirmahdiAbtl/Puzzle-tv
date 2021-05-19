@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     public $fillable = [
-        'body',
+        'discription',
         'title',
-        'image',
+        'poster',
+        'banner',
         'status',
-        'link',
+        'slug',
         'teacher_id'
     ];
     public function teacher(){

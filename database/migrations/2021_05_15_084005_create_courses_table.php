@@ -19,7 +19,8 @@ class CreateCoursesTable extends Migration
             $table->foreign('teacher_id')->references('id')->on('users');
             $table->longText('discription')->nullable();
             $table->string('title');
-            $table->string('image');
+            $table->string('poster');
+            $table->string('banner');
             $table->string('slug')->unique();
             $table->boolean('status');
             $table->timestamps();

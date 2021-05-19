@@ -42,21 +42,6 @@
                         </div>
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="text" placeholder="کشور" name="country">
-                            <div class="fv-plugins-message-container"></div>
-                        </div>
-                        <div class="form-group fv-plugins-icon-container">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="text" placeholder="شهر" name="city">
-                            <div class="fv-plugins-message-container"></div>
-                        </div>
-                        <div class="form-group fv-plugins-icon-container">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="text" placeholder="سن" name="age">
-                            <div class="fv-plugins-message-container"></div>
-                        </div>
-                        <div class="form-group fv-plugins-icon-container">
-                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
                                 type="tel" placeholder="شماره موبایل" name="mobile" autocomplete="off">
                             <div class="fv-plugins-message-container"></div>
                         </div>

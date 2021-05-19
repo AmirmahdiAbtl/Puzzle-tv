@@ -18,11 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('mobile')->unique();
-            $table->timestamp('mobile_verified_at')->nullable();
+            $table->boolean('mobile_verified')->default(0);
             $table->string('password');
             $table->integer('age')->nullable();
-            $table->string('country');
-            $table->string('city');
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('national_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

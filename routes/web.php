@@ -20,6 +20,9 @@ Route::get('/course/{slug}/{seasonId}/{episode}',[CourseController::class ,'play
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['isverify'])->name('dashboard');
+
+Route::get('/admin/course/create', [CourseController::class,'create'])->middleware('auth')->name('course.create');
+Route::post('/admin/course/create', [CourseController::class,'store'])->middleware('auth')->name('course.store');
 
 require __DIR__.'/auth.php';
