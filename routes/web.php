@@ -17,8 +17,8 @@ use App\Http\Controllers\CourseController;
 Route::get('/', [HomeController::class ,'index'])->name('home');
 Route::get('/course/{slug}',[CourseController::class ,'index'])->name('course');
 
-Route::get('/admin', function () {
-    return view('admin');
+Route::get('/dashboard', function () {
+    return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

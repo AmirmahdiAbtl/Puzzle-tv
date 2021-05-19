@@ -349,9 +349,10 @@
 						<!--begin::Topbar-->
 						<div class="topbar">
 							<!--begin::User-->
-							<div class="topbar-item">
-								<a href="{{ route('logout') }}" class="btn btn-transparent-danger font-weight-bold mr-2">خروج</a>
-							</div>
+							<form class="topbar-item" method="post" action="{{ route('logout') }}">
+								@csrf
+								<button class="btn btn-transparent-danger font-weight-bold mr-2">خروج</button>
+							</form>
 							<!--end::User-->
 						</div>
 						<!--end::Topbar-->

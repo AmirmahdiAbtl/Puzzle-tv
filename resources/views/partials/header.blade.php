@@ -57,9 +57,15 @@
                 </div>
             </div> --}}
             <button class="btn btn-light mr-2 ml-3 btn-text-dark px-md-15 px-3">خرید اشتراک</button>
+            @auth
+            <a href="{{ route('dashboard') }}"
+            class="btn btn-outline-light btn-text-light btn-hover-text-dark px-md-5 px-3">حساب کاربری</a>
+            @endauth
+            @guest
             <a href="{{ route('login') }}"
-                class="btn btn-outline-light btn-text-light btn-hover-text-dark px-md-5 px-3">ورود | ثبت
-                نام</a>
+            class="btn btn-outline-light btn-text-light btn-hover-text-dark px-md-5 px-3">ورود | ثبت
+            نام</a>
+            @endguest
         </div>
     </nav>
 </div>
