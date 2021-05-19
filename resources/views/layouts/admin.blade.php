@@ -101,7 +101,7 @@
 						<!--begin::Menu Nav-->
 						<ul class="menu-nav">
 							<li class="menu-item" aria-haspopup="true">
-								<a target="_blank" href="https://medpip.com/" class="menu-link">
+								<a href="{{ route('home') }}" class="menu-link">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -380,15 +380,14 @@
 					<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
 						<!--begin::Copyright-->
 						<div class="text-dark order-2 order-md-1">
-							<span class="text-muted font-weight-bold mr-2">2020©</span>
-							<a href="https://medpip.com" target="_blank" class="text-dark-75 text-hover-primary">پل ایده‌آل پارس</a>
+							<span class="text-muted font-weight-bold mr-2">۱۴۰۰ ©</span>
+							<a href="https://medpip.com" target="_blank" class="text-dark-75 text-hover-primary">پازل تی‌وی</a>
 						</div>
 						<!--end::Copyright-->
 						<!--begin::Nav-->
 						<div class="nav nav-dark">
-							<a href="https://medpip.com/" target="_blank" class="nav-link pl-0 pr-5">آشنایی با محصولات</a>
-							<a href="https://medpip.com/pipaboutus/" target="_blank" class="nav-link pl-0 pr-5">درباره ما</a>
-							<a href="https://medpip.com/contact/" target="_blank" class="nav-link pl-0 pr-0">تماس با ما</a>
+							<a href="https://medpip.com/" target="_blank" class="nav-link pl-0 pr-5">بازگشت به سایت</a>
+							<a href="https://medpip.com/pipaboutus/" target="_blank" class="nav-link pl-0 pr-5">ورود به پازل استودیو</a>
 						</div>
 						<!--end::Nav-->
 					</div>

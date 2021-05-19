@@ -20,8 +20,9 @@ class UserSeeder extends Seeder
             'fname' => 'فراز',
             'lname'=>'صدری علمداری',
             'mobile'=>'09392676126',
-            'email'=>'ifarazir@gmail.com',
             'password' => Hash::make('123456789'),
+            'country'=>'ایران',
+            'city'=>'تهران',
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
