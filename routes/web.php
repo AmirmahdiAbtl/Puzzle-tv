@@ -25,4 +25,10 @@ Route::get('/dashboard', function () {
 Route::get('/admin/course/create', [CourseController::class,'create'])->middleware('auth')->name('course.create');
 Route::post('/admin/course/create', [CourseController::class,'store'])->middleware('auth')->name('course.store');
 
+Route::get('/admin/course/edit/{id}', [CourseController::class,'edit'])->middleware('auth')->name('course.edit');
+Route::put('/admin/course/update/{id}', [CourseController::class,'update'])->middleware('auth')->name('course.update');
+
+Route::delete('/admin/course/delete/{id}', [CourseController::class,'delete'])->middleware('auth')->name('course.delete');
+
+
 require __DIR__.'/auth.php';

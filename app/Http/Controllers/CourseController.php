@@ -40,16 +40,63 @@ class CourseController extends Controller
         $poster_file_name = $poster_file->getClientOriginalName();
         $poster_file->storeAs('images/poster',$poster_file_name);
 
-        $posts = [
+        $courses = [
             'title' => $request->title,
-            'discription' => $request->tags,
+            'discription' => $request->discription,
             'poster' => $poster_file_name,
             'banner' => $banner_file_name, 
             'status' => $request->status,
             'slug' => $request->title
         ];
-        $posts['teacher_id'] = auth()->user()->id;
-        $post = Course::create($posts);
+        $courses['teacher_id'] = auth()->user()->id;
+        $course = Course::create($courses);
         return redirect()->route('home');
+    }
+    public function edit(Request $request,$id)
+    {
+        $course = Course::find($id);
+        return view('edit_post',['course'=>$course]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $course = Course::find($id);
+        $request->validate([
+            'title' => ['required','string','max:255'],
+            'discription' => ['required'],
+            'poster' => ['image'],
+            'banner' => ['image'],
+            'status' => ['required'],
+        ]);
+        $data = [
+            'title' => $request->title,
+            'discription' => $request->discription,
+            'status' => $request->status
+        ];
+        if($request->hasFile('banner')){    
+            $file = $request->file('banner');
+            $base_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $file_name = $base_name . "_" . time() . "." . $extension;
+            $file->storeAs('images/banner',$file_name);
+            $data['banner'] = $file_name;
+        }
+        if($request->hasFile('poster')){    
+            $file = $request->file('poster');
+            $base_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $file_name = $base_name . "_" . time() . "." . $extension;
+            $file->storeAs('images/poster',$file_name);
+            $data['poster'] = $file_name;
+        }
+        $course->update($data);
+        return redirect()->route('home');
+    }
+
+    public function destroy($id)
+    {   
+        $course = Course::find($id);
+        $course->delete();
+        return redirect()->back();
     }
 }

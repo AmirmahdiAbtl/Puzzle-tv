@@ -3,7 +3,8 @@
         <p class="box__title">ایجاد مقاله جدید</p>
         <div class="row no-gutters bg-white">
             <div class="col-12">
-                <form action="{{ route('course.store') }}" class="padding-30" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('course.update',['id' => $course->id]) }}" class="padding-30" method="POST" enctype="multipart/form-data">
+                    @method('put')
                     @if (count($errors)>0)
                         <div class="alert">
                             <ul>
@@ -15,10 +16,10 @@
                     @endif
                     @csrf
                     <div>
-                        Title : <input value="" class="form-controller" type="text" placeholder="title" name="title">
+                        Title : <input value="{{ $course->title }}" class="form-controller" type="text" placeholder="title" name="title">
                     </div>
                     <div>
-                        Discription : <input class="form-controller" type="text" placeholder="discription" name="discription">
+                        Discription : <input value="{{ $course->discription }}" class="form-controller" type="text" placeholder="discription" name="discription">
                     </div>
                     <div>
                         Banner : <input class="form-controller" type="file" placeholder="title" name="banner">
