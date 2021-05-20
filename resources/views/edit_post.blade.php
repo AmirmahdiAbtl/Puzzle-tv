@@ -37,6 +37,23 @@
                         <button type="submit">submit</button>
                     </div>
                 </form>
+                <form action="{{route('course.delete',['id' => $course->id])}}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <div>
+                        <button type="submit">delete</button>
+                    </div>
+                </form>
+                <form action="{{route('course.add_category',['id' => $course->id])}}" method="POST">
+                    @csrf
+                    <div>
+                        category : <input class="form-controller" type="text" placeholder="title" name="category_title">
+                    </div>
+                    <div>
+                        <button type="submit">add</button>
+                    </div>
+                </form>
+                <a href="{{}}">add episode</a>
             </div>
         </div>
     </div>
