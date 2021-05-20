@@ -7,6 +7,8 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\EpisodeController;
+use App\Http\Controllers\SeasonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,11 +49,11 @@ Route::delete('/admin/category/delete/{id}', [CategoryController::class,'delete'
 
 Route::post('/admin/course/add_category/{id}', [CourseController::class,'add_category'])->middleware('auth')->name('course.add_category');
 
-// Route::get('/admin/course/{id}/episode/create', [EpisodeController::class,'create'])->middleware('auth')->name('episode.create');
+Route::get('/admin/course/{id}/season/{season_id}/episode/create', [EpisodeController::class,'create'])->middleware('auth')->name('episode.create');
 
-// Route::post('/admin/course/{id}/episode/create', [EpisodeController::class,'store'])->middleware('auth')->name('episode.store');
+Route::post('/admin/course/{id}/season/{season_id}/episode/create', [EpisodeController::class,'store'])->middleware('auth')->name('episode.store');
 
-// Route::delete('/admin/course/{id}/episode/delete/{id}', [EpisodeController::class,'delete'])->middleware('auth')->name('episode.delete');
+Route::delete('/admin/course/{id}/season/{season_id}/episode/delete/{ep_id}', [EpisodeController::class,'delete'])->middleware('auth')->name('episode.delete');
 
 Route::get('/admin/subscription/create', [SubscriptionController::class,'create'])->middleware('auth')->name('subscription.create');
 
@@ -66,5 +68,11 @@ Route::delete('/admin/subscription/delete/{id}', [SubscriptionController::class,
 Route::get('/admin/payment/create', [PaymentController::class,'create'])->middleware('auth')->name('payment.create');
 
 Route::post('/admin/payment/create', [PaymentController::class,'store'])->middleware('auth')->name('payment.store');
+
+Route::get('/admin/course/{id}/season/create', [SeasonController::class,'create'])->middleware('auth')->name('season.create');
+
+Route::post('/admin/course/{id}/season/create', [SeasonController::class,'store'])->middleware('auth')->name('season.store');
+
+Route::delete('/admin/course/{id}/season/{season_id}/delete', [SeasonController::class,'delete'])->middleware('auth')->name('season.delete');
 
 require __DIR__.'/auth.php';

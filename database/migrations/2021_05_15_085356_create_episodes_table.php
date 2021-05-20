@@ -15,8 +15,9 @@ class CreateEpisodesTable extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('season_id')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreignId('season_id')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE')->nullable();
             $table->string('title');
+            $table->string('file');
             $table->integer('episode_number');
             $table->string('slug');
             $table->boolean('freeable')->default(0);

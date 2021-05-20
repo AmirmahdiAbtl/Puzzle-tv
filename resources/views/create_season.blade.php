@@ -1,0 +1,26 @@
+
+    <div class="main-content padding-0">
+        <p class="box__title">ایجاد مقاله جدید</p>
+        <div class="row no-gutters bg-white">
+            <div class="col-12">
+                <form action="{{ route('season.store',['id'=>$id]) }}" class="padding-30" method="POST" enctype="multipart/form-data">
+                    @if (count($errors)>0)
+                        <div class="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @csrf
+                    <div>
+                        Title : <input value="" class="form-controller" type="text" placeholder="title" name="title">
+                    </div>
+                    <div>
+                        <button type="submit">submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

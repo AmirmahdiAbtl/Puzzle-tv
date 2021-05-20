@@ -12,6 +12,7 @@ class Episode extends Model
         'title',
         'slug',
         'freeable',
+        'file',
         'episode_number'
     ];
     public function season(){
