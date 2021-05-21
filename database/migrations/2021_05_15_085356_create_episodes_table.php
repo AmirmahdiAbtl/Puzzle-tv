@@ -17,9 +17,10 @@ class CreateEpisodesTable extends Migration
             $table->id();
             $table->foreignId('season_id')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE')->nullable();
             $table->string('title');
-            $table->string('file');
+            $table->string('video');    
+            $table->foreignId('course_id')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->integer('episode_number');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->boolean('freeable')->default(0);
             $table->timestamps();
         });

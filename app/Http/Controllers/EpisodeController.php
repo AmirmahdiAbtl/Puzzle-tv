@@ -8,44 +8,102 @@ use Storage;
 
 class EpisodeController extends Controller
 {
-    public function create($id,$season_id)
+    public function create($id)
     {
-        return view('create_episode',['id'=>$id,'season_id'=>$season_id]);
+        $course = Course::with(['seasons','episodes'])->withCount(['seasons','episodes'])->find($id);
+        return view('create_episode',['course' => $course]);
     }
 
-    public function store($id,$season_id,Request $request)
+    public function store(Request $request,$id)
     {
-        $request->validate([
-            'title' => ['required','string','max:255'],
-            'file' => ['required','file'],
-            'freeable' => ['required'],
+        $course = Course::with('episodes')->withCount(['seasons','episodes'])->find($id);
+        $validation = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|max:255',
+            'video' => 'required|mimes:mp4,mkv,webm,m4v,mvb',
+            'status' => 'required',
+            'season_id' => 'required'
         ]);
         
-        $file = $request->file('file');
-        $base_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-        $extension = $file->getClientOriginalExtension();
-        $file_name = $base_name . "_" . time() . "." . $extension;
-        $file->storeAs('videos',$file_name);
-    
-        $episode= new Episode;
-        $episode->title = $request->title;
-        $episode->file = $file_name;
-        $episode->freeable = $request->freeable;
-        $episode->slug = $request->title;
-        
-        //episode number need edit
-        $episode->episode_number=1;
-    
-        $episode->season_id= $season_id;
+        $season_id = $request->season_id;
 
-        $episode->save();
+        if($request->season_id > $course->seasons->count()){
+            $season = Season::create([
+                'title' => $request->season_title,
+                'course_id' => $course->id
+            ]);
+            $season_id = $season->id;
+        }
+
+        $episode_file = $request->file('video');
+        $base_episode_name = pathinfo($episode_file->getClientOriginalName(), PATHINFO_FILENAME);
+        $episode_extension = $episode_file->getClientOriginalExtension();
+        $episode_file_name = $base_episode_name . "_" . time() . "." . $episode_extension;
+        $episode_file->storeAs('video/episode',$episode_file_name);
+
+
+        Episode::create([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'video' => $episode_file_name,
+            'status' => $request->status,
+            'season_id' => $season_id,
+            'course_id' => $course->id,
+            'episode_number' => $course->episodes_count + 1
+        ]);
         return redirect()->route('home');
     }
 
-    public function delete($id,$season_id,$ep_id)
-    {   
-        $episode = Episode::find($ep_id);
+    public function edit($slug)
+    {
+        $episode = Episode::where('slug' ,$slug)->first();
+        return view('edit_episode',compact('episode'));
+    }
+
+    public function update(Request $request, $slug)
+    {
+        $episode = Episode::where('slug',$slug)->first();
+        $validation = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|max:255',
+            'status' => 'required',
+            'season_id' => 'required'
+        ]);
+
+        $season_id = $request->season_id;
+
+        if($request->season_id > $course->seasons->count()){
+            $season = Season::create([
+                'title' => $request->season_title,
+                'course_id' => $course->id
+            ]);
+            $season_id = $season->id;
+        }
+
+        $data = [
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'status' => $request->status,
+            'season_id' => $season_id
+        ];
+        if($request->hasFile('video')){    
+            Storage::delete('video/episode/'.$episode->video);
+            $file = $request->file('video');
+            $base_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $file_name = $base_name . "_" . time() . "." . $extension;
+            $file->storeAs('video/episode',$file_name);
+            $data['video'] = $file_name;
+        }
+        $episode->update($data);
+        return redirect()->route('home');
+    }
+
+    public function destroy($slug)
+    {
+        $episode = Episode::where('slug',$slug)->first();
         $episode->delete();
-        return redirect()->route('home');
+        return redirect()->back();
     }
+
 }

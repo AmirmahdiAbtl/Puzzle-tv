@@ -8,11 +8,13 @@
     <title>Document</title>
 </head>
 <body>
+    
     <div class="main-content padding-0">
         <p class="box__title">ایجاد مقاله جدید</p>
         <div class="row no-gutters bg-white">
             <div class="col-12">
-                <form action="{{ route('episode.store',['id'=>$course->id]) }}" class="padding-30" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('episode.update',['slug' => $episode->slug]) }}" class="padding-30" method="POST" enctype="multipart/form-data">
+                    @method('put')
                     @if (count($errors)>0)
                         <div class="alert">
                             <ul>
@@ -24,18 +26,18 @@
                     @endif
                     @csrf
                     <div>
-                        Title : <input value="" class="form-controller" type="text" placeholder="title" name="title">
+                        Title : <input value="{{ $episode->title }}" class="form-controller" type="text" placeholder="title" name="title">
                     </div>
                     <div>
-                        slug : <input class="form-controller" type="text" placeholder="discription" name="slug">
+                        slug : <input value="{{ $episode->slug }}" class="form-controller" type="text" placeholder="discription" name="slug">
                     </div>
                     <div>
                         video : <input class="form-controller" type="file" placeholder="title" name="video">
                     </div>
                     
                     <div>
-                        season : <select name="season_id" id="seasons-select">
-                            @foreach ($course->seasons as $item)
+                        season : <select value="{{ $episode->season_id }}" name="season_id" id="seasons-select">
+                            @foreach ($episode->course->seasons as $item)
                                  <option value="{{ $item->id }}">{{ $item->title }}</option>
                             @endforeach
                                  <option value="0">فصل جدید</option>
@@ -43,11 +45,11 @@
                     </div>
                     <div>
                         new seasons : 
-                            <input type="text" value="{{ $course->seasons->count() + 1 }}" name="season_id" class="new-seasons" disabled>
+                            <input type="text" value="{{ $episode->course->seasons->count() + 1 }}" name="season_id" class="new-seasons" disabled>
                             <input type="text" name="season_title" class="new-seasons" disabled>
                     </div>
                     <div>
-                        status : <select name="status" id="">
+                        status : <select value="{{ $episode->status }}" name="status" id="">
                             <option value="0">Free</option>
                             <option value="1">Premioum</option>
                         </select>
@@ -63,9 +65,9 @@
         $(document).ready(() => {
             $('#seasons-select').change((e)=>{
                 if(e.target.value == "0"){
-                    $('.new-seasons').removeAttr('disabled')
+                    $('#new-seasons').removeAttr('disabled')
                 }else {
-                    $('.new-seasons').attr('disabled','')
+                    $('#new-seasons').attr('disabled','')
                 }
             })
         })
