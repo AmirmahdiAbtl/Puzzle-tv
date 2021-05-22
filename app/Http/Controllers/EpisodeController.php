@@ -15,12 +15,13 @@ class EpisodeController extends Controller
     {
         $course=Course::find($id);
         $episodes=$course->episodes()->get();
-        return view('',['episodes'=>$episodes]);
+        return view('admin.episode.index',['episodes'=>$episodes]);
     }
+    
     public function create($id)
     {
         $course = Course::with(['seasons','episodes'])->withCount(['seasons','episodes'])->find($id);
-        return view('create_episode',['course' => $course]);
+        return view('admin.episode.create',['course' => $course]);
     }
 
     public function store(Request $request,$id)

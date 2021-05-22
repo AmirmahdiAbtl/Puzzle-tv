@@ -74,5 +74,5 @@ Route::delete('admin/episode/delete/{slug}', [EpisodeController::class, 'destroy
 
 Route::put('admin/update', [UserController::class, 'update'])->middleware('auth')->name('user.update');
 
-Route::get('admin/course/episodes/{id}',[EpisodeController::class, 'index'])->middleware('auth')->name('course.episodes');
+Route::get('admin/course/episodes/{id}',[EpisodeController::class, 'index'])->middleware('auth')->name('episode.index');
 require __DIR__.'/auth.php';

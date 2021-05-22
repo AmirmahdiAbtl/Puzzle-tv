@@ -19,6 +19,8 @@
                     <th scope="col">وضعیت</th>
                     <th scope="col">عملیات</th>
                     <th scope="col">قسمت ها</th>
+                    <th scope="col"> اضافه کردن قسمت ها </th>
+
 
                 </tr>
             </thead>
@@ -37,8 +39,12 @@
                     </td>
                     <td>
                         <div class=" rounded">
-                            <button class="btn btn-transparent-danger font-weight-bold mr-2" type="submit"><a class="rounded" href="{{route('course.edit',['id'=>$course->id])}}"> نمایش قسمت ها </a></button>
-
+                            <button class="btn btn-transparent-danger font-weight-bold mr-2" type="submit"><a class="rounded" href="{{route('episode.index',['id'=>$course->id])}}"> نمایش قسمت ها </a></button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class=" rounded">
+                            <button class="btn btn-transparent-danger font-weight-bold mr-2" type="submit"><a class="rounded" href="{{route('episode.create',['id'=>$course->id])}}"> اضافه کردن قسمت جدید </a></button>
                         </div>
                     </td>
                 </tr>
