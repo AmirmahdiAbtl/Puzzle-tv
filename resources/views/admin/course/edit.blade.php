@@ -75,7 +75,7 @@
                             </td>
                             <td>
                                 <div class=" rounded col-1 ">
-                                    <button class="btn rounded btn-primary " type="submit">ویرایش</button>
+                                    <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded " type="submit">ویرایش</button>
                                 </div>
                             </td>
                         </form>
@@ -88,7 +88,7 @@
                             </td>
                             <td>
                                 <div class=" rounded col-2  ">
-                                    <button class="btn rounded btn-primary " type="submit">اضافه کردن دسته بندی </button>
+                                    <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded " type="submit">اضافه کردن دسته بندی </button>
                                 </div>
                             </td>
                         </form>
@@ -112,98 +112,7 @@
 </div>
 
 @endsection
-@section('js')
 
-<script>
-    $(document).ready(function() {
-        let i = 0;
-        $("#add").click(function() {
-            $("#forms").append(`
-            <tr class=" rounded   " id="${i}">
-                        <form action="{{ route('course.update',['id' => $course->id]) }}" class="" method="POST" enctype="multipart/form-data">
-                            @method('put')
-                            @if (count($errors)>0)
-                            <td colspan="1">
-                                <div class="alert">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                        <li>{{$error}}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </td>
-                            @endif
-                            @csrf
-                            <td colspan="1">
-                                <div class=" rounded ">
-                                    <input value="{{ $course->title }}" class="form-controller rounded" type="text" placeholder="title" name="title">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded ">
-                                    <input value="{{ $course->discription }}" class="form-controller rounded" type="text" placeholder="discription" name="discription">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded col-1 ">
-                                    <input class="form-controller rounded" type="file" placeholder="title" name="banner">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded ">
-                                    <input class="form-controller rounded" type="file" placeholder="title" name="poster">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded ">
-                                    <select name="status" id="">
-                                        <option value="0">Free</option>
-                                        <option value="1">premium</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded col-1 ">
-                                    <button class="btn rounded btn-primary " type="submit">ویرایش</button>
-                                </div>
-                            </td>
-                        </form>
-                        <form action="{{route('course.add_category',['id' => $course->id])}}" method="POST">
-                            @csrf
-                            <td>
-                                <div class=" rounded ">
-                                    <input class="form-controller rounded-2xl" type="text" placeholder="title" name="category_title">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded col-2  ">
-                                    <button class="btn rounded btn-primary " type="submit">اضافه کردن دسته بندی </button>
-                                </div>
-                            </td>
-                        </form>
-                        <form action="{{route('course.delete',['id' => $course->id])}}" method="POST">
-                            @method('delete')
-                            @csrf
-                            <td>
-                                <div class=" rounded">
-                                    <button class=" btn rounded" id="delete${i}"><img src="https://img.icons8.com/flat-round/50/000000/delete-sign.png" width="30 px" height="30px" /></button>
-                                </div>
-                            </td>
-                        </form>
-
-                    </tr>
-            `)
-            i+=1;});
-
-        $(`#delete${i}`).click(function() {
-                
-            $("#forms").remove(`#${i}`);
-            i-=1;
-        });
-    });
-</script>
-
-@endsection
 @section('css')
 <style>
     .table_scroll::-webkit-scrollbar {
