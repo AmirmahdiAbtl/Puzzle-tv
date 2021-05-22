@@ -25,11 +25,7 @@
                 <tr class="rounded">
                     <td> {{ $episode->season }} </td>
                     <td> {{ $episode->title }} </td>
-<<<<<<< Updated upstream
                     <td> {{ $episode->video }} </td>
-=======
-                    <td> {{ $episode->video }}  </td>
->>>>>>> Stashed changes
                     <td> {{ $episode->episode_number }} </td>
                     <td>
                         <div class=" rounded">

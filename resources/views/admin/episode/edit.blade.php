@@ -34,7 +34,7 @@
                         <form action="{{ route('episode.update',['slug' => $episode->slug]) }}" class="padding-30" method="POST" enctype="multipart/form-data">
                             @method('put')
                             @if (count($errors)>0)
-                            <div class="alert">
+                            <div class="alert rounded bg-danger">
                                 <ul>
                                     @foreach ($errors->all() as $error)
                                     <li>{{$error}}</li>
@@ -44,49 +44,58 @@
                             @endif
                             @csrf
                             <td>
-                            <div>
-                                <input value="{{ $episode->title }}" class="form-controller" type="text" placeholder="title" name="title">
-                            </div>
-</td>
-<td>
-                            <div>
-                                <input value="{{ $episode->slug }}" class="form-controller" type="text" placeholder="discription" name="slug">
-                            </div>
-</td>
-<td>   
-                            <div>
-                                 <input class="form-controller" type="file" placeholder="title" name="video">
-                            </div>
-</td>
-                            <div>
-                               <select value="{{ $episode->season_id }}" name="season_id" id="seasons-select">
+                                <div class="rounded">
+                                    <input value="{{ $episode->title }}" class="form-controller rounded" type="text" placeholder="title" name="title">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rounded">
+                                    <input value="{{ $episode->slug }}" class="form-controller rounded" type="text" placeholder="discription" name="slug">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rounded">
+                                    <input class="form-controller rounded" type="file" placeholder="title" name="video">
+                                </div>
+                            </td>
+                            <td>
+                            <div class="rounded">
+                                <select value="{{ $episode->season_id }}" name="season_id" id="seasons-select">
                                     @foreach ($episode->course->seasons as $item)
                                     <option value="{{ $item->id }}">{{ $item->title }}</option>
                                     @endforeach
                                     <option value="0">فصل جدید</option>
                                 </select>
                             </div>
-                            <div>
-                               
-                                <input type="text" value="{{ $episode->course->seasons->count() + 1 }}" name="season_id" class="new-seasons" disabled>
-                                <input type="text" name="season_title" class="new-seasons" disabled>
+</td>
+<td>
+                            <div class="rounded">
+
+                                <input type="text" value="{{ $episode->course->seasons->count() + 1 }}" name="season_id" class="new-seasons rounded" disabled>
+                                <input type="text" name="season_title" class="new-seasons rounded" disabled>
                             </div>
-                            <div>
+</td>
+<td>
+
+                            <div class="rounded">
                                 <select value="{{ $episode->status }}" name="status" id="">
                                     <option value="0">Free</option>
                                     <option value="1">Premioum</option>
                                 </select>
                             </div>
-                            <div>
-                                <button type="submit">ویرایش</button>
+</td>
+<td>
+                            <div class="rounded">
+                                <button type="btn btn-transparent-danger font-weight-bold mr-2 rounded">ویرایش</button>
                             </div>
+</td>
                         </form>
                         <form action="{{route('episode.delete',['slug' => $episode->slug])}}" method="POST">
                             @method('delete')
                             @csrf
                             <td>
                                 <div class=" rounded">
-                                    <button class=" btn rounded" id="delete ${i}"><img src="https://img.icons8.com/flat-round/50/000000/delete-sign.png" width="30 px" height="30px" /></button>
+                                    <button class=" btn btn-transparent-danger font-weight-bold mr-2 rounded" id="delete ${i}"><img src="https://img.icons8.com/flat-round/50/000000/delete-sign.png" width="30 px" height="30px" /></button>
                                 </div>
                             </td>
                         </form>
