@@ -12,7 +12,7 @@
 	<link href="https://v1.fontapi.ir/css/Sahel" rel="stylesheet">
 	<!--end::Fonts-->
 	<!--begin::Page Vendors Styles(used by this page)-->
-    @yield('css')
+	@yield('css')
 	<!--end::Page Vendors Styles-->
 	<!--begin::Global Theme Styles(used by all pages)-->
 	<link href="{{ asset('plugins/global/plugins.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
@@ -23,7 +23,7 @@
 	<link href="{{ asset('css/header/base/light.rtl.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('css/header/menu/light.rtl.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('css/brand/dark.rtl.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/aside/dark.rtl.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('css/aside/dark.rtl.css') }}" rel="stylesheet" type="text/css" />
 	<!--end::Layout Themes-->
 	<link rel="shortcut icon" href="https://guard.medpip.com/media/02_1.ico" />
 </head>
@@ -117,7 +117,7 @@
 							</li>
 							<ul class="menu-nav">
 								<li class="menu-item {{ request()->is('admin') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-									<a href="{{route('dashboard')}}" class="menu-link">
+									<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class=" menu-link dropdown-toggle text-white">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -129,162 +129,114 @@
 											</svg>
 											<!--end::Svg Icon-->
 										</span>
-										<span class="menu-text">داشبورد</span>
+										<span>
+											مدریت ویدیو ها
+										</span>
 									</a>
-								</li>
-								@can('test CRUD')
-									<li class="menu-section">
-										<h4 class="menu-text">آزمایش‌ها</h4>
-										<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
-									</li>
-									<li class="menu-item {{ request()->is('admin/test') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-										<a href="{{ route('test.index') }}" class="menu-link">
-											<span class="svg-icon menu-icon">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect x="0" y="0" width="24" height="24" />
-														<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
-														<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
-													</g>
-												</svg>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-text">لیست آزمایش‌ها</span>
-										</a>
-									</li>
-									<li class="menu-item {{ request()->is('admin/test/create') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-										<a href="{{ route('test.create') }}" class="menu-link">
-											<span class="svg-icon menu-icon">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
-														<rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1" />
-													</g>
-												</svg>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-text">ثبت آزمایش جدید</span>
-										</a>
-									</li>
-								@endcan
+									<ul class=" text-decoration-none mx-2 collapse list-unstyled text-white" id="pageSubmenu">
+										<li class=" mx-3 mt-2  text-white"><a class="text-white " href="{{route('course.index')}}">
+												<span class="svg-icon menu-icon my-2">
+													<img src="https://img.icons8.com/nolan/64/video.png" width="30px" height="40px" />
+												</span>
+												<span>
+													نمایش تمامی ویدیو ها
+												</span>
+											</a></li>
+										<li class=" mx-3 mt-2  text-white"><a class="text-white " href="{{route('course.create')}}">
+												<span class="svg-icon menu-icon my-2">
+													<img src="https://img.icons8.com/nolan/64/add-image.png" width="30px" height="40px" />
+												</span>
+												<span>
+													اضاقه کردن ویدیو ها
+												</span>
+											</a></li>
+									</ul>
 
+								</li>
+								
+
+								
+
+								{{--
 								@can('user CRUD')
 									<li class="menu-section">
 										<h4 class="menu-text">کاربران</h4>
 										<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 									</li>
 									<li class="menu-item {{ request()->is('admin/user') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-										<a href="{{ route('user.index') }}" class="menu-link">
-											<span class="svg-icon menu-icon">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect x="0" y="0" width="24" height="24" />
-														<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
-														<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
-													</g>
-												</svg>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-text">لیست کاربران</span>
-										</a>
-									</li>
-									<li class="menu-item {{ request()->is('admin/user/create') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-										<a href="{{ route('user.create') }}" class="menu-link">
-											<span class="svg-icon menu-icon">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
-														<rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1" />
-													</g>
-												</svg>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-text">افزودن کاربر جدید</span>
-										</a>
-									</li>
-								@endcan
+								<a href="{{ route('user.index') }}" class="menu-link">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
+												<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">لیست کاربران</span>
+								</a>
+								</li>
+								<li class="menu-item {{ request()->is('admin/user/create') ? 'menu-item-active' : '' }}" aria-haspopup="true">
+									<a href="{{ route('user.create') }}" class="menu-link">
+										<span class="svg-icon menu-icon">
+											<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
+													<rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1" />
+												</g>
+											</svg>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-text">افزودن کاربر جدید</span>
+									</a>
+								</li>
+								@endcan --}}
 
-								@can('file CRUD')
-									<li class="menu-section">
-										<h4 class="menu-text">فایل</h4>
-										<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
-									</li>
-									<li class="menu-item {{ request()->is('admin/file') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-										<a href="{{ route('file.index') }}" class="menu-link">
-											<span class="svg-icon menu-icon">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect x="0" y="0" width="24" height="24" />
-														<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
-														<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
-													</g>
-												</svg>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-text">لیست فایل ها</span>
-										</a>
-									</li>
-									<li class="menu-item {{ request()->is('admin/file/create') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-										<a href="{{ route('file.create') }}" class="menu-link">
-											<span class="svg-icon menu-icon">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
-														<rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1" />
-													</g>
-												</svg>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-text">آپلود فایل</span>
-										</a>
-									</li>
-								@endcan
-								
+
+								{{--
 								@can('permission CRUD')
 									<li class="menu-section">
 										<h4 class="menu-text">نقش ها و دسترسی ها</h4>
 										<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 									</li>
 									<li class="menu-item {{ request()->is('admin/role') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-										<a href="{{ route('role.index') }}" class="menu-link">
-											<span class="svg-icon menu-icon">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect x="0" y="0" width="24" height="24" />
-														<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
-														<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
-													</g>
-												</svg>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-text">لیست نقش ها</span>
-										</a>
-									</li>
-									<li class="menu-item {{ request()->is('admin/permission') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-										<a href="{{ route('permission.index') }}" class="menu-link">
-											<span class="svg-icon menu-icon">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect x="0" y="0" width="24" height="24" />
-														<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
-														<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
-													</g>
-												</svg>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-text">لیست دسترسی ها</span>
-										</a>
-									</li>
+								<a href="{{ route('role.index') }}" class="menu-link">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
+												<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">لیست نقش ها</span>
+								</a>
+								</li>
+								<li class="menu-item {{ request()->is('admin/permission') ? 'menu-item-active' : '' }}" aria-haspopup="true">
+									<a href="{{ route('permission.index') }}" class="menu-link">
+										<span class="svg-icon menu-icon">
+											<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24" />
+													<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
+													<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519)" x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
+												</g>
+											</svg>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-text">لیست دسترسی ها</span>
+									</a>
+								</li>
 								@endcan
-
+								--}}
 								<li class="menu-section">
 									<h4 class="menu-text">مدیریت</h4>
 									<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
@@ -367,7 +319,7 @@
 						<!--begin::Container-->
 						<div class="container">
 							<!--begin::Dashboard-->
-                            @yield('content')
+							@yield('content')
 							<!--end::Dashboard-->
 						</div>
 						<!--end::Container-->
@@ -487,7 +439,7 @@
 	<script src="{{ asset('js/scripts.bundle.js') }}"></script>
 	<!--end::Global Theme Bundle-->
 	<!--begin::Page Scripts(used by this page)-->
-    @yield('js')
+	@yield('js')
 	<!--end::Page Scripts-->
 </body>
 <!--end::Body-->

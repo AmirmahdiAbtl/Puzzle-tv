@@ -24,13 +24,15 @@ use App\Http\Controllers\backend\UserController;
 
 Route::get('/', [HomeController::class ,'index'])->name('home');
 
-Route::get('/course/{slug}',[CourseController::class ,'index'])->name('course');
+Route::get('/course/{slug}',[CourseController::class ,'show'])->name('course');
 
 Route::get('/course/{slug}/{seasonId}/{episode}',[CourseController::class ,'player'])->name('player');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['isverify'])->name('dashboard');
+
+Route::get('/admin/course', [CourseController::class,'index'])->middleware('auth')->name('course.index');
 
 Route::get('/admin/course/create', [CourseController::class,'create'])->middleware('auth')->name('course.create');
 

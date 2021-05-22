@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Episode;
-use Storage;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Course;
+use App\Models\Season;
+
 
 class EpisodeController extends Controller
 {
+
     public function create($id)
     {
         $course = Course::with(['seasons','episodes'])->withCount(['seasons','episodes'])->find($id);
@@ -71,7 +75,7 @@ class EpisodeController extends Controller
         ]);
 
         $season_id = $request->season_id;
-
+         $course=$episode->course;   
         if($request->season_id > $course->seasons->count()){
             $season = Season::create([
                 'title' => $request->season_title,

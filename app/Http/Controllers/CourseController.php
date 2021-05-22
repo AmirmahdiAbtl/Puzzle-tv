@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\Category;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 
 class CourseController extends Controller
 {
-    public function index($slug){
+    
+    public function index(){
+        $courses = Course::all();
+        return view('admin.course.index',compact('courses'));
+    }
+
+    public function show($slug){
         $course = Course::with(['seasons'])->where('slug',$slug)->first();
         return view('post-info',compact('course'));
     }
@@ -25,7 +31,7 @@ class CourseController extends Controller
    
     public function create()
     {
-        return view('create_post');
+        return view('admin.course.create');
     }
 
     public function store(Request $request)
@@ -61,13 +67,14 @@ class CourseController extends Controller
     
         $courses['teacher_id'] = auth()->user()->id;
         $course = Course::create($courses);
-        return redirect()->route('home');
+        $all_course = Course::all();
+        return view('admin.course.store',['courses' => $all_course]);
     }
 
     public function edit(Request $request,$id)
     {
         $course = Course::find($id);
-        return view('edit_post',['course'=>$course]);
+        return view('admin.course.edit',['course'=>$course]);
     }
 
     public function update(Request $request, $id)
