@@ -12,6 +12,7 @@ use App\Models\Season;
 class EpisodeController extends Controller
 {
 
+    
     public function create($id)
     {
         $course = Course::with(['seasons','episodes'])->withCount(['seasons','episodes'])->find($id);
