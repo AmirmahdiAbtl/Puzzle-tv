@@ -23,8 +23,12 @@ class Course extends Model
     public function category(){
         return $this->belongsToMany(Category::class,'course_category','course_id','category_id');
     }
-    public function seasons(    ){
+    public function seasons(  ){
         return $this->hasMany(Season::class);
+    }
+    public function episodes()
+    {
+        return $this->hasMany(Episode::class);
     }
     use HasFactory;
 }

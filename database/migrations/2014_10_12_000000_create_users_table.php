@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('national_code')->nullable();
+            $table->date('expire_subscription')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

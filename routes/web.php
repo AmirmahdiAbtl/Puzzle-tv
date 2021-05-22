@@ -66,12 +66,6 @@ Route::get('/admin/payment/create', [PaymentController::class,'create'])->middle
 
 Route::post('/admin/payment/create', [PaymentController::class,'store'])->middleware('auth')->name('payment.store');
 
-Route::get('/admin/course/{id}/season/create', [SeasonController::class,'create'])->middleware('auth')->name('season.create');
-
-Route::post('/admin/course/{id}/season/create', [SeasonController::class,'store'])->middleware('auth')->name('season.store');
-
-Route::delete('/admin/course/{id}/season/{season_id}/delete', [SeasonController::class,'delete'])->middleware('auth')->name('season.delete');
-
 Route::get('admin/episode/create/{id}', [EpisodeController::class, 'create'])->middleware('auth')->name('episode.create');
 Route::post('admin/episode/create/{id}', [EpisodeController::class, 'store'])->middleware('auth')->name('episode.store');
 Route::get('admin/episode/edit/{slug}', [EpisodeController::class, 'edit'])->middleware('auth')->name('episode.edit');
@@ -80,4 +74,5 @@ Route::delete('admin/episode/delete/{slug}', [EpisodeController::class, 'destroy
 
 Route::put('admin/update', [UserController::class, 'update'])->middleware('auth')->name('user.update');
 
+Route::get('admin/course/episodes/{id}',[EpisodeController::class, 'index'])->middleware('auth')->name('course.episodes');
 require __DIR__.'/auth.php';

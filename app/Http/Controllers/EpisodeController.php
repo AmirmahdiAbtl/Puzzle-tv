@@ -11,7 +11,12 @@ use App\Models\Season;
 
 class EpisodeController extends Controller
 {
-
+    public function index($id)
+    {
+        $course=Course::find($id);
+        $episodes=$course->episodes()->get();
+        return view('',['episodes'=>$episodes]);
+    }
     public function create($id)
     {
         $course = Course::with(['seasons','episodes'])->withCount(['seasons','episodes'])->find($id);
@@ -75,7 +80,8 @@ class EpisodeController extends Controller
         ]);
 
         $season_id = $request->season_id;
-         $course=$episode->course;   
+        $course = $episode->course;
+
         if($request->season_id > $course->seasons->count()){
             $season = Season::create([
                 'title' => $request->season_title,
@@ -106,6 +112,9 @@ class EpisodeController extends Controller
     public function destroy($slug)
     {
         $episode = Episode::where('slug',$slug)->first();
+        if($episode->season->count() == 0){
+            $episode->season->delete();
+        }
         $episode->delete();
         return redirect()->back();
     }

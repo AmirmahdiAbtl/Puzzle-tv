@@ -28,7 +28,8 @@ class PaymentController extends Controller
         $payment->start_sub = Carbon\Carbon::now();
         $payment->expire_sub =Carbon\Carbon::now()->addDays($subscriptions->time);
         $payment->save();
-
+        
+        Auth::user()->
         return redirect()->route('home');
     }
 }

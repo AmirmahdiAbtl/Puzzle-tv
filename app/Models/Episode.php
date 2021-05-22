@@ -12,11 +12,17 @@ class Episode extends Model
         'title',
         'slug',
         'freeable',
-        'file',
-        'episode_number'
+        'video',
+        'episode_number',
+        'season_id',
+        'course_id'
     ];
     public function season(){
         return $this->belongsTo(Season::class);
+    }
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
     }
     use HasFactory;
 }
