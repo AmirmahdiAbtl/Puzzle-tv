@@ -67,7 +67,7 @@ class EpisodeController extends Controller
     public function edit($slug)
     {
         $episode = Episode::where('slug' ,$slug)->first();
-        return view('edit_episode',compact('episode'));
+        return view('admin.episode.edit',compact('episode'));
     }
 
     public function update(Request $request, $slug)

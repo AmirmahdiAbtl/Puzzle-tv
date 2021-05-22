@@ -12,8 +12,9 @@ class PaymentController extends Controller
 {
     public function create()
     {
-        return view('create_payment');
-    }
+        $sub=Subscription::all();
+        return view('create_payment',['subscription'=>$sub]);
+     }
 
     public function store(Request $request)
     {
@@ -21,7 +22,6 @@ class PaymentController extends Controller
             'subscriptions_title' => ['required','string','max:255'],
         ]);
         $subscriptions = Subscription::where('title',$request->subscriptions_title)->get()[0];
-        
         $payment=new Payment;
         $payment->user_id = Auth::user()->id;
         $payment->subscriptions_id = $subscriptions->id;
@@ -29,7 +29,8 @@ class PaymentController extends Controller
         $payment->expire_sub =Carbon\Carbon::now()->addDays($subscriptions->time);
         $payment->save();
         
-        Auth::user()->
+        Auth::user()->expire_subscription = $payment->expire_sub;
+
         return redirect()->route('home');
     }
 }
