@@ -25,7 +25,7 @@
                 <tr class="rounded">
                     <td> {{ $episode->season }} </td>
                     <td> {{ $episode->title }} </td>
-                    <td> {{ $episode->video }} {{ $course->teacher->lname }} </td>
+                    <td> {{ $episode->video }} </td>
                     <td> {{ $episode->episode_number }} </td>
                     <td>
                         <div class=" rounded">

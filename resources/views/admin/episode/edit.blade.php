@@ -109,73 +109,62 @@
         $("#add").click(function() {
             $("#forms").append(`
             <tr class=" rounded   " id="${i}">
-                        <form action="{{ route('course.update',['id' => $course->id]) }}" class="" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('episode.update',['slug' => $episode->slug]) }}" class="padding-30" method="POST" enctype="multipart/form-data">
                             @method('put')
                             @if (count($errors)>0)
-                            <td colspan="1">
-                                <div class="alert">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                        <li>{{$error}}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </td>
+                            <div class="alert">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
                             @endif
                             @csrf
-                            <td colspan="1">
-                                <div class=" rounded ">
-                                    <input value="{{ $course->title }}" class="form-controller rounded" type="text" placeholder="title" name="title">
-                                </div>
-                            </td>
                             <td>
-                                <div class=" rounded ">
-                                    <input value="{{ $course->discription }}" class="form-controller rounded" type="text" placeholder="discription" name="discription">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded col-1 ">
-                                    <input class="form-controller rounded" type="file" placeholder="title" name="banner">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded ">
-                                    <input class="form-controller rounded" type="file" placeholder="title" name="poster">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded ">
-                                    <select name="status" id="">
-                                        <option value="0">Free</option>
-                                        <option value="1">premium</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded col-1 ">
-                                    <button class="btn rounded btn-primary " type="submit">ویرایش</button>
-                                </div>
-                            </td>
+                            <div>
+                                <input value="{{ $episode->title }}" class="form-controller" type="text" placeholder="title" name="title">
+                            </div>
+</td>
+<td>
+                            <div>
+                                <input value="{{ $episode->slug }}" class="form-controller" type="text" placeholder="discription" name="slug">
+                            </div>
+</td>
+<td>   
+                            <div>
+                                 <input class="form-controller" type="file" placeholder="title" name="video">
+                            </div>
+</td>
+                            <div>
+                               <select value="{{ $episode->season_id }}" name="season_id" id="seasons-select">
+                                    @foreach ($episode->course->seasons as $item)
+                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                    @endforeach
+                                    <option value="0">فصل جدید</option>
+                                </select>
+                            </div>
+                            <div>
+                               
+                                <input type="text" value="{{ $episode->course->seasons->count() + 1 }}" name="season_id" class="new-seasons" disabled>
+                                <input type="text" name="season_title" class="new-seasons" disabled>
+                            </div>
+                            <div>
+                                <select value="{{ $episode->status }}" name="status" id="">
+                                    <option value="0">Free</option>
+                                    <option value="1">Premioum</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button type="submit">ویرایش</button>
+                            </div>
                         </form>
-                        <form action="{{route('course.add_category',['id' => $course->id])}}" method="POST">
-                            @csrf
-                            <td>
-                                <div class=" rounded ">
-                                    <input class="form-controller rounded-2xl" type="text" placeholder="title" name="category_title">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded col-2  ">
-                                    <button class="btn rounded btn-primary " type="submit">اضافه کردن دسته بندی </button>
-                                </div>
-                            </td>
-                        </form>
-                        <form action="{{route('course.delete',['id' => $course->id])}}" method="POST">
+                        <form action="{{route('episode.delete',['slug' => $episode->slug])}}" method="POST">
                             @method('delete')
                             @csrf
                             <td>
                                 <div class=" rounded">
-                                    <button class=" btn rounded" id="delete${i}"><img src="https://img.icons8.com/flat-round/50/000000/delete-sign.png" width="30 px" height="30px" /></button>
+                                    <button class=" btn rounded" id="delete ${i}"><img src="https://img.icons8.com/flat-round/50/000000/delete-sign.png" width="30 px" height="30px" /></button>
                                 </div>
                             </td>
                         </form>
