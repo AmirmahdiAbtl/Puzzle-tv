@@ -26,5 +26,8 @@ class Course extends Model
     public function seasons(){
         return $this->hasMany(Season::class);
     }
+    public function episodes(){
+        return $this->hasMany(Episode::class);
+    }
     use HasFactory;
 }

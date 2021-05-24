@@ -13,8 +13,9 @@ class NumberVerificationController extends Controller
 {
     private $user;
     private $text;
-    public function index(){
-        return view('Auth.verify-number');
+    public function index($id){
+        $user = User::find($id);
+        return view('Auth.verify-number',compact('user'));
     }
     public function store(Request $request ,$id){
         $request->validate([
@@ -28,8 +29,33 @@ class NumberVerificationController extends Controller
                 $user = User::find($id);
                 $user->mobile_verified = 1;
                 $user->save();
+                return redirect(RouteServiceProvider::HOME);
+            }else{
+                return redirect()->back()->with('wrong_number');
             }
-            return redirect(RouteServiceProvider::HOME);
         }
+    }
+    public function resend($id){
+
+        $user = User::find($id);
+
+        $phone = $user->mobile;
+        $text = rand(10000,99999);
+        $receptor =  "$phone";
+        $template =  "newlogin";
+        $type =  "sms";
+        $token = $text;
+        $token2 =  "";
+        $token3 =  "";
+        $result = Kavenegar::VerifyLookup($receptor, $token, $token2, $token3, $template, $type);
+
+        $tofactor = tofactor::where('user_id',$id)->first();
+        $tofactor->update([
+            'user_id' => $id,
+            'verify_number' => $text,
+            'created_at' => now()
+        ]);
+
+        return redirect()->back();
     }
 }

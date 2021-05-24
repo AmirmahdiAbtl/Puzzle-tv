@@ -27,19 +27,21 @@
                             </div>
                         @endif
                         @if (session('messages'))
-                        <div class="alert alert-danger">
-                            <ul>
-                                <li class="text-left pt-2">زمان 2 دقیقه به پایان رسید لطفا بار دیگر ارسال نمایید</li>
-                            </ul>
-                        </div>
-                        @endif
-                        {{-- @if (season('messages'))
                             <div class="alert alert-danger">
                                 <ul>
-                                    <li class="text-left pt-2">زمان 2 دقیقه به پایان رسید لطفا بار دیگر ارسال نمایید</li>
+                                    <li class="text-left pt-2">اعتلار کد به پایان رسید. روی دکه ارسال مجدد کلیک نمایید</li>
                                 </ul>
                             </div>
-                        @endif --}}
+                        @endif
+
+                        @if (session('wrong_number'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li class="text-left pt-2">کد تاییدیه بهدرستی وارد نشده است !</li>
+                                </ul>
+                            </div>
+                        @endif
+                        
                         @csrf
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="text" placeholder="تاییدیه شماره همراه" name="number" autocomplete="off">
@@ -52,6 +54,12 @@
                         <span class="opacity-40 mr-1">هنوز در سایت حساب کاربری ندارید?</span>
                         <a href="{{ route('register') }}" class="text-danger font-weight-normal">ثبت نام</a>
                     </div>
+                    @if (session('messages'))
+                        <form action="{{ route('verification.resend',['id'=>$user->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">ارسال مجدد</button>
+                        </form>
+                    @endif
                 </div>
                 <!--end::Login Sign in form-->
             </div>

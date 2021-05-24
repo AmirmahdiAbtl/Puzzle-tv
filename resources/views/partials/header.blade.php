@@ -9,45 +9,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav font-size-h6">
+                    @foreach ($categoryList as $item)
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">اقتصادی</a>
+                        <a class="nav-link text-white" href="{{ route('category.single',['slug' => $item->slug]) }}">{{ $item->title }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">فرهنگی، مذهبی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">ورزشی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">سیاسی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">علمی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">مستند</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">کودک</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">خانواده</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">آشپزی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">سلامت و پزشکی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">خبری</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">هنر و موسیقی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">آموزش</a>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
             {{-- <div class="form-group mb-0">

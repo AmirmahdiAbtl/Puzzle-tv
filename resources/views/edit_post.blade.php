@@ -1,4 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+    <title>Document</title>
+</head>
+<body>
+    
     <div class="main-content padding-0">
         <p class="box__title">ایجاد مقاله جدید</p>
         <div class="row no-gutters bg-white">
@@ -33,6 +44,14 @@
                             <option value="1">premium</option>
                         </select>
                     </div>
+                    @foreach ($course->category as $item)
+                    <li class="addedTag">{{ $item->title }}<span style="cursor: pointer" class="tagRemove" onclick="$(this).parent().remove();">x</span>
+                        <input type="hidden" value="{{ $item->title }}" name="tags[]">
+                    </li>
+                   @endforeach
+                    <li class="tagAdd taglist">
+                        <input type="text" id="search-field">
+                    </li>
                     <div>
                         <button type="submit">submit</button>
                     </div>
@@ -40,3 +59,5 @@
             </div>
         </div>
     </div>
+</body>
+</html>

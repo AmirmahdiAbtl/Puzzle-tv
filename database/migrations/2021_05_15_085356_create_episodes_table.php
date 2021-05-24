@@ -16,9 +16,11 @@ class CreateEpisodesTable extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('season_id')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreignId('course_id')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->string('title');
+            $table->string('video');
             $table->integer('episode_number');
-            $table->string('slug');
+            $table->string('slug')->uniqe();
             $table->boolean('freeable')->default(0);
             $table->timestamps();
         });

@@ -93,6 +93,13 @@
            @endforeach
         </div>
     </div>
+    <div class="mr-10 ml-10 mt-10">
+        @if ($course->category)
+            @foreach($course->category as $item)
+                <a href="{{ route('category.single',['slug' => $item->slug]) }}"><span class="label label-dark label-inline mr-2"  style="box-shadow: rgba(238,238,238,0.8) 0px 1px 6px !important; cursor: pointer;">{{ $item->title }}</span></a>
+            @endforeach
+        @endif
+    </div>
     <div class="container-fluid my-10  ">
         <div class="col-12 mb-7">
             <h2 class="text-white font-weight-boldest display5-md">جدیدترین ویدیوها</h2>

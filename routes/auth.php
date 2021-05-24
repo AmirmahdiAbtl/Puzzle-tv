@@ -46,6 +46,9 @@ Route::get('/verify-number/{id}', [NumberVerificationController::class, 'index']
 Route::post('/verify-number/{id}', [NumberVerificationController::class, 'store'])
                 ->middleware('auth')
                 ->name('verification.send');
+Route::post('/resent-verify-number/{id}', [NumberVerificationController::class, 'resend'])
+                ->middleware('auth')
+                ->name('verification.resend');
 
 // Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
 //                 ->middleware(['auth', 'signed', 'throttle:6,1'])

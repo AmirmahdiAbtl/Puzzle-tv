@@ -16,8 +16,9 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug');
             $table->unsignedBigInteger('sub_category')->nullable();
-            $table->foreign('sub_category')->references('id')->on('categories');
+            $table->foreign('sub_category')->references('id')->on('categories')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->timestamps();
         });
     }

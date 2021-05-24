@@ -109,7 +109,7 @@
                 {{-- <h4 class="small text-white">قسمت ۳</h4> --}}
             </div>
         </a>
-    @endforeach
+        @endforeach
     </div>
 </div>
 
@@ -189,7 +189,12 @@
         </div>
     </div>
 </div>
-
+<div>
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit"> LogOUt</button>
+    </form>
+</div>
 @endsection
 
 @section('js')

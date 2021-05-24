@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     public $fillable = [
-        'tilte',
+        'title',
+        'course_id'
     ];
     public function episodes(){
         return $this->hasMany(Episode::class);

@@ -5,18 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Course;
+use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 class CourseController extends Controller
 {
     public function index($slug){
-        $course = Course::with(['seasons'])->where('slug',$slug)->first();
+        $course = Course::with(['seasons','category'])->where('slug',$slug)->first();
         return view('post-info',compact('course'));
     }
     public function player($slug,$seasonId,$episode){
         $course = Course::with('seasons')->where('slug' ,$slug)->first();
         $season = $course->seasons->where('id',$seasonId)->first();
         $ep = $season->episodes->where('slug',$episode)->first();
-        dd($ep);
+        // dd($ep);
+        return view('player');
     }
     public function create()
     {
@@ -32,13 +36,26 @@ class CourseController extends Controller
             'banner' => ['required','image'],
             'status' => ['required'],
         ]);
+       
+        $categoryId = Category::whereIn('title',$request->tags)->get()->pluck('id')->toArray();
+        if(count($categoryId) < 1){
+            throw ValidationException::withMessages([
+                'category' => ['دسته بندی یافت نشد'],
+            ]);
+        }
+
         $banner_file = $request->file('banner');
-        $banner_file_name = $banner_file->getClientOriginalName();
+        $base_banner_name = pathinfo($banner_file->getClientOriginalName(), PATHINFO_FILENAME);
+        $banner_extension = $banner_file->getClientOriginalExtension();
+        $banner_file_name = $base_banner_name . "_" . time() . "." . $banner_extension;
         $banner_file->storeAs('images/banner',$banner_file_name);
-        
+
         $poster_file = $request->file('poster');
-        $poster_file_name = $poster_file->getClientOriginalName();
+        $base_poster_name = pathinfo($poster_file->getClientOriginalName(), PATHINFO_FILENAME);
+        $poster_extension = $poster_file->getClientOriginalExtension();
+        $poster_file_name = $base_poster_name . "_" . time() . "." . $poster_extension;
         $poster_file->storeAs('images/poster',$poster_file_name);
+
 
         $courses = [
             'title' => $request->title,
@@ -50,6 +67,8 @@ class CourseController extends Controller
         ];
         $courses['teacher_id'] = auth()->user()->id;
         $course = Course::create($courses);
+        $course->category()->sync($categoryId);
+
         return redirect()->route('home');
     }
     public function edit(Request $request,$id)
@@ -74,6 +93,7 @@ class CourseController extends Controller
             'status' => $request->status
         ];
         if($request->hasFile('banner')){    
+            Storage::delete('images/banner/'.$course->banner);
             $file = $request->file('banner');
             $base_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             $extension = $file->getClientOriginalExtension();
@@ -82,6 +102,7 @@ class CourseController extends Controller
             $data['banner'] = $file_name;
         }
         if($request->hasFile('poster')){    
+            Storage::delete('images/poster/'.$course->poster);
             $file = $request->file('poster');
             $base_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             $extension = $file->getClientOriginalExtension();
@@ -89,7 +110,9 @@ class CourseController extends Controller
             $file->storeAs('images/poster',$file_name);
             $data['poster'] = $file_name;
         }
+        $categoryId = Category::whereIn('title',$request->tags)->get()->pluck('id')->toArray();
         $course->update($data);
+        $course->category()->sync($categoryId);
         return redirect()->route('home');
     }
 
