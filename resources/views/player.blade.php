@@ -104,10 +104,8 @@
                     </div>
                     <div class="overlay-wrapper col-12 col-md-9 col-sm-12 mt-1 d-flex flex-wrap   " id="player">
                         <div class="embed-responsive embed-responsive-16by9 w-100  rounded   " style="height: 45em;">
-                            {{-- <video src="">
-                                
-                            </video> --}}
                             <iframe class="embed-responsive-item" src="https://www.aparat.com/video/video/embed/videohash/Mm4Ko/vt/frame" allowfullscreen></iframe>
+
                         </div>
                     </div>
 

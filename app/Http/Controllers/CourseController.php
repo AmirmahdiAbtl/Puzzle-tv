@@ -15,6 +15,7 @@ class CourseController extends Controller
         $course = Course::with(['seasons','category'])->where('slug',$slug)->first();
         return view('post-info',compact('course'));
     }
+   
     public function player($slug,$seasonId,$episode){
         $course = Course::with('seasons')->where('slug' ,$slug)->first();
         $season = $course->seasons->where('id',$seasonId)->first();
@@ -22,9 +23,10 @@ class CourseController extends Controller
         // dd($ep);
         return view('player');
     }
+   
     public function create()
     {
-        return view('create_post');
+        return view('admin.course.create');
     }
 
     public function store(Request $request)
@@ -65,21 +67,24 @@ class CourseController extends Controller
             'status' => $request->status,
             'slug' => $request->title
         ];
+    
         $courses['teacher_id'] = auth()->user()->id;
         $course = Course::create($courses);
         $course->category()->sync($categoryId);
 
         return redirect()->route('home');
     }
+
     public function edit(Request $request,$id)
     {
         $course = Course::find($id);
-        return view('edit_post',['course'=>$course]);
+        return view('admin.course.edit',['course'=>$course]);
     }
 
     public function update(Request $request, $id)
     {
         $course = Course::find($id);
+    
         $request->validate([
             'title' => ['required','string','max:255'],
             'discription' => ['required'],
@@ -87,6 +92,7 @@ class CourseController extends Controller
             'banner' => ['image'],
             'status' => ['required'],
         ]);
+    
         $data = [
             'title' => $request->title,
             'discription' => $request->discription,
@@ -116,10 +122,25 @@ class CourseController extends Controller
         return redirect()->route('home');
     }
 
-    public function destroy($id)
+    public function delete($id)
     {   
         $course = Course::find($id);
+        
+        Storage::delete('images/poster/'.$course->poster);
+        Storage::delete('images/banner/'.$course->banner);
+
         $course->delete();
-        return redirect()->back();
+        return redirect()->route('home');
+    }
+
+    public function add_category($id,Request $request)
+    {
+        $request->validate([
+            'category_title' => ['required','string','max:255'],
+        ]);
+        $category=Category::where('title',$request->category_title)->get()[0];
+        $course=Course::find($id);
+        $category->course()->attach($course);
+        return redirect()->route('home');
     }
 }

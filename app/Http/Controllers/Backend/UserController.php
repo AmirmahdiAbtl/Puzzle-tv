@@ -33,15 +33,19 @@ class UserController extends Controller
         $request->validate([
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
-            'mobile' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
+            'age' =>'integer|nullable',
+            'country' =>'string|nullable',
+            'city' => 'string|nullable',
+            'national_code'=>'string|nullable',
         ]);
 
         $user->update([
             'fname' => $request->fname,
             'lname' => $request->lname,
-            'email' => $request->email,
-            'mobile' => $request->mobile,
+            'age' => $request->age,
+            'country' => $request->country,
+            'city' => $request->city,
+            'national_code' => $request->nathional_code,
         ]);
 
         $user->givePermissionsTo($request->permissions);
@@ -103,4 +107,5 @@ class UserController extends Controller
 
         return back()->with('success',true);
     }
+
 }
