@@ -6,7 +6,7 @@
         <div class=" overlay">
             <div class="overlay-wrapper">
                 <div class="slider h-lg-700px h-500px"
-                    style="background: url('https://static.namava.ir/Content/Upload/Images/4ba7b1c6-29d3-4559-8af7-bcb9972d45d4.jpg?anchor=middlecenter&amp;crop=auto&amp;scale=both&amp;w=1920&amp;h=900');background-size:cover;">
+                    style="background: url('{{ asset("/images/poster/$course->poster") }}');background-size:cover;">
                     <div class="col-md-8 bg-slider align-items-center px-20 d-flex h-100">
                     </div>
                 </div>
@@ -108,7 +108,7 @@
             @foreach ($recent_course as $recent)
                 <a href="{{ route('course',['slug' => $recent->slug]) }}">
                     <div class="col-12">
-                        <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
+                        <img src="{{ asset("/images/banner/$recent->banner") }}"
                             class="w-100 rounded" height="269.44px" alt="">
                         <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $recent->title }}</h4>
                         {{-- <h4 class="small text-white">قسمت ۳</h4> --}}

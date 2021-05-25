@@ -74,6 +74,16 @@
                                 </div>
                             </td>
                             <td>
+                                @foreach ($course->category as $item)
+                                    <li class="addedTag">{{ $item->title }}<span style="cursor: pointer" class="tagRemove" onclick="$(this).parent().remove();">x</span>
+                                        <input type="hidden" value="{{ $item->title }}" name="tags[]">
+                                    </li>
+                                @endforeach
+                                    <li class="tagAdd taglist">
+                                        <input type="text" id="search-field">
+                                    </li>
+                            </td>
+                            <td>
                                 <div class=" rounded col-1 ">
                                     <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded " type="submit">ویرایش</button>
                                 </div>

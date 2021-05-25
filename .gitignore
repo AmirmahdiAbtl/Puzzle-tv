@@ -20,3 +20,5 @@ yarn-error.log
 # *.xlsx
 public/plugins/global/plugins.bundle.js
 public/plugins/custom/prismjs/prismjs.bundle.js
+public/images/banner/Screenshot 2021-05-18 130131_1621969778.png
+public/images/poster/Screenshot 2021-05-18 130131_1621969779.png

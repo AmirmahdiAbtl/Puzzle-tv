@@ -101,14 +101,13 @@
     </div>
     <div class="row main-slider">
         @foreach ($recent_course as $recent) 
-         <a href="#">
+        
              <div class="col-12 first1">
-                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
+                <img src='{{ asset("/images/banner/$recent->banner") }}'
                     class="w-100 rounded" height="269.44px" alt="">
                 <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $recent->title }}</h4>
                  <h4 class="small text-white">قسمت ۳</h4> 
             </div>
-        </a> 
     @endforeach
     </div>
 </div>
@@ -117,7 +116,7 @@
         <div class="card card-custom overlay">
             <div class="card-body p-0">
                 <div class="overlay-wrapper">
-                    <img src="https://static.namava.ir/Content/Upload/Images/4ba7b1c6-29d3-4559-8af7-bcb9972d45d4.jpg?anchor=middlecenter&amp;crop=auto&amp;scale=both&amp;w=1920&amp;h=900"
+                    <img src=""
                         width="100%" height="500px" alt="" class="w-100 rounded" />
                 </div>
                 <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start" >
@@ -145,7 +144,7 @@
         
         @foreach ($course as $item)
             <div class="col-md rounded first" id="{{ $item->id }}">
-                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
+                <img src="{{ asset("/images/banner/$item->banner") }}"
                     class="w-100 rounded"  alt="">
                 <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $item->title }}</h4>
                 <h4 class="small text-white">قسمت ۳</h4>
@@ -159,8 +158,8 @@
         <div class="card card-custom overlay">
             <div class="card-body p-0">
                 <div class="overlay-wrapper">
-                    <img src="https://static.namava.ir/Content/Upload/Images/4ba7b1c6-29d3-4559-8af7-bcb9972d45d4.jpg?anchor=middlecenter&amp;crop=auto&amp;scale=both&amp;w=1920&amp;h=900"
-                        width="100%" height="500px" alt="" class="w-100 rounded" />
+                    <img src=""
+                        id="contentImage" width="100%" height="500px" alt="" class="w-100 rounded" />
                 </div>
                 <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start" >
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
@@ -187,7 +186,7 @@
         
         @foreach ($course as $item)
             <div class="col-md rounded first2" id="{{ $item->id }}">
-                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg"
+                <img src="{{ asset("/images/banner/$item->banner") }}"
                     class="w-100 rounded"  alt="">
                 <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $item->title }}</h4>
                 <h4 class="small text-white">قسمت ۳</h4>
@@ -201,7 +200,7 @@
         <div class="card card-custom overlay">
             <div class="card-body p-0">
                 <div class="overlay-wrapper">
-                    <img src="https://static.namava.ir/Content/Upload/Images/4ba7b1c6-29d3-4559-8af7-bcb9972d45d4.jpg?anchor=middlecenter&amp;crop=auto&amp;scale=both&amp;w=1920&amp;h=900"
+                    <img src=""
                         width="100%" height="500px" alt="" class="w-100 rounded" />
                 </div>
                 <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start" >
@@ -266,6 +265,7 @@
         $("#contentTitle").text(json.title)
         $("#contentDetail").text(json.discription)
         $("#contentLink a").attr('href','http://localhost:8000/course/' + json.slug)
+        $("#contentImage").attr('src',"http://localhos:8000/images/banner/" + json.banner)
 
     }
     $( ".first" ).click(function() {

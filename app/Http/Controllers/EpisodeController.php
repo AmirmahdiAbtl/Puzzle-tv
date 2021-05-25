@@ -29,14 +29,14 @@ class EpisodeController extends Controller
         $validation = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|max:255',
-            'video' => 'required|mimes:mp4,mkv,webm,m4v,mvb',
+            'video' => 'required',
             'status' => 'required',
             'season_id' => 'required'
         ]);
         
         $season_id = $request->season_id;
 
-        if($request->season_id > $course->seasons->count()){
+        if($request->season_title){
             $season = Season::create([
                 'title' => $request->season_title,
                 'course_id' => $course->id
@@ -48,7 +48,7 @@ class EpisodeController extends Controller
         $base_episode_name = pathinfo($episode_file->getClientOriginalName(), PATHINFO_FILENAME);
         $episode_extension = $episode_file->getClientOriginalExtension();
         $episode_file_name = $base_episode_name . "_" . time() . "." . $episode_extension;
-        $episode_file->storeAs('video/episode',$episode_file_name);
+        $episode_file->storeAs('video/episode',$episode_file_name,'public_file');
 
 
         Episode::create([
@@ -82,7 +82,7 @@ class EpisodeController extends Controller
         $season_id = $request->season_id;
         $course = $episode->course;
 
-        if($request->season_id > $course->seasons->count()){
+        if($request->season_title){
             $season = Season::create([
                 'title' => $request->season_title,
                 'course_id' => $course->id
@@ -102,7 +102,7 @@ class EpisodeController extends Controller
             $base_name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
             $extension = $file->getClientOriginalExtension();
             $file_name = $base_name . "_" . time() . "." . $extension;
-            $file->storeAs('video/episode',$file_name);
+            $file->storeAs('video/episode',$file_name,'public_file');
             $data['video'] = $file_name;
         }
         $episode->update($data);

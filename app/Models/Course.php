@@ -29,5 +29,13 @@ class Course extends Model
     public function episodes(){
         return $this->hasMany(Episode::class);
     }
+
+    // public function getBannerImage(){
+    //     return asset('images/banner/'.$this->banner);
+    // }
+    // public function getPoserImage(){
+    //     return asset('images/poster/'.$this->poster);
+    // }
+
     use HasFactory;
 }
