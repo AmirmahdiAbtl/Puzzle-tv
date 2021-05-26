@@ -224,7 +224,7 @@
                                                 </span>
                                             </a></li>
                                         <li class=" mx-3 mt-2  text-white"><a class="text-white "
-                                                href="{{ route('course.create') }}">
+                                                href="{{ route('subscription.create') }}">
                                                 <span class="svg-icon menu-icon my-2">
 													<img src="https://img.icons8.com/nolan/64/add-property.png"  width="30px" height="40px"/>
                                                 </span>

@@ -16,17 +16,15 @@
                 <thead class="rounded ">
                     <tr>
                         <th scope="col">عنوان</th>
-                        <th scope="col">لینک</th>
-                        <th scope="col"> فایل فیلم</th>
-                        <th scope="col"> فصل ها</th>
-                        <th scope="col"> نام فصل مورد نظر</th>
-                        <th scope="col">وضعیت اشتراک</th>
+                        <th scope="col">زمان</th>
+                        <th scope="col"> قیمت</th>
+                        <th></th>
 
                     </tr>
                 </thead>
                 <tbody id="forms" class=" rounded bg-white">
                     <tr class=" rounded  " id="">
-                        <form action="{{ route('episode.store',['id'=>$course->id]) }}" class="padding-30" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('subscription.store') }}" class="padding-30" method="POST">
                             @if (count($errors)>0)
                             <div class="alert">
                                 <ul>
@@ -38,48 +36,24 @@
                             @endif
                             @csrf
                             <td>
-                                <div class=" rounded">
+                                <div class="rounded">
                                     <input value="" class="form-controller" type="text" placeholder="title" name="title">
                                 </div>
                             </td>
                             <td>
-                                <div class=" rounded">
-                                    <input class="form-controller" type="text" placeholder="discription" name="slug">
+                                <div class="rounded">
+                                    <input class="form-controller" type="number" placeholder="time" name="time">
                                 </div>
                             </td>
                             <td>
-                                <div class=" rounded">
-                                    <input class="form-controller" type="file" placeholder="title" name="video">
+                                <div class="rounded">
+                                    <input class="form-controller" type="text" placeholder="price" name="price">
                                 </div>
                             </td>
+
                             <td>
-                                <div class=" rounded">
-                                    <select name="season_id" id="seasons-select">
-                                        <option value=""></option>
-                                        @foreach ($course->seasons as $item)
-                                        <option value="{{ $item->id }}">{{ $item->title }}</option>
-                                        @endforeach
-                                        <option value="0">فصل جدید</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input type="text" value="{{ $course->seasons->count() + 1 }}" name="season_id" placeholder="شماره فصل" class="new-seasons" disabled>
-                                    <input type="text" name="season_title" class="new-seasons" placeholder="نام فصل" disabled>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <select name="status" id="">
-                                        <option value="0">Free</option>
-                                        <option value="1">Premioum</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <button class=" btn btn-transparent-danger font-weight-bold mr-2" type="submit">اضافه کردن</button>
+                                <div class="rounded">
+                                    <button class="btn btn-transparent-danger font-weight-bold mr-2" type="submit">اضافه کردن</button>
                                 </div>
                             </td>
                         </form>

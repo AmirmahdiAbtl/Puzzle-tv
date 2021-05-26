@@ -14,7 +14,7 @@ class SubscriptionController extends Controller
     }
     public function create()
     {
-        return view('create_subscription');
+        return view('admin.subscription.create');
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class SubscriptionController extends Controller
     public function edit($id)
     {
         $subscription = Subscription::find($id);
-        return view('edit_subscription',['subscription'=>$subscription]);
+        return view('admin.subscription.edit',['subscription'=>$subscription]);
     }
 
     public function update(Request $request, $id)
