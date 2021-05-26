@@ -32,7 +32,7 @@ class SubscriptionController extends Controller
         ];
 
         $subscriptions = Subscription::create($subscription);
-        return redirect()->route('home');
+        return redirect()->route('subscription.index');
     }
 
     public function edit($id)

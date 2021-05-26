@@ -37,17 +37,17 @@
                             @csrf
                             <td>
                                 <div class="rounded">
-                                    <input value="" class="form-controller" type="text" placeholder="title" name="title">
+                                    <input class="rounded"  value="" class="form-controller" type="text" placeholder="title" name="title">
                                 </div>
                             </td>
                             <td>
                                 <div class="rounded">
-                                    <input class="form-controller" type="number" placeholder="time" name="time">
+                                    <input class="rounded" class="form-controller" type="number" placeholder="time" name="time">
                                 </div>
                             </td>
                             <td>
                                 <div class="rounded">
-                                    <input class="form-controller" type="text" placeholder="price" name="price">
+                                    <input class="rounded" class="form-controller" type="text" placeholder="price" name="price">
                                 </div>
                             </td>
 

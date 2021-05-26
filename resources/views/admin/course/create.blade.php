@@ -12,7 +12,7 @@
 
             </div>
             <div class="table_scroll card-body rounded col-12 col-md-12  py-3  col-sm-8 " style="overflow-x: scroll;">
-                <form action="{{ route('course.store') }}" class="padding-30 rounded bg-white" method="POST"
+                <form action="{{ route('course.store') }}" class=" rounded bg-white" method="POST"
                     enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <div class="alert rounded bg-white">
@@ -24,8 +24,8 @@
                         </div>
                     @endif
                     @csrf
-                    <table class="table col-10   table-striped rounded border-white bg-white">
-                        <thead class="rounded ">
+                    <table class="table pr-50 px-50 py-50 pl-50 mt-50 mx-50 my-50 ml-50     table-striped rounded border-white bg-white">
+                        <thead class="rounded  ">
                             <tr>
                                 <th scope="col">شناسه</th>
                                 <th scope="col">عنوان</th>
@@ -36,8 +36,8 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody id="forms" class=" rounded bg-white ml-5 ">
-                            <tr class=" rounded  " id="">
+                        <tbody id="forms" class=" rounded bg-white   ">
+                            <tr class=" rounded   " id="">
 
                                 <td>
                                     <div class=" rounded">
@@ -80,7 +80,7 @@
                                         </li>
                                     </ul>
                                 </td>
-                                <td>
+                                <td class=" pl-10">
                                     <div class=" rounded">
                                         <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded"
                                             type="submit">اضافه کردن فیلم</button>

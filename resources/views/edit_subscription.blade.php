@@ -28,13 +28,7 @@
                         <button type="submit">submit</button>
                     </div>
                 </form>
-                <form action="{{route('subscription.delete',['id' => $subscription->id])}}" method="POST">
-                    @method('delete')
-                    @csrf
-                    <div>
-                        <button type="submit">delete</button>
-                    </div>
-                </form>
+                
             </div>
         </div>
     </div>
