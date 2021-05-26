@@ -80,7 +80,7 @@ class CourseController extends Controller
         $course = Course::create($courses);
         $course->category()->sync($categoryId);
 
-        return redirect()->route('home');
+        return view('admin.course.create');
     }
 
     public function edit(Request $request,$id)

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="card card-custom text-success bg-success col-3">
-        فیلم ها با موفقیت اضافه شده است 
+        فیلم با موفقیت اضافه شده است 
     </div>
     <div class="card card-custom">
         <div class="card-header">
@@ -24,7 +24,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($courses as $course)
                         <tr>
                             <td> {{ $course->id }} </td>
                             <td> {{ $course->title }} </td>
@@ -32,11 +31,6 @@
                             <td> {{ $course->status }} </td>
                             <td>  </td>
                         </tr>
-                       
-                    @empty
-                        <p>
-                            هیچ ویدیوی برای نمایش وجود ندارد.                        </p>
-                    @endforelse
                 </tbody>
             </table>
          
