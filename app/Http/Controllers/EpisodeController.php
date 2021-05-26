@@ -27,8 +27,8 @@ class EpisodeController extends Controller
     {
         $course = Course::with('episodes')->withCount(['seasons','episodes'])->find($id);
         $validation = $request->validate([
-            'title' => 'required|max:255',
-            'slug' => 'required|max:255',
+            'title' => 'required|max:255|string',
+            'slug' => 'required|max:255|string',
             'video' => 'required',
             'status' => 'required',
             'season_id' => 'required'
@@ -73,8 +73,8 @@ class EpisodeController extends Controller
     {
         $episode = Episode::where('slug',$slug)->first();
         $validation = $request->validate([
-            'title' => 'required|max:255',
-            'slug' => 'required|max:255',
+            'title' => 'required|max:255|string',
+            'slug' => 'required|max:255|string',
             'status' => 'required',
             'season_id' => 'required'
         ]);
@@ -112,10 +112,11 @@ class EpisodeController extends Controller
     public function destroy($slug)
     {
         $episode = Episode::where('slug',$slug)->first();
-        if($episode->season->count() == 0){
-            $episode->season->delete();
+        $season = $episode->season;
+        if($season->episodes->count() == 1){
+            $season->delete();
         }
         $episode->delete();
-        return redirect()->back();
+        return redirect()->route('home');
     }
 }
