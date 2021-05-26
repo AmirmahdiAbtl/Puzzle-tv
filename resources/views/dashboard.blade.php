@@ -7,7 +7,6 @@
     </div>
     <div>
         <h5> سامانه مدیریت ویدیو ها</h5>
-        lorem epsom goes here
     </div>
 </div>
 

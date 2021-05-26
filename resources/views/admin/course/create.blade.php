@@ -1,106 +1,106 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="container-fluid">
-        <div class="card card-custom rounded">
-            <div class="card-header rounded">
-                <div class="card-title rounded">
-                    <h3 class="card-label rounded ">
-                        افزودن ویدیو
-                    </h3>
-                   
+<div class="container-fluid">
+    <div class="card card-custom rounded">
+        <div class="card-header rounded">
+            <div class="card-title rounded">
+                <h3 class="card-label rounded font-weight-bolder">
+                    افزودن ویدیو
+                </h3>
+            </div>
+
+        </div>
+        <div class="card-body rounded col-12 col-md-12  py-3 col-sm-8">
+            @if (count($errors) > 0)
+            <div class="alert rounded bg-white">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            <form action="{{ route('course.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group row">
+                    <div class="col-md-6 col-12">
+                        <label class="font-size-h6 font-weight-bolder text-dark">عنوان</label>
+                        <input type="text" name="title" class="form-control" value="{{ old('title') }}"
+                            placeholder="عنوان">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="font-size-h6 font-weight-bolder text-dark">دسته بندی</label>
+                        <select name="categories[]" class="form-control selectpicker" multiple>
+                            <option value=null selected disabled>دسته بندی دوره را انتخاب کنید.
+                            </option>
+                            @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->title }}</option>
+                            @if (count($category->childrenRecursive) > 0)
+                            @include('partials.category',
+                            ['categories'=>$category->childrenRecursive,
+                            'level'=>1])
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-
-            </div>
-            <div class="table_scroll card-body rounded col-12 col-md-12  py-3  col-sm-8 " style="overflow-x: scroll;">
-                <form action="{{ route('course.store') }}" class="padding-30 rounded bg-white" method="POST"
-                    enctype="multipart/form-data">
-                    @if (count($errors) > 0)
-                        <div class="alert rounded bg-white">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+                <div class="form-group row">
+                    <div class="col-12">
+                        <label class="font-size-h6 font-weight-bolder text-dark">توضیحات ویدیو</label>
+                        <textarea name="discription" class="form-control" value="{{ old('discription') }}"
+                            placeholder="توضیحات"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6 col-12">
+                        <label class="font-size-h6 font-weight-bolder text-dark">پوستر ویدیو</label>
+                        <div class="custom-file mb-3">
+                            <input type="file" name="poster" value="{{ old('poster') }}" class="custom-file-input"
+                                id="customFile">
+                            <label class="custom-file-label" for="customFile">فایل خود را انتخاب کنید</label>
                         </div>
-                    @endif
-                    @csrf
-                    <table class="table col-10   table-striped rounded border-white bg-white">
-                        <thead class="rounded ">
-                            <tr>
-                                <th scope="col">شناسه</th>
-                                <th scope="col">عنوان</th>
-                                <th scope="col">بنر فیلم</th>
-                                <th scope="col">عکس</th>
-                                <th scope="col">اشتراک</th>
-                                <th scope="col">دسته بندی ها </th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="forms" class=" rounded bg-white ml-5 ">
-                            <tr class=" rounded  " id="">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="font-size-h6 font-weight-bolder text-dark">بنر ویدیو</label>
+                        <div class="custom-file mb-3">
+                            <input type="file" name="banner" value="{{ old('banner') }}" class="custom-file-input"
+                                id="customFile">
+                            <label class="custom-file-label" for="customFile">فایل خود را انتخاب کنید</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6 col-12">
+                        <label class="font-size-h6 font-weight-bolder text-dark">وضعیت ویدیو</label>
+                        <div class="radio-inline mt-2">
+                            <label class="radio radio-lg">
+                                <input type="radio" name="status" value="1" />
+                                <span></span>
+                                اشتراکی
+                            </label>
+                            <label class="radio radio-lg">
+                                <input type="radio" name="status" value="0" checked="checked" />
+                                <span></span>
+                                رایگان
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
 
-                                <td>
-                                    <div class=" rounded">
-                                        <input value="" class="form-controller rounded" type="text"
-                                            placeholder="عنوان فیلم " name="title">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class=" rounded">
-                                        <input class="form-controller rounded" type="text" placeholder="توضیحات فیلم "
-                                            name="discription">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class=" rounded">
-                                        <input class="form-controller rounded" type="file" placeholder="title"
-                                            name="banner">
-
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class=" rounded">
-                                        <input class="form-controller rounded" type="file" placeholder="title"
-                                            name="poster">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class=" rounded">
-                                        <select name="status" id="">
-                                            <option value="0">رایگان</option>
-                                            <option value="1">اشتراکی</option>
-                                        </select>
-
-                                    </div>
-                                </td>
-                                <td>
-                                    <ul class="tags">
-                                        <li class="tagAdd taglist">
-                                            <input class=" rounded" type="text" id="search-field">
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <div class=" rounded">
-                                        <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded"
-                                            type="submit">اضافه کردن فیلم</button>
-                                    </div>
-                                </td>
-
-
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </form>
-            </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">افزودن ویدیو</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 @endsection
 @section('js')
-    <script>
-        $.expr[":"].contains = $.expr.createPseudo(function(arg) {
+<script>
+    $.expr[":"].contains = $.expr.createPseudo(function(arg) {
             return function(elem) {
                 return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
             };
@@ -140,32 +140,31 @@
 
         });
 
-    </script>
+</script>
 
 @endsection
 
 @section('css')
-    <style>
-        .table_scroll::-webkit-scrollbar {
+<style>
+    .table_scroll::-webkit-scrollbar {
 
-            height: 7px;
-        }
+        height: 7px;
+    }
 
-        .table_scroll::-webkit-scrollbar-thumb {
-            background-color: rgb(54, 153, 255);
+    .table_scroll::-webkit-scrollbar-thumb {
+        background-color: rgb(54, 153, 255);
 
-            overflow-x: hidden;
-        }
+        overflow-x: hidden;
+    }
 
-        .table_scroll::-webkit-scrollbar-track-piece {
-            background-color: rgb(30, 30, 45);
+    .table_scroll::-webkit-scrollbar-track-piece {
+        background-color: rgb(30, 30, 45);
 
-            height: 7px;
-            overflow-x: hidden;
-            overflow-x: hidden;
-            overflow-y: hidden;
-        }
-
-    </style>
+        height: 7px;
+        overflow-x: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+</style>
 
 @endsection

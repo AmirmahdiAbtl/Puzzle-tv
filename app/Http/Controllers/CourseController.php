@@ -32,8 +32,9 @@ class CourseController extends Controller
    
     public function create()
     {
-        // return view('create_post');
-        return view('admin.course.create');
+        $categories = Category::with('childrenRecursive')->where('sub_category', null)->get();
+
+        return view('admin.course.create', compact('categories'));
     }
 
     public function store(Request $request)

@@ -7,9 +7,11 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\Backend\PermissionController;
+use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\SeasonController;
-use App\Http\Controllers\backend\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,14 +38,11 @@ Route::get('/dashboard', function () {
 })->middleware(['isverify','auth'])->name('dashboard');
 
 Route::get('/admin/course', [CourseController::class,'index'])->middleware('auth')->name('course.index');
-
 Route::get('/admin/course/create', [CourseController::class,'create'])->middleware('auth')->name('course.create');
-
 Route::post('/admin/course/create', [CourseController::class,'store'])->middleware('auth')->name('course.store');
 Route::get('/admin/course/edit/{id}', [CourseController::class,'edit'])->middleware('auth')->name('course.edit');
 Route::put('/admin/course/update/{id}', [CourseController::class,'update'])->middleware('auth')->name('course.update');
 Route::delete('/admin/course/delete/{id}', [CourseController::class,'delete'])->middleware('auth')->name('course.delete');
-
 
 Route::get('/admin/subscription/create', [SubscriptionController::class,'create'])->middleware('auth')->name('subscription.create');
 Route::post('/admin/subscription/create', [SubscriptionController::class,'store'])->middleware('auth')->name('subscription.store');
@@ -68,4 +67,18 @@ Route::delete('admin/category/delete/{id}',[CategoryController::class ,'delete']
 
 
 Route::get('admin/course/episodes/{id}',[EpisodeController::class, 'index'])->middleware('auth')->name('episode.index');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+
+    Route::group(['middleware' => 'can:permission CRUD'], function () {
+        Route::resource('permission', PermissionController::class);
+        Route::resource('role', RoleController::class);
+    });
+
+    Route::group(['middleware' => 'can:user CRUD'], function () {
+        Route::resource('user', UserController::class);
+    });
+    
+});
+
 require __DIR__.'/auth.php';
