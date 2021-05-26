@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Subscription;
 
 class SubscriptionController extends Controller
-{
+{   
+    public function index(){
+        $subscriptions=Subscription::all();
+        return view('admin.subscription.index',['subscriptions'=>$subscriptions]);
+
+    }
     public function create()
     {
         return view('create_subscription');

@@ -45,6 +45,7 @@ Route::put('/admin/course/update/{id}', [CourseController::class,'update'])->mid
 Route::delete('/admin/course/delete/{id}', [CourseController::class,'delete'])->middleware('auth')->name('course.delete');
 
 
+Route::get('/admin/subscription/index', [SubscriptionController::class,'index'])->middleware('auth')->name('subscription.index');
 Route::get('/admin/subscription/create', [SubscriptionController::class,'create'])->middleware('auth')->name('subscription.create');
 Route::post('/admin/subscription/create', [SubscriptionController::class,'store'])->middleware('auth')->name('subscription.store');
 Route::get('/admin/subscription/edit/{id}', [SubscriptionController::class,'edit'])->middleware('auth')->name('subscription.edit');
