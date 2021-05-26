@@ -63,10 +63,10 @@ class UserController extends Controller
             'mobile_verified' => $request->mobile_verified,
         ]);
 
-        return redirect()->route('named_route');
+        return redirect()->route('user.index');
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         User::find($id)->delete();
         return redirect()->back();
@@ -84,9 +84,9 @@ class UserController extends Controller
         return view('user.index', compact($user));
     }
     
-    public function update_user(Request $request, $id)
+    public function update_user(Request $request)
     {
-        $user=User::find($id);
+        $user=Auth::user();
         
         $request->validate([
             'fname' => 'required|string|max:255',
@@ -106,7 +106,7 @@ class UserController extends Controller
             'national_code' => $request->nathional_code,
         ]);
 
-        return redirect()->route('named_route');
+        return redirect()->route('user.show');
     }
 
 }
