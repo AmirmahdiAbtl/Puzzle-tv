@@ -147,7 +147,7 @@
 													<img src="https://img.icons8.com/nolan/64/add-image.png" width="30px" height="40px" />
 												</span>
 												<span>
-													اضاقه کردن ویدیو ها
+													اضافه کردن ویدیو ها
 												</span>
 											</a></li>
 										<li class=" mx-3 mt-2  text-white"><a class="text-white " href="{{route('category.create')}}">
