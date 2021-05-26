@@ -5,7 +5,7 @@
         <div class="card-header rounded">
             <div class="card-title rounded">
                 <h3 class="card-label rounded ">
-                    افزودن ویدیو
+                    افزودن قسمت
                 </h3>
                 <button class="btn btn-bg-secondary btn-hover-bg-danger rounded-circle" id="add">+</button>
             </div>

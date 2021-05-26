@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\SeasonController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,8 @@ Route::get('/admin/course/edit/{id}', [CourseController::class,'edit'])->middlew
 Route::put('/admin/course/update/{id}', [CourseController::class,'update'])->middleware('auth')->name('course.update');
 Route::delete('/admin/course/delete/{id}', [CourseController::class,'delete'])->middleware('auth')->name('course.delete');
 
+
+Route::get('/admin/subscription/index', [SubscriptionController::class,'index'])->middleware('auth')->name('subscription.index');
 Route::get('/admin/subscription/create', [SubscriptionController::class,'create'])->middleware('auth')->name('subscription.create');
 Route::post('/admin/subscription/create', [SubscriptionController::class,'store'])->middleware('auth')->name('subscription.store');
 Route::get('/admin/subscription/edit/{id}', [SubscriptionController::class,'edit'])->middleware('auth')->name('subscription.edit');

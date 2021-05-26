@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Subscription;
 
 class SubscriptionController extends Controller
-{
+{   
+    public function index(){
+        $subscriptions=Subscription::all();
+        return view('admin.subscription.index',['subscriptions'=>$subscriptions]);
+
+    }
     public function create()
     {
-        return view('create_subscription');
+        return view('admin.subscription.create');
     }
 
     public function store(Request $request)
@@ -27,13 +32,13 @@ class SubscriptionController extends Controller
         ];
 
         $subscriptions = Subscription::create($subscription);
-        return redirect()->route('home');
+        return redirect()->route('subscription.index');
     }
 
     public function edit($id)
     {
         $subscription = Subscription::find($id);
-        return view('edit_subscription',['subscription'=>$subscription]);
+        return view('admin.subscription.edit',['subscription'=>$subscription]);
     }
 
     public function update(Request $request, $id)
