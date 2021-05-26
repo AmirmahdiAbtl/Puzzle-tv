@@ -14,8 +14,9 @@
             <table class="table table-striped pr-5 ">
                 <thead class="rounded">
                     <tr class="rounded">
+                    <th>حذف</th>
                         <th>ویرایش</th>
-                        <th>حذف</th>
+                        
                         <th>دسته پدر</th>
                         <th>نام انگلیسی دسته بندی</th>
                         <th>نام دسته بندی</th>
@@ -25,6 +26,12 @@
                 <tbody class="rounded ">
                     @foreach ($categories as $item)
                     <tr role="row" class="">
+                      
+                        <td>
+                            <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded" type="submit">
+                                <a href="{{ route('category.destroy', $item->id) }}" onclick="destroyCategory (event,{{ $item->id }} )" class="item-delete mlg-15" title="حذف"> X </a>
+                            </button>
+                        </td>
                         <td>
                             <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded" type="submit">
                                 <a href="{{ route('category.edit',$item->id) }}" class="item-edit " title="ویرایش">Edit</a>
@@ -34,11 +41,6 @@
                                 @method('delete')
                             </form>
 
-                        </td>
-                        <td>
-                            <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded" type="submit">
-                                <a href="{{ route('category.destroy', $item->id) }}" onclick="destroyCategory (event,{{ $item->id }} )" class="item-delete mlg-15" title="حذف"> X </a>
-                            </button>
                         </td>
                         <td>{{ $item->parentCategoryName() }}</td>
                         <td>{{$item->slug}}</td>
