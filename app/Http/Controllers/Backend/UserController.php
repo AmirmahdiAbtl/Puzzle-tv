@@ -33,6 +33,7 @@ class UserController extends Controller
         $request->validate([
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
+            'mobile'=> 'required|numeric|digits:11|unique:users',
             'age' =>'integer|nullable',
             'country' =>'string|nullable',
             'city' => 'string|nullable',
@@ -42,6 +43,7 @@ class UserController extends Controller
         $user->update([
             'fname' => $request->fname,
             'lname' => $request->lname,
+            'mobile' => $request->mobile ,
             'age' => $request->age,
             'country' => $request->country,
             'city' => $request->city,
