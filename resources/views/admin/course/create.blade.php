@@ -7,7 +7,7 @@
                     <h3 class="card-label rounded ">
                         افزودن ویدیو
                     </h3>
-                    <button class="btn btn-bg-secondary btn-hover-bg-danger rounded-circle" id="add">+</button>
+                   
                 </div>
 
             </div>
@@ -98,78 +98,6 @@
     </div>
 
 @endsection
-
-{{--
-@extends('layouts.admin')
-@section('content')
-    <div class="main-content padding-0">
-        <p class="box__title">ایجاد مقاله جدید</p>
-        <div class="row no-gutters bg-white">
-            <div class="col-12">
-                <form action="{{ route('course.store') }}" class="padding-30" method="POST" enctype="multipart/form-data">
-                    @if (count($errors) > 0)
-                        <div class="alert">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @csrf
-                    <table>
-                        <tr>
-                            <td>
-                                <div class=" rounded">
-                                    <input value="" class="form-controller" type="text" placeholder="title" name="title">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input value="" class="form-controller" type="text" placeholder="discription"
-                                        name="discription">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input value="" class="form-controller" type="file" placeholder="title" name="banner">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input value="" class="form-controller" type="file" placeholder="title" name="poster">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <select name="status" id="">
-                                        <option value="0">Free</option>
-                                        <option value="1">premium</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                Category :
-                                <ul class="tags">
-                                    <p>دسته بندی های مربوطه</p>
-                                    <li class="tagAdd taglist">
-                                        <input type="text" id="search-field">
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-                                 <button type="submit">submit</button> 
-                            </td>
-                        </tr>
-                    </table>
-
-
-
-                </form>
-            </div>
-        </div>
-    </div>
-@endsection --}}
 @section('js')
     <script>
         $.expr[":"].contains = $.expr.createPseudo(function(arg) {
