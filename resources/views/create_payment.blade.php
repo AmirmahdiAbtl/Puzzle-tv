@@ -15,7 +15,25 @@
                     @endif
                     @csrf
                     <div>
-                        subscriptions_title : <input  class="form-controller" type="text" placeholder="subscriptions_title" name="subscriptions_title">
+                        @foreach ($subscription as $item)
+                            
+                            <table>
+                                <tr>
+                                    <td>نوع اشتزاک</td>
+                                    <td>فیمت</td>
+                                    <td>زمان</td>
+                                    <td>انتخواب</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->price }} $</td>
+                                    <td>{{ $item->time }} days</td>
+                                    <td>
+                                        <input type="checkbox" value="{{ $item->title }}" name="subscriptions_title">
+                                    </td>
+                                </tr>
+                            </table>
+                        @endforeach
                     </div>
                     <div>
                         <button type="submit">submit</button>

@@ -16,8 +16,8 @@ class PaymentController extends Controller
     }
     public function create()
     {
-        $sub=Subscription::all();
-        return view('create_payment',['subscription'=>$sub]);
+        $subscription = Subscription::all();
+        return view('create_payment',compact('subscription'));
     }
     
     public function store(Request $request)
@@ -42,6 +42,6 @@ class PaymentController extends Controller
             'expire_subscription' => $payment->expire_sub
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('payment.index');
     }
 }
