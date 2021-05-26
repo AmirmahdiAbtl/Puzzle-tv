@@ -60,7 +60,7 @@ Route::get('admin/episode/edit/{slug}', [EpisodeController::class, 'edit'])->mid
 Route::put('admin/episode/update/{slug}', [EpisodeController::class, 'update'])->middleware('auth')->name('episode.update');
 Route::delete('admin/episode/delete/{slug}', [EpisodeController::class, 'destroy'])->middleware('auth')->name('episode.delete');
 
-Route::get('admin/category',[CategoryController::class ,'index'])->middleware('auth')->name('category.index');
+Route::get('admin/category',[CategoryController::class ,'index'])->middleware('auth')->name('category.create');
 Route::post('admin/category/store',[CategoryController::class ,'store'])->middleware('auth')->name('category.store');
 Route::get('admin/category/edit/{id}',[CategoryController::class ,'edit'])->middleware('auth')->name('category.edit');
 Route::put('admin/category/update/{id}',[CategoryController::class ,'update'])->middleware('auth')->name('category.update');
