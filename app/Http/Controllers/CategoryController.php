@@ -50,7 +50,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $all = Category::all();  
-        return view('category_edit',['category'=>$category,"all"=>$all]);
+        return view('admin.category.edit',['category'=>$category,"all"=>$all]);
     }
     public function update(Request $request, $id)
     {

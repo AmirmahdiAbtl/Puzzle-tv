@@ -24,7 +24,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody id="forms" class=" rounded bg-white">
+                <tbody id="forms" class=" rounded bg-white ml-5 ">
                     <tr class=" rounded  " id="">
                         <form action="{{ route('course.store') }}" class="padding-30 rounded bg-white" method="POST" enctype="multipart/form-data">
                             @if (count($errors)>0)
@@ -70,7 +70,7 @@
                             <td>
                                 <ul class="tags">
                                     <li class="tagAdd taglist">
-                                        <input type="text" id="search-field">
+                                        <input class=" rounded" type="text" id="search-field">
                                     </li>
                                 </ul>
                             </td>
