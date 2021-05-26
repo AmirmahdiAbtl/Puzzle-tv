@@ -9,7 +9,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\SeasonController;
-use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,4 +69,17 @@ Route::delete('admin/category/delete/{id}',[CategoryController::class ,'delete']
 
 
 Route::get('admin/course/episodes/{id}',[EpisodeController::class, 'index'])->middleware('auth')->name('episode.index');
+
+Route::get('admin/users',[UserController::class ,'index'])->middleware('auth')->name('user.index');
+Route::get('admin/user/create',[UserController::class ,'create'])->middleware('auth')->name('user.create');
+//Route::post('admin/user/store',[UserController::class ,'store'])->middleware('auth')->name('category.store');
+//az register breeze estefade mikonim
+Route::get('admin/user/edit/{id}',[UserController::class ,'edit'])->middleware('auth')->name('user.edit');
+Route::put('admin/user/update/{id}',[UserController::class ,'update'])->middleware('auth')->name('user.update');
+Route::delete('admin/user/delete/{id}',[UserController::class ,'delete'])->middleware('auth')->name('user.destroy');
+
+Route::get('user',[UserController::class ,'show'])->middleware('auth')->name('user.show');
+Route::get('user/edit',[UserController::class ,'edit_user'])->middleware('auth')->name('user.edit_user');
+Route::put('user/edit',[UserController::class ,'update_user'])->middleware('auth')->name('user.update_user');
+
 require __DIR__.'/auth.php';
