@@ -11,8 +11,8 @@
             </div>
 
         </div>
-        <div class="card-body rounded">
-            <table class="table table-striped rounded border-white bg-white">
+        <div class="table_scroll card-body rounded col-12 col-md-12  py-3  col-sm-8 " style="overflow-x: scroll;">
+            <table class="table col-10   table-striped rounded border-white bg-white">
                 <thead class="rounded ">
                     <tr>
                         <th scope="col">شناسه</th>
@@ -20,6 +20,7 @@
                         <th scope="col">بنر فیلم</th>
                         <th scope="col">عکس</th>
                         <th scope="col">اشتراک</th>
+                        <th scope="col">دسته بندی ها </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -68,7 +69,6 @@
                             </td>
                             <td>
                                 <ul class="tags">
-                                    <p>دسته بندی های مربوطه</p>
                                     <li class="tagAdd taglist">
                                         <input type="text" id="search-field">
                                     </li>
@@ -76,7 +76,7 @@
                             </td>
                             <td>
                                 <div class=" rounded">
-                                    <button class="btn rounded bg-primary" type="submit">اضافه کردن فیلم</button>
+                                    <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded" type="submit">اضافه کردن فیلم</button>
                                 </div>
                             </td>
 
@@ -196,5 +196,29 @@
 
     });
 </script>
+
+@endsection
+@section('css')
+<style>
+    .table_scroll::-webkit-scrollbar {
+
+        height: 7px;
+    }
+
+    .table_scroll::-webkit-scrollbar-thumb {
+        background-color: rgb(54, 153, 255);
+
+        overflow-x: hidden;
+    }
+
+    .table_scroll::-webkit-scrollbar-track-piece {
+        background-color: rgb(30, 30, 45);
+
+        height: 7px;
+        overflow-x: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+</style>
 
 @endsection

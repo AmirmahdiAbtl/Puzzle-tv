@@ -150,12 +150,21 @@
 													اضاقه کردن ویدیو ها
 												</span>
 											</a></li>
+										<li class=" mx-3 mt-2  text-white"><a class="text-white " href="{{route('category.create')}}">
+												<span class="svg-icon menu-icon my-2">
+												<img src="https://img.icons8.com/nolan/64/sorting-answers.png" width="30px" height="40px"/>
+												</span>
+												<span>
+													اضاقه کردن دسته بندی
+												</span>
+											</a></li>
+
 									</ul>
 
 								</li>
-								
 
-								
+
+
 
 								{{--
 								@can('user CRUD')

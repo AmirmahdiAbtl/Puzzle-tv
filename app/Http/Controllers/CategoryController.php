@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
 {
@@ -27,7 +28,7 @@ class CategoryController extends Controller
     {
         $category = Category::with('parentCategory')->paginate();
         // dd($category);
-        return view('category_create',['categories' => $category]);
+        return view('admin.category.create',['categories' => $category]);
     }
    public function create(){
        
