@@ -52,6 +52,7 @@ Route::put('/admin/subscription/update/{id}', [SubscriptionController::class,'up
 Route::delete('/admin/subscription/delete/{id}', [SubscriptionController::class,'delete'])->middleware('auth')->name('subscription.delete');
 Route::get('/admin/payment/create', [PaymentController::class,'create'])->middleware('auth')->name('payment.create');
 Route::post('/admin/payment/create', [PaymentController::class,'store'])->middleware('auth')->name('payment.store');
+Route::get('/admin/payment/index', [PaymentController::class,'index'])->middleware('auth')->name('payment.index');
 
 Route::get('admin/episode/create/{id}', [EpisodeController::class, 'create'])->middleware('auth')->name('episode.create');
 Route::post('admin/episode/create/{id}', [EpisodeController::class, 'store'])->middleware('auth')->name('episode.store');

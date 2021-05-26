@@ -10,14 +10,23 @@ use Auth;
 
 class PaymentController extends Controller
 {
+    public function index(){
+        $payment = Payment::with(['subscriptions'])->get();
+        return view('payments_user',compact('payment'));
+    }
     public function create()
     {
         $sub=Subscription::all();
         return view('create_payment',['subscription'=>$sub]);
-     }
-
+    }
+    
     public function store(Request $request)
     {
+        $user = Auth::user();
+
+        if($user->expire_subscription > now()){
+            return redirect()->route('home');
+        }
         $request->validate([
             'subscriptions_title' => ['required','string','max:255'],
         ]);
@@ -29,7 +38,9 @@ class PaymentController extends Controller
         $payment->expire_sub =Carbon\Carbon::now()->addDays($subscriptions->time);
         $payment->save();
         
-        Auth::user()->expire_subscription = $payment->expire_sub;
+        $user->update([
+            'expire_subscription' => $payment->expire_sub
+        ]);
 
         return redirect()->route('home');
     }
