@@ -14,7 +14,7 @@ class EpisodeController extends Controller
     {
         $course=Course::find($id);
         $episodes=$course->episodes()->get();
-        return view('admin.episode.index',['episodes'=>$episodes]);
+        return view('admin.episode.index',['episodes'=>$episodes, 'course' => $course]);
     }
     
     public function create($id)
