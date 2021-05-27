@@ -31,7 +31,7 @@
                 </thead>
                 <tbody id="forms" class=" rounded bg-white  pl-10 pr-26">
                     <tr class=" rounded   " id="">
-                        <form action="{{ route('course.update',['id' => $course->id]) }}" class="" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('course.update',['course' => $course->id]) }}" class="" method="POST" enctype="multipart/form-data">
                             @method('put')
                             @if (count($errors)>0)
                             <td colspan="1">

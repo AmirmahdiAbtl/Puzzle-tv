@@ -74,7 +74,7 @@ class CourseController extends Controller
         $course = Course::create($courses);
         $course->giveCategoriesTo($request->categories);
 
-        return redirect()->route('admin.course.index')->with('success', true);
+        return redirect()->route('course.index')->with('success', true);
     }
 
     public function edit(Request $request,$id)
