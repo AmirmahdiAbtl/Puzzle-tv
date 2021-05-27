@@ -9,7 +9,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\RoleController;
-use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\UserController as UserAdminController;
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\User\UserController;
@@ -66,7 +66,7 @@ Route::get('admin/category',[CategoryController::class ,'index'])->middleware('a
 Route::post('admin/category/store',[CategoryController::class ,'store'])->middleware('auth')->name('category.store');
 Route::get('admin/category/edit/{id}',[CategoryController::class ,'edit'])->middleware('auth')->name('category.edit');
 Route::put('admin/category/update/{id}',[CategoryController::class ,'update'])->middleware('auth')->name('category.update');
-Route::delete('admin/category/delete/{id}',[CategoryController::class ,'delete'])->middleware('auth')->name('category.destroy');
+Route::post('admin/category/delete/{id}',[CategoryController::class ,'delete'])->middleware('auth')->name('category.destroy');
 
 
 Route::get('admin/course/episodes/{id}',[EpisodeController::class, 'index'])->middleware('auth')->name('episode.index');
@@ -79,7 +79,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => 'can:user CRUD'], function () {
-        Route::resource('user', UserController::class);
+        Route::resource('user', UserAdminController::class);
     });
     
 });

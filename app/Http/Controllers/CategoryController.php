@@ -26,9 +26,9 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $category = Category::with('parentCategory')->paginate();
+        $categories = Category::with('childrenRecursive')->get();
         // dd($category);
-        return view('admin.category.create',['categories' => $category]);
+        return view('admin.category.create',compact('categories'));
     }
    public function create(){
        
