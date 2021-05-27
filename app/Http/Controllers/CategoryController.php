@@ -17,23 +17,17 @@ class CategoryController extends Controller
         return view('category',compact('category'));
     }
 
-    public function single($slug){
+    public function show($slug){
         $category = Category::where('slug',$slug)->first();
         $course = $category->course;
-        dd($course);    
-        // $course = Course::where
     }
 
     public function index()
     {
-        $categories = Category::with('childrenRecursive')->get();
+        $categories = Category::with('childrenRecursive')->where('sub_category', null)->get();
         // dd($category);
-        return view('admin.category.create',compact('categories'));
+        return view('admin.category.index',compact('categories'));
     }
-   public function create(){
-       
-    
-   }
 
    public function store(Request $request){
     $request->validate([
@@ -48,9 +42,9 @@ class CategoryController extends Controller
    }
    public function edit(Request $request,$id)
     {
+        $categories = Category::with('childrenRecursive')->where('sub_category', null)->get();
         $category = Category::find($id);
-        $all = Category::all();  
-        return view('admin.category.edit',['category'=>$category,"all"=>$all]);
+        return view('admin.category.edit',['category'=>$category,"categories"=>$categories]);
     }
     public function update(Request $request, $id)
     {
@@ -65,7 +59,7 @@ class CategoryController extends Controller
         );
         return redirect()->route('category.index');
     }
-    public function delete($id)
+    public function destroy($id)
     {
         $category = Category::find($id);
         $category->delete();

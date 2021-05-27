@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Services\Course\Traits\HasCategories;
 
 class Course extends Model
 {
+
+    use HasFactory, HasCategories;
+    
     public $fillable = [
         'discription',
         'title',
@@ -29,13 +33,4 @@ class Course extends Model
     public function episodes(){
         return $this->hasMany(Episode::class);
     }
-
-    // public function getBannerImage(){
-    //     return asset('images/banner/'.$this->banner);
-    // }
-    // public function getPoserImage(){
-    //     return asset('images/poster/'.$this->poster);
-    // }
-
-    use HasFactory;
 }

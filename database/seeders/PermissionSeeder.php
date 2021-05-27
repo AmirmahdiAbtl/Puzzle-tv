@@ -43,6 +43,27 @@ class PermissionSeeder extends Seeder
             'updated_at'=>now(),
         ]);
 
+        DB::table('permissions')->insert([
+            'name' => 'video CRUD',
+            'persian_name' => 'مدیریت ویدیو ها',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+
+        DB::table('permissions')->insert([
+            'name' => 'course CRUD',
+            'persian_name' => 'مدیریت دوره‌ها',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+
+        DB::table('permissions')->insert([
+            'name' => 'category CRUD',
+            'persian_name' => 'مدیریت دسته‌بندی‌ها',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+
         DB::table('permission_role')->insert([
             'permission_id' => '1',
             'role_id' => '1',
@@ -63,6 +84,24 @@ class PermissionSeeder extends Seeder
         ]);
         DB::table('permission_role')->insert([
             'permission_id' => '4',
+            'role_id' => '1',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+        DB::table('permission_role')->insert([
+            'permission_id' => '5',
+            'role_id' => '1',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+        DB::table('permission_role')->insert([
+            'permission_id' => '6',
+            'role_id' => '1',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+        DB::table('permission_role')->insert([
+            'permission_id' => '7',
             'role_id' => '1',
             'created_at'=>now(),
             'updated_at'=>now(),

@@ -31,20 +31,11 @@ Route::get('/course/{slug}',[CourseController::class ,'show'])->name('course');
 
 Route::get('/course/{slug}/{seasonId}/{episode}',[CourseController::class ,'player'])->name('player');
 
-Route::get('/category',[CategoryController::class ,'list'])->name('category.list');
-Route::get('/category/{slug}',[CategoryController::class ,'single'])->name('category.single');
+Route::get('/category/{slug}',[CategoryController::class ,'show'])->name('category.single');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['isverify','auth'])->name('dashboard');
-
-Route::get('/admin/course', [CourseController::class,'index'])->middleware('auth')->name('course.index');
-Route::get('/admin/course/create', [CourseController::class,'create'])->middleware('auth')->name('course.create');
-Route::post('/admin/course/create', [CourseController::class,'store'])->middleware('auth')->name('course.store');
-Route::get('/admin/course/edit/{id}', [CourseController::class,'edit'])->middleware('auth')->name('course.edit');
-Route::put('/admin/course/update/{id}', [CourseController::class,'update'])->middleware('auth')->name('course.update');
-Route::delete('/admin/course/delete/{id}', [CourseController::class,'delete'])->middleware('auth')->name('course.delete');
-
 
 Route::get('/admin/subscription/index', [SubscriptionController::class,'index'])->middleware('auth')->name('subscription.index');
 Route::get('/admin/subscription/create', [SubscriptionController::class,'create'])->middleware('auth')->name('subscription.create');
@@ -62,13 +53,6 @@ Route::get('admin/episode/edit/{slug}', [EpisodeController::class, 'edit'])->mid
 Route::put('admin/episode/update/{slug}', [EpisodeController::class, 'update'])->middleware('auth')->name('episode.update');
 Route::delete('admin/episode/delete/{slug}', [EpisodeController::class, 'destroy'])->middleware('auth')->name('episode.delete');
 
-Route::get('admin/category',[CategoryController::class ,'index'])->middleware('auth')->name('category.create');
-Route::post('admin/category/store',[CategoryController::class ,'store'])->middleware('auth')->name('category.store');
-Route::get('admin/category/edit/{id}',[CategoryController::class ,'edit'])->middleware('auth')->name('category.edit');
-Route::put('admin/category/update/{id}',[CategoryController::class ,'update'])->middleware('auth')->name('category.update');
-Route::post('admin/category/delete/{id}',[CategoryController::class ,'delete'])->middleware('auth')->name('category.destroy');
-
-
 Route::get('admin/course/episodes/{id}',[EpisodeController::class, 'index'])->middleware('auth')->name('episode.index');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
@@ -81,6 +65,28 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['middleware' => 'can:user CRUD'], function () {
         Route::resource('user', UserAdminController::class);
     });
+
+    Route::group(['middleware' => 'can:category CRUD'], function () {
+        Route::resource('category', CategoryController::class);
+        // Route::get('admin/category',[CategoryController::class ,'index'])->middleware('auth')->name('category.create');
+        // Route::post('admin/category/store',[CategoryController::class ,'store'])->middleware('auth')->name('category.store');
+        // Route::get('admin/category/edit/{id}',[CategoryController::class ,'edit'])->middleware('auth')->name('category.edit');
+        // Route::put('admin/category/update/{id}',[CategoryController::class ,'update'])->middleware('auth')->name('category.update');
+        // Route::post('admin/category/delete/{id}',[CategoryController::class ,'delete'])->middleware('auth')->name('category.destroy');
+    });
+
+    Route::group(['middleware' => 'can:course CRUD'], function () {
+        Route::resource('course', CourseController::class);
+
+        // Route::get('/admin/course', [CourseController::class,'index'])->middleware('auth')->name('course.index');
+        // Route::get('/admin/course/create', [CourseController::class,'create'])->middleware('auth')->name('course.create');
+        // Route::post('/admin/course/create', [CourseController::class,'store'])->middleware('auth')->name('course.store');
+        // Route::get('/admin/course/edit/{id}', [CourseController::class,'edit'])->middleware('auth')->name('course.edit');
+        // Route::put('/admin/course/update/{id}', [CourseController::class,'update'])->middleware('auth')->name('course.update');
+        // Route::delete('/admin/course/delete/{id}', [CourseController::class,'delete'])->middleware('auth')->name('course.delete');
+    });
+
+
     
 });
 

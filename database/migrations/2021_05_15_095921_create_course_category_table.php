@@ -13,10 +13,10 @@ class CreateCourseCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_category', function (Blueprint $table) {
+        Schema::create('category_course', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('course_id')->constrained()->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->foreignId('category_id')->constrained()->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreignId('course_id')->constrained()->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCourseCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_category');
+        Schema::dropIfExists('category_course');
     }
 }

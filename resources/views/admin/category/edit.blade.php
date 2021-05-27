@@ -11,91 +11,43 @@
             </div>
 
         </div>
-        <div class=" table_scroll card-body rounded   py-3  col-sm-8" style="overflow-x: scroll;">
-            <table class="table    table-striped rounded border-white bg-white ">
-                <thead class="rounded    ">
-                    <tr class=" ">
-                        <th colspan="1" scope="col">نام</th>
-                        <th colspan="1" scope="col">نام انگلیسی</th>
-                        <th colspan="1" scope="col">بنر فیلم</th>
-                        <th colspan="1" scope="col">دسته بتدی پدر</th>
-                       
-
-                    </tr>
-                </thead>
-                <tbody id="forms" class=" rounded bg-white  pl-10 pr-26">
-                    <tr class=" rounded col-10   " id="">
-                        <form action="{{ route('category.update',['id' => $category->id]) }}" method="POST">
-                            @csrf
-                            @method('put')
-                            @if (count($errors)>0)
-                            <div class="alert">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{$error}}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
-                            <td>
-                                <div class=" rounded">
-                             <input value="{{ $category->title }}" type="text" name="title">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded"> <input value="{{ $category->slug }}" type="text" name="slug">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                            <select name="sub_category" class="select" name="" id="">
-                                <option value="@if($category->sub_category) {{$category->sub_category}}  @endif">@if($category->sub_category) {{$category->parentCategoryName()}} @else ندارد @endif</option>
-                                @foreach ($all as $item)
-                                @if (!$item->sub_category && $item->id !== $category->id)
-                                <option value="{{ $item->id }}">{{ $item->title }}</option>
-                                @endif
-                                @endforeach
-                            </select>
-                            </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                            <button class="btn btn-transparent-danger font-weight-bold mr-2 rounded" type="submit">Submit</button>
-                            </div>
-                            </td>
-                        </form>
-                    </tr>
-                </tbody>
-
-            </table>
-
+        <div class="card-body rounded py-3">
+            <form method="POST" action="{{ route('category.update',['category' => $category->id]) }}">
+                @csrf
+                @method('put')
+                <div class="form-group row">
+                    <label class="font-size-h6 font-weight-bolder text-dark">نام دسته بندی</label>
+                    <input type="text" name="title" value="{{ $category->title }}" class="form-control" placeholder="نام دسته بندی">
+                    @if ($errors->has('name'))
+                    <small class="form-text text-danger"> {{ $errors->first('titlel') }} </small>
+                    @endif
+                </div>
+                <div class="form-group row">
+                    <label class="font-size-h6 font-weight-bolder text-dark">نام انگلیسی دسته بندی</label>
+                    <input type="text" name="slug" value="{{ $category->slug }}" class="form-control" placeholder="نام انگلیسی دسته بندی">
+                    @if ($errors->has('name'))
+                    <small class="form-text text-danger"> {{ $errors->first('slug') }} </small>
+                    @endif
+                </div>
+                <div class="form-group row">
+                    <label class="font-size-h6 font-weight-bolder text-dark">دسته بندی والد</label>
+                    <select name="sub_category" class="form-control selectpicker">
+                        <option value="" selected>بدون دسته بندی</option>
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                        @if (count($category->childrenRecursive) > 0)
+                        @include('partials.category', ['categories'=>$category->childrenRecursive,
+                        'level'=>1])
+                        @endif
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <input type="submit" class="btn btn-success btn-lg" value="ویرایش دسته‌بندی">
+                </div>
+            </form>
         </div>
     </div>
 </div>
-
-@endsection
-
-@section('css')
-<style>
-    .table_scroll::-webkit-scrollbar {
-
-        height: 7px;
-    }
-
-    .table_scroll::-webkit-scrollbar-thumb {
-        background-color: rgb(54, 153, 255);
-
-        overflow-x: hidden;
-    }
-
-    .table_scroll::-webkit-scrollbar-track-piece {
-        background-color: rgb(30, 30, 45);
-
-        height: 7px;
-        overflow-x: hidden;
-        overflow-x: hidden;
-        overflow-y: hidden;
-    }
-</style>
 
 @endsection

@@ -20,8 +20,6 @@
                     <th scope="col">عملیات</th>
                     <th scope="col">قسمت ها</th>
                     <th scope="col"> اضافه کردن قسمت ها </th>
-
-
                 </tr>
             </thead>
             <tbody class="rounded">
@@ -33,7 +31,7 @@
                     <td> {{ $course->status }} </td>
                     <td>
                         <div class=" rounded">
-                            <button class="btn btn-transparent-danger font-weight-bold mr-2" type="submit"><a class="rounded" href="{{route('course.edit',['id'=>$course->id])}}"> ویرایش </a></button>
+                            <button class="btn btn-transparent-danger font-weight-bold mr-2" type="submit"><a class="rounded" href="{{route('course.edit',['course'=>$course->id])}}"> ویرایش </a></button>
 
                         </div>
                     </td>

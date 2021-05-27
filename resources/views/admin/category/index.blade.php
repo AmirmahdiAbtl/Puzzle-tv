@@ -71,7 +71,6 @@
                         <th>شناسه</th>
                         <th>نام دسته بندی</th>
                         <th>نام انگلیسی دسته بندی</th>
-                        <th>دسته بندی والد</th>
                         <th>عملیات</th>
                     </tr>
                 </thead>
@@ -81,12 +80,6 @@
                         <td><a href="">{{$category->id}}</a></td>
                         <td><a href="">{{$category->title}}</a></td>
                         <td class="initialism">{{$category->slug}}</td>
-                        <td>
-                        @isset($category->childrenRecursive)
-                        @foreach ($category->childrenRecursive as $sub_cat)
-                            <span class="label label-primary label-inline font-weight-bolder mr-2">{{$sub_cat->title}}</span>
-                        @endforeach
-                        @endisset</td>
                         <td>
                             <a href="{{ route('category.edit',$category->id) }}"
                                 class="btn btn-success text-center btn-icon mr-1">
@@ -128,29 +121,10 @@
                             </button>
                         </td>
                     </tr>
-                    <div class="modal fade" id="deleteModel{{$category->id}}" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <form class="modal-dialog" role="document" method="POST" action="{{ route('category.destroy', $category->id) }}">
-                            @csrf
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">حذف دوره</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <i aria-hidden="true" class="ki ki-close"></i>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    آیا از حذف دسته‌بندی اطمینان دارید؟
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="btn btn-light-primary font-weight-bold" data-dismiss="modal">انصراف</a>
-                                    <button class="btn btn-danger text-center btn-sm">
-                                        حذف دسته‌بندی
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    @if (count($category->childrenRecursive) > 0)
+                        @include('partials.categoryList', ['categories'=>$category->childrenRecursive,
+                        'level'=>1])
+                    @endif
                     @endforeach
                     
                 </tbody>

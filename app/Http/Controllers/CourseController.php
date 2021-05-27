@@ -47,14 +47,7 @@ class CourseController extends Controller
             'banner' => ['required','image'],
             'status' => ['required'],
         ]);
-       
-        $categoryId = Category::whereIn('title',$request->tags)->get()->pluck('id')->toArray();
-        if(count($categoryId) < 1){
-            throw ValidationException::withMessages([
-                'category' => ['دسته بندی یافت نشد'],
-            ]);
-        }
-
+    
         $banner_file = $request->file('banner');
         $base_banner_name = pathinfo($banner_file->getClientOriginalName(), PATHINFO_FILENAME);
         $banner_extension = $banner_file->getClientOriginalExtension();
@@ -79,9 +72,9 @@ class CourseController extends Controller
     
         $courses['teacher_id'] = auth()->user()->id;
         $course = Course::create($courses);
-        $course->category()->sync($categoryId);
+        $course->giveCategoriesTo($request->categories);
 
-        return view('admin.course.create');
+        return redirect()->route('admin.course.index')->with('success', true);
     }
 
     public function edit(Request $request,$id)
@@ -131,7 +124,7 @@ class CourseController extends Controller
         return redirect()->route('home');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {   
         $course = Course::find($id);
         
