@@ -103,7 +103,7 @@
         @foreach ($recent_course as $recent) 
         
              <div class="col-12 first1">
-                <img src='{{ asset("/images/banner/$recent->banner") }}'
+                <img src='{{ asset("/images/poster/$recent->poster") }}'
                     class="w-100 rounded" height="269.44px" alt="">
                 <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $recent->title }}</h4>
                  <h4 class="small text-white">قسمت ۳</h4> 
@@ -144,7 +144,7 @@
         
         @foreach ($course as $item)
             <div class="col-md rounded first" id="{{ $item->id }}">
-                <img src="{{ asset("/images/banner/$item->banner") }}"
+                <img src="{{ asset("/images/poster/$item->poster") }}"
                     class="w-100 rounded"  alt="">
                 <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $item->title }}</h4>
                 <h4 class="small text-white">قسمت ۳</h4>
@@ -186,7 +186,7 @@
         
         @foreach ($course as $item)
             <div class="col-md rounded first2" id="{{ $item->id }}">
-                <img src="{{ asset("/images/banner/$item->banner") }}"
+                <img src="{{ asset("/images/poster/$item->poster") }}"
                     class="w-100 rounded"  alt="">
                 <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $item->title }}</h4>
                 <h4 class="small text-white">قسمت ۳</h4>
@@ -258,14 +258,14 @@
        
     });
     async function courses(proms) {
-        let url = 'http://localhost:8000/api/coursebanner/' + proms;
+        let url = '{{ URL::to('/') }}/api/coursebanner/' + proms;
         const response = await fetch(url);
         const json = await response.json();
         
         $("#contentTitle").text(json.title)
         $("#contentDetail").text(json.discription)
-        $("#contentLink a").attr('href','http://localhost:8000/course/' + json.slug)
-        $("#contentImage").attr('src',"http://localhos:8000/images/banner/" + json.banner)
+        $("#contentLink a").attr('href','{{ URL::to('/') }}/course/' + json.slug)
+        $("#contentImage").attr('src',"{{ URL::to('/') }}/images/banner/" + json.banner)
 
     }
     $( ".first" ).click(function() {
