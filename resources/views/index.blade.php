@@ -102,7 +102,7 @@
     <div class="row main-slider">
         @foreach ($recent_course as $recent) 
         
-             <div class="col-12 first1">
+             <div class="col-12 first1" id="{{ $recent->id }}">
                 <img src='{{ asset("/images/poster/$recent->poster") }}'
                     class="w-100 rounded" height="269.44px" alt="">
                 <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $recent->title }}</h4>
@@ -117,16 +117,16 @@
             <div class="card-body p-0">
                 <div class="overlay-wrapper">
                     <img src=""
-                        width="100%" height="500px" alt="" class="w-100 rounded" />
+                        width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage1"/>
                 </div>
                 <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start" >
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
                              <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle">فیلم ها </a>
-                        <p class=" mb-2  ml-10  mt-11" id="contentDetail">hello</p>
-                        <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink">
+                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle1">فیلم ها </a>
+                        <p class=" mb-2  ml-10  mt-11" id="contentDetail1">hello</p>
+                        <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink1">
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
                     </div>
@@ -201,16 +201,16 @@
             <div class="card-body p-0">
                 <div class="overlay-wrapper">
                     <img src=""
-                        width="100%" height="500px" alt="" class="w-100 rounded" />
+                        width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage2" />
                 </div>
                 <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start" >
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
                              <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle">فیلم ها </a>
-                        <p class=" mb-2  ml-10  mt-11" id="contentDetail">hello</p>
-                        <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink">
+                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle2">فیلم ها </a>
+                        <p class=" mb-2  ml-10  mt-11" id="contentDetail2">hello</p>
+                        <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink2">
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
                     </div>
@@ -257,17 +257,17 @@
         rtl: true,
        
     });
-    async function courses(proms) {
-        let url = '{{ URL::to('/') }}/api/coursebanner/' + proms;
-        const response = await fetch(url);
-        const json = await response.json();
+    // async function courses(proms) {
+    //     let url = '{{ URL::to('/') }}/api/coursebanner/' + proms;
+    //     const response = await fetch(url);
+    //     const json = await response.json();
         
-        $("#contentTitle").text(json.title)
-        $("#contentDetail").text(json.discription)
-        $("#contentLink a").attr('href','{{ URL::to('/') }}/course/' + json.slug)
-        $("#contentImage").attr('src',"{{ URL::to('/') }}/images/banner/" + json.banner)
+    //     $("#contentTitle").text(json.title)
+    //     $("#contentDetail").text(json.discription)
+    //     $("#contentLink a").attr('href','{{ URL::to('/') }}/course/' + json.slug)
+    //     $("#contentImage").attr('src',"{{ URL::to('/') }}/images/banner/" + json.banner)
 
-    }
+    // }
     $( ".first" ).click(function() {
         if($(this).hasClass('slide-was-down')){
             $("#content").slideUp()
@@ -275,7 +275,19 @@
         }else{
             $("#content").slideDown()
             let currentId = this.getAttribute("id");
-            courses(currentId)
+            
+            async function ajax() {
+                let url = '{{ URL::to('/') }}/api/coursebanner/' + currentId;
+                const response = await fetch(url);
+                const json = await response.json();
+                
+                $("#contentTitle").text(json.title)
+                $("#contentDetail").text(json.discription)
+                $("#contentLink a").attr('href','{{ URL::to('/') }}/course/' + json.slug)
+                $("#contentImage").attr('src',"{{ URL::to('/') }}/images/banner/" + json.banner)
+            }
+            ajax()
+
             $(this).addClass("slide-was-down");
             $(this).parent().siblings().each(function(index){
                 if($(this).children().hasClass('slide-was-down')){
@@ -292,7 +304,20 @@
         }else{
             $("#content1").slideDown()
             let currentId = this.getAttribute("id");
-            courses(currentId)
+            
+            async function ajax() {
+                console.log(currentId)
+                let url = '{{ URL::to('/') }}/api/coursebanner/' + currentId;
+                const response = await fetch(url);
+                const json = await response.json();
+                
+                $("#contentTitle1").text(json.title)
+                $("#contentDetail1").text(json.discription)
+                $("#contentLink1 a").attr('href','{{ URL::to('/') }}/course/' + json.slug)
+                $("#contentImage1").attr('src',"{{ URL::to('/') }}/images/banner/" + json.banner)
+            }
+            ajax()            
+
             $(this).addClass("slide-was-down");
             $(this).parent().siblings().each(function(index){
                 if($(this).children().hasClass('slide-was-down')){
@@ -309,7 +334,19 @@
         }else{
             $("#content2").slideDown()
             let currentId = this.getAttribute("id");
-            courses(currentId)
+            
+            async function ajax() {
+                let url = '{{ URL::to('/') }}/api/coursebanner/' + currentId;
+                const response = await fetch(url);
+                const json = await response.json();
+                
+                $("#contentTitle2").text(json.title)
+                $("#contentDetail2").text(json.discription)
+                $("#contentLink2 a").attr('href','{{ URL::to('/') }}/course/' + json.slug)
+                $("#contentImage2").attr('src',"{{ URL::to('/') }}/images/banner/" + json.banner)
+            }
+            ajax()
+
             $(this).addClass("slide-was-down");
             $(this).parent().siblings().each(function(index){
                 if($(this).children().hasClass('slide-was-down')){
