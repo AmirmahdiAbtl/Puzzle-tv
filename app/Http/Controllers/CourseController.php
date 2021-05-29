@@ -79,11 +79,12 @@ class CourseController extends Controller
 
     public function edit(Request $request,$id)
     {
-        $categories = Category::with('childrenRecursive')->where('sub_category', null)->get();
+        $categories = Category::get();
         $course = Course::find($id);
-        return view('admin.course.edit',['course'=>$course,'categories'=>$categories]);
+        $array = $course->category->pluck('id')->toArray();
+        return view('admin.course.edit',['course'=>$course, 'categories' => $categories,'array' => $array]);
     }
-
+    
     public function update(Request $request, $id)
     {
         $course = Course::find($id);
@@ -119,9 +120,10 @@ class CourseController extends Controller
             $file->storeAs('images/poster',$file_name,'public_file');
             $data['poster'] = $file_name;
         }
-        $categoryId = Category::whereIn('title',$request->tags)->get()->pluck('id')->toArray();
+        // $categoryId = Category::whereIn('title',$request->categories)->get()->pluck('id')->toArray();
         $course->update($data);
-        $course->category()->sync($categoryId);
+        // $course->category()->sync($categoryId);
+        $course->giveCategoriesTo($request->categories);
         return redirect()->route('home');
     }
 

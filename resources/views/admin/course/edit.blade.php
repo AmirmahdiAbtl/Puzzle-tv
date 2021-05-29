@@ -31,15 +31,15 @@
                     <div class="col-md-6 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">دسته بندی</label>
                         <select name="categories[]" class="form-control selectpicker" multiple>
-                            <option value=null selected disabled>دسته بندی دوره را انتخاب کنید.
+                            <option value=null disabled>دسته بندی دوره را انتخاب کنید.
                             </option>
                             @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->title }}</option>
-                            @if (count($category->childrenRecursive) > 0)
-                            @include('partials.category',
-                            ['categories'=>$category->childrenRecursive,
-                            'level'=>1])
-                            @endif
+                            <option value="{{ $category->id }}" @if(in_array($category->id,$array)) selected @endif>{{ $category->title }}</option>
+                                @if (count($category->childrenRecursive) > 0)
+                                @include('partials.categoryList',
+                                ['categories'=>$category->childrenRecursive,
+                                'level'=>1])
+                                @endif
                             @endforeach
                         </select>
                     </div>
@@ -48,7 +48,7 @@
                     <div class="col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">توضیحات ویدیو</label>
                         <textarea name="discription" class="form-control" value="{{$course->discription}} "
-                            placeholder="توضیحات"></textarea>
+                            placeholder="توضیحات">{{$course->discription}}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
