@@ -7,6 +7,8 @@ use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -33,7 +35,7 @@ class UserController extends Controller
         $request->validate([
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
-            'mobile'=> 'required|numeric|digits:11|unique:users',
+            'mobile'=> ['required','numeric','digits:11',Rule::unique('users')->ignore($user->id)],
             'age' =>'integer|nullable',
             'country' =>'string|nullable',
             'city' => 'string|nullable',
@@ -72,14 +74,12 @@ class UserController extends Controller
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
             'mobile' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
         ]);
 
         $user = User::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
-            'email' => $request->email,
             'mobile' => $request->mobile,
             'access' => 1,
             'password' => Hash::make($request->password),

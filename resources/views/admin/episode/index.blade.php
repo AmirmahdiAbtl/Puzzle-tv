@@ -41,7 +41,7 @@
             <tbody class="rounded">
                 @forelse ($episodes as $episode)
                 <tr class="rounded">
-                    <td> {{ $episode->season }} </td>
+                    <td> {{ $episode->season->title }} </td>
                     <td> {{ $episode->title }} </td>
                     <td> {{ $episode->video }} </td>
                     <td> {{ $episode->episode_number }} </td>
