@@ -35,7 +35,7 @@
                     
                     <div>
                         season : <select name="season_id" id="seasons-select">
-                            <option value="">--انتخواب فصل--</option>
+                            <option value="">--انتخاب فصل--</option>
                             @foreach ($course->seasons as $item)
                                  <option value="{{ $item->id }}">{{ $item->title }}</option>
                             @endforeach

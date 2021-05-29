@@ -5,7 +5,7 @@
             <div class="card-header rounded">
                 <div class="card-title rounded">
                     <h3 class="card-label rounded font-weight-bolder">
-                        ویرایش ویدیو
+                        ویرایش قسمت
                     </h3>
                 </div>
 
@@ -28,13 +28,18 @@
                             <label class="font-size-h6 font-weight-bolder text-dark">عنوان</label>
                             <input value=" " type="text" name="title" class="form-control">
                         </div>
-                        <div class="col-md-6 col-12">
+                        <div class="col-md-3 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">فصل ها </label>
-                            <select name="categories[]" class="form-control selectpicker" multiple>
-                                <option value=null selected disabled>فصل دوره را انتخاب کنید.
+                            <select name="categories[]"  id="seasons-select" class="form-control selectpicker" multiple>
+                                <option value=null  disabled>فصل دوره را انتخاب کنید.
                                 </option>
+                                <option value="0">فصل جدید</option>
                                 {{-- اینجا فصل ها میائ-- --}}
                             </select>
+                        </div>
+                        <div class="col-md-3 col-12">
+                            <label class="font-size-h6 font-weight-bolder text-dark">نام فصل </label>
+                            <input value=" " type="text" name="title" class="form-control new-seasons" disabled>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -80,9 +85,7 @@
     </div>
 
 @endsection
-@section('js')
 
-@endsection
 @section('css')
     <style>
         .table_scroll::-webkit-scrollbar {
@@ -107,4 +110,18 @@
 
     </style>
 
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(() => {
+        $('#seasons-select').change((e)=>{
+            if(e.target.value == "0"){
+                $('.new-seasons').removeAttr('disabled')
+            }else {
+                $('.new-seasons').attr('disabled','')
+            }
+        })
+    })
+</script>
 @endsection
