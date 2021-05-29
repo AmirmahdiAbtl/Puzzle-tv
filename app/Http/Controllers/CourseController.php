@@ -124,7 +124,7 @@ class CourseController extends Controller
         $course->update($data);
         // $course->category()->sync($categoryId);
         $course->giveCategoriesTo($request->categories);
-        return redirect()->route('home');
+        return redirect()->route('course.index');
     }
 
     public function destroy($id)
@@ -135,17 +135,17 @@ class CourseController extends Controller
         Storage::delete('images/banner/'.$course->banner);
 
         $course->delete();
-        return redirect()->route('home');
+        return redirect()->route('course.index');
     }
 
-    public function add_category($id,Request $request)
-    {
-        $request->validate([
-            'category_title' => ['required','string','max:255'],
-        ]);
-        $category=Category::where('title',$request->category_title)->get()[0];
-        $course=Course::find($id);
-        $category->course()->attach($course);
-        return redirect()->route('home');
-    }
+    // public function add_category($id,Request $request)
+    // {
+    //     $request->validate([
+    //         'category_title' => ['required','string','max:255'],
+    //     ]);
+    //     $category=Category::where('title',$request->category_title)->get()[0];
+    //     $course=Course::find($id);
+    //     $category->course()->attach($course);
+    //     return redirect()->route('home');
+    // }
 }
