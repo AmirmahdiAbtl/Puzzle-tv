@@ -61,12 +61,12 @@
                             <label class="font-size-h6 font-weight-bolder text-dark">وضعیت ویدیو</label>
                             <div class="radio-inline mt-2">
                                 <label class="radio radio-lg">
-                                    <input type="radio" name="status" value="1" />
+                                    <input type="radio" name="status" value="1" @if($course->status == 1) checked="checked" @endif />
                                     <span></span>
                                     اشتراکی
                                 </label>
                                 <label class="radio radio-lg">
-                                    <input type="radio" name="status" value="0" checked="checked" />
+                                    <input type="radio" name="status" value="0" @if($course->status == 1) disabled @else checked="checked" @endif  />
                                     <span></span>
                                     رایگان
                                 </label>
