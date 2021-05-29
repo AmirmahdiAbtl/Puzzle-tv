@@ -6,10 +6,9 @@
             <div class="card-header rounded">
                 <div class="card-title rounded">
                     <h3 class="card-label rounded font-weight-bolder">
-                        اضافه کردن قسمت
+                        ویرایش اشتراک 
                     </h3>
                 </div>
-
             </div>
             <div class="card-body rounded col-12 col-md-12  py-3 col-sm-8">
                 @if (count($errors) > 0)
@@ -23,24 +22,25 @@
                 @endif
                 <form action="{{ route('subscription.update',['id' => $subscription->id]) }}" class="padding-30" method="POST">
                     @method('put')
+                    @csrf
                     <div class="form-group row">
                         <div class="col-md-6 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">عنوان</label>
-                            <input value=" " type="text" name="title" class="form-control">
+                            <input value=" {{ $subscription->title }}" type="text" name="title" class="form-control">
                         </div>
                         <div class="col-md-6 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">زمان  </label>
-                            <input value=" " type="number" name="title" class="form-control">
+                            <input value=" {{ $subscription->time }}" type="number" name="time" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12 col-md-6">
                             <label class="font-size-h6 font-weight-bolder text-dark">قیمت </label>
-                            <input type="text" name="slug" class="form-control">
+                            <input value="{{ $subscription->price }}" type="text" name="price" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">ویرایش قسمت</button>
+                        <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">ویرایش اشتراک</button>
                     </div>
                 </form>
             </div>

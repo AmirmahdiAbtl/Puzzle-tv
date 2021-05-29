@@ -6,7 +6,7 @@
             <div class="card-header rounded">
                 <div class="card-title rounded">
                     <h3 class="card-label rounded font-weight-bolder">
-                        اضافه کردن قسمت
+                        اضافه کردن اشتراک
                     </h3>
                 </div>
 
@@ -30,17 +30,17 @@
                         </div>
                         <div class="col-md-6 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">زمان  </label>
-                            <input value=" " type="number" name="title" class="form-control">
+                            <input value=" " type="number" name="time" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12 col-md-6">
                             <label class="font-size-h6 font-weight-bolder text-dark">قیمت </label>
-                            <input type="text" name="slug" class="form-control">
+                            <input type="text" name="price" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">ویرایش قسمت</button>
+                        <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">اضافه کردن اشتراک</button>
                     </div>
                 </form>
             </div>

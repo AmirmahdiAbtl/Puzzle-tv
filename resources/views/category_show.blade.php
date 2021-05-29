@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-  
+
 <div class="container-fluid my-10">
     <div class="col-12 mb-7">
         <h2 class="text-white font-weight-boldest display5-md">category name </h2>
@@ -11,7 +11,7 @@
         <div class="col-md rounded first" id="{{ $item->id }}">
             <img src="{{ asset("/images/poster/$item->poster") }}" class="w-100 rounded" alt="">
             <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $item->title }}</h4>
-            <h4 class="small text-white">قسمت ۳</h4>
+            {{-- <h4 class="small text-white">قسمت ۳</h4> --}}
         </div>
         @endforeach
 
