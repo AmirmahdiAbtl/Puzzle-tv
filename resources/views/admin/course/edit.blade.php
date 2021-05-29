@@ -102,7 +102,7 @@
                                 </div>
                             </td>
                         </form>
-                        <form action="{{route('course.delete',['id' => $course->id])}}" method="POST">
+                        <form action="{{route('course.destroy',['course' => $course->id])}}" method="POST">
                             @method('delete')
                             @csrf
                             <td>

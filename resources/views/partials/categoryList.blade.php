@@ -4,7 +4,7 @@
         <td>{{str_repeat('--', $level)}} {{$sub_category->title}}</td>
         <td class="initialism">{{$sub_category->slug}}</td>
         <td>
-            <a href="{{ route('category.edit',$category->id) }}"
+            <a href="{{ route('category.edit',$sub_category->id) }}"
                 class="btn btn-success text-center btn-icon mr-1">
                 <span class="svg-icon svg-icon-md svg-icon-white" data-container="body"
                     data-toggle="tooltip" data-placement="top" title=""
@@ -23,7 +23,7 @@
                 </span>
             </a>
             <button type="button" class="btn btn-outline-danger btn-icon mr-1" data-toggle="modal"
-                data-target="#deleteModel{{$category->id}}">
+                data-target="#deleteModel{{$sub_category->id}}">
                 <span class="svg-icon" data-container="body" data-toggle="tooltip" data-placement="top"
                     title="حذف دوره">
                     <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-04-19-122603/theme/html/demo1/dist/../src/media/svg/icons/Home/Trash.svg--><svg

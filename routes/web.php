@@ -77,6 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'can:course CRUD'], function () {
         Route::resource('course', CourseController::class);
+        Route::post('add_category' ,[CategoryController::class,'add_category'])->name('course.add_category');
 
         // Route::get('/admin/course', [CourseController::class,'index'])->middleware('auth')->name('course.index');
         // Route::get('/admin/course/create', [CourseController::class,'create'])->middleware('auth')->name('course.create');

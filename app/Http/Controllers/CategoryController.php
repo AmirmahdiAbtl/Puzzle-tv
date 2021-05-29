@@ -26,6 +26,7 @@ class CategoryController extends Controller
     {
         $categories = Category::with('childrenRecursive')->where('sub_category', null)->get();
         // dd($category);
+        // dd($categories);
         return view('admin.category.index',compact('categories'));
     }
 
