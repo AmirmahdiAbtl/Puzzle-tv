@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-12 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">شماره موبایل</label>
                     <input type="tel" value="{{$user->mobile}}" class="form-control" name="mobile" placeholder="09123456789" />
                     </div>

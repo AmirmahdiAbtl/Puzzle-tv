@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'fname'=> 'required|string|max:255',
             'lname'=> 'required|string|max:255',
             'mobile'=> 'required|numeric|digits:11|unique:users',
-            'password'=> 'required',
+            'password'=> 'required:min:8',
         ]);
 
         $user = User::create([
