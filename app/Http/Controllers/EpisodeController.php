@@ -25,6 +25,7 @@ class EpisodeController extends Controller
 
     public function store(Request $request,$id)
     {
+        // dd($request->all());
         $course = Course::with('episodes')->withCount(['seasons','episodes'])->find($id);
         $validation = $request->validate([
             'title' => 'required|max:255|string',
