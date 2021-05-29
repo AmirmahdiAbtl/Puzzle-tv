@@ -22,6 +22,7 @@
                 @endif
                 <form action="{{ route('episode.store', ['id' => $course->id]) }}" class="padding-30" method="POST"
                     enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group row">
                         <div class="col-md-6 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">عنوان</label>
@@ -29,28 +30,30 @@
                         </div>
                         <div class="col-md-3 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">فصل ها </label>
-                            <select name="categories[]"  id="seasons-select" class="form-control selectpicker" multiple>
+                            <select name="season_id"  id="seasons-select" class="form-control selectpicker" multiple>
                                 <option value=null  disabled>فصل دوره را انتخاب کنید.
                                 </option>
+                                @foreach ($course->seasons as $item)
+                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                @endforeach
                                 <option value="0">فصل جدید</option>
-                                {{-- اینجا فصل ها میائ-- --}}
                             </select>
                         </div>
                         <div class="col-md-3 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">نام فصل </label>
-                            <input value=" " type="text" name="title" class="form-control new-seasons" disabled>
+                            <input type="text" name="season_title" class="form-control new-seasons" disabled>
                         </div>
 
                     </div>
                     <div class="form-group row">
                         <div class="col-12 col-md-6">
                             <label class="font-size-h6 font-weight-bolder text-dark">لینک </label>
-                            <input value=" " type="text" name="title" class="form-control">
+                            <input type="text" name="slug" class="form-control">
                         </div>
                         <div class="col-md-6 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">فایل فیلم</label>
                             <div class="custom-file mb-3">
-                                <input type="file" name="poster" value="{{ old('poster') }}" class="custom-file-input"
+                                <input type="file" name="video" class="custom-file-input"
                                     id="customFile">
                                 <label class="custom-file-label" for="customFile">فایل خود را انتخاب کنید</label>
                             </div>
@@ -66,7 +69,7 @@
                                     اشتراکی
                                 </label>
                                 <label class="radio radio-lg">
-                                    <input type="radio" name="status" value="0" @if($course->status == 1) disabled @else checked="checked" @endif  />
+                                    <input type="radio" name="status" value="0" @if($course->status == 0) checked="checked" @endif  />
                                     <span></span>
                                     رایگان
                                 </label>
