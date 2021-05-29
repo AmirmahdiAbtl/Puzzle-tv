@@ -34,6 +34,10 @@ class EpisodeController extends Controller
             'status' => 'required',
             'season_id' => 'required'
         ]);
+
+        if ($request->season_id == 0 ) {
+            $request->season_id=  $course->seasons->count() + 1;
+        }
         
         $season_id = $request->season_id;
 
@@ -61,7 +65,7 @@ class EpisodeController extends Controller
             'course_id' => $course->id,
             'episode_number' => $course->episodes_count + 1
         ]);
-        return redirect()->route('home');
+        return redirect()->route('episode.index');
     }
 
     public function edit($slug)
@@ -79,6 +83,10 @@ class EpisodeController extends Controller
             'status' => 'required',
             'season_id' => 'required'
         ]);
+        
+        if ($request->season_id == 0 ) {
+            $request->season_id=  $episode->course->seasons->count() + 1;
+        }
 
         $season_id = $request->season_id;
         $course = $episode->course;
@@ -107,7 +115,7 @@ class EpisodeController extends Controller
             $data['video'] = $file_name;
         }
         $episode->update($data);
-        return redirect()->route('home');
+        return redirect()->route('episode.index');
     }
 
     public function destroy($slug)
@@ -118,6 +126,6 @@ class EpisodeController extends Controller
             $season->delete();
         }
         $episode->delete();
-        return redirect()->route('home');
+        return redirect()->route('episode.index');
     }
 }
