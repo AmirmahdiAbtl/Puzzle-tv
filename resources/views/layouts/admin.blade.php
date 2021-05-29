@@ -183,6 +183,7 @@
 												<span class="menu-text">دسته‌بندی‌ها</span>
 											</a>
 										</li>
+
 									</ul>
 								</div>
 							</li>
@@ -285,7 +286,7 @@
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
 							<li class="menu-item" aria-haspopup="true">
-								<a target="_blank" href="https://preview.keenthemes.com/metronic/demo1/builder.html"
+								<a target="_blank" href="{{ route('permission.index') }}"
 									class="menu-link">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->

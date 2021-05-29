@@ -75,7 +75,7 @@
                         <div class="col-md-6 col-12">
 
                         </div>
-                    </div>
+                    </div> 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">ویرایش قسمت</button>
                     </div>
