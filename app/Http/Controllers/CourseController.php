@@ -79,8 +79,9 @@ class CourseController extends Controller
 
     public function edit(Request $request,$id)
     {
+        $categories = Category::with('childrenRecursive')->where('sub_category', null)->get();
         $course = Course::find($id);
-        return view('admin.course.edit',['course'=>$course]);
+        return view('admin.course.edit',['course'=>$course,'categories'=>$categories]);
     }
 
     public function update(Request $request, $id)
