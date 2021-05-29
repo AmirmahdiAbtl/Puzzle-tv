@@ -64,10 +64,9 @@
                 let currentId = this.getAttribute("id");
 
                 async function ajax() {
-                    let url = '{{ URL::to(' / ') }}/api/coursebanner/' + currentId;
+                    let url = '{{ URL::to('/') }}/api/coursebanner/' + currentId;
                     const response = await fetch(url);
                     const json = await response.json();
-
                     $("#contentTitle").text(json.title)
                     $("#contentDetail").text(json.discription)
                     $("#contentLink a").attr('href', '{{ URL::to(' / ') }}/course/' + json.slug)
