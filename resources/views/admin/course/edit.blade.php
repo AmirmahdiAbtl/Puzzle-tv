@@ -33,14 +33,14 @@
                         <select name="categories[]" class="form-control selectpicker" multiple>
                             <option value=null selected disabled>دسته بندی دوره را انتخاب کنید.
                             </option>
-                            {{-- @foreach ($categories as $category)
+                            @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->title }}</option>
                             @if (count($category->childrenRecursive) > 0)
                             @include('partials.category',
                             ['categories'=>$category->childrenRecursive,
                             'level'=>1])
                             @endif
-                            @endforeach --}}
+                            @endforeach
                         </select>
                     </div>
                 </div>
