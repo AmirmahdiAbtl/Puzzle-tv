@@ -37,13 +37,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-12">
+                    <div class="col-12 col-md-6">
                         <label class="font-size-h6 font-weight-bolder text-dark">لینک </label>
-                        <textarea name="discription" class="form-control" value=" "
-                            placeholder="توضیحات"></textarea>
+                        <input  value=" " type="text" name="title" class="form-control"  >
                     </div>
-                </div>
-                <div class="form-group row">
                     <div class="col-md-6 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">فایل فیلم</label>
                         <div class="custom-file mb-3">
@@ -52,8 +49,7 @@
                             <label class="custom-file-label" for="customFile">فایل خود را انتخاب کنید</label>
                         </div>
                     </div>
-                    
-                </div>
+            
                 <div class="form-group row">
                     <div class="col-md-6 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">وضعیت ویدیو</label>
