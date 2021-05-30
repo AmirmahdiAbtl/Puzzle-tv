@@ -187,6 +187,7 @@
 									</ul>
 								</div>
 							</li>
+							
 							@endcan
 
 							@can('user CRUD')
