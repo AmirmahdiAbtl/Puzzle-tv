@@ -19,7 +19,8 @@ class CategoryController extends Controller
 
     public function show($slug){
         $category = Category::where('slug',$slug)->first();
-        $course = $category->course;
+        $course = $category->courses;
+        return view('category_show',['course'=>$course]);   
     }
 
     public function index()
@@ -30,18 +31,18 @@ class CategoryController extends Controller
         return view('admin.category.index',compact('categories'));
     }
 
-   public function store(Request $request){
-    $request->validate([
-        'title' => ['required','string','max:255'],
-        'slug' => ['required','string','max:255','unique:categories'],
-        'sub_category' => ['nullable','exists:categories,id'],
-    ]);
-    Category::create(
-        $request->only('title','slug','sub_category')
-    );
-    return redirect()->back();
-   }
-   public function edit(Request $request,$id)
+    public function store(Request $request){
+        $request->validate([
+            'title' => ['required','string','max:255'],
+            'slug' => ['required','string','max:255','unique:categories'],
+            'sub_category' => ['nullable','exists:categories,id'],
+        ]);
+        Category::create(
+            $request->only('title','slug','sub_category')
+        );
+        return redirect()->route('category.index');
+    }
+    public function edit(Request $request,$id)
     {
         $categories = Category::with('childrenRecursive')->where('sub_category', null)->get();
         $category = Category::find($id);
@@ -64,6 +65,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        return redirect()->back();
+        return redirect()->route('category.index');
+
     }
 }

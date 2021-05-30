@@ -1,4 +1,3 @@
-
 @extends('layouts.admin')
 @section('content')
     <div class="container-fluid">
@@ -6,7 +5,7 @@
             <div class="card-header rounded">
                 <div class="card-title rounded">
                     <h3 class="card-label rounded font-weight-bolder">
-                        اضافه کردن اشتراک
+                        ویرایش قسمت
                     </h3>
                 </div>
 
@@ -21,26 +20,30 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('subscription.store') }}" class="padding-30" method="POST">
-                    @csrf
+                <form action="{{ route('episode.update', ['slug' => $episode->slug]) }}" class="padding-30" method="POST"
+                    enctype="multipart/form-data">
+                    @method('put')
                     <div class="form-group row">
                         <div class="col-md-6 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">عنوان</label>
                             <input value=" " type="text" name="title" class="form-control">
                         </div>
-                        <div class="col-md-6 col-12">
-                            <label class="font-size-h6 font-weight-bolder text-dark">زمان  </label>
-                            <input value=" " type="number" name="time" class="form-control">
+                        <div class="col-md-3 col-12">
+                            <label class="font-size-h6 font-weight-bolder text-dark">فصل ها </label>
+                            <select name="categories[]"  id="seasons-select" class="form-control selectpicker" multiple>
+                                <option value=null  disabled>فصل دوره را انتخاب کنید.
+                                </option>
+                                <option value="0">فصل جدید</option>
+                                {{-- اینجا فصل ها میائ-- --}}
+                            </select>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-12 col-md-6">
-                            <label class="font-size-h6 font-weight-bolder text-dark">قیمت </label>
-                            <input type="text" name="price" class="form-control">
+                        <div class="col-md-3 col-12">
+                            <label class="font-size-h6 font-weight-bolder text-dark">نام فصل </label>
+                            <input value=" " type="text" name="title" class="form-control new-seasons" disabled>
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">اضافه کردن اشتراک</button>
+                        <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">ویرایش قسمت</button>
                     </div>
                 </form>
             </div>
@@ -48,6 +51,3 @@
     </div>
 
 @endsection
-
-
-

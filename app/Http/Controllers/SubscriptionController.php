@@ -58,13 +58,13 @@ class SubscriptionController extends Controller
         ];
     
         $subscription->update($data);
-        return redirect()->route('home');
+        return redirect()->route('subscription.index');
     }
 
     public function delete($id)
     {   
         Subscription::find($id)->delete();
-        return redirect()->route('home');
+        return redirect()->route('subscription.index');
     }
 
 }
