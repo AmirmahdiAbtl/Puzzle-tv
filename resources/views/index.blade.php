@@ -2,42 +2,91 @@
 
 @section('content')
 <div class="top-slider w-100">
-    <div class="slider h-lg-700px h-500px"
-        style="background: url('https://www.bonyadvokala.com/file/406S53QYJVrrMO4OHiCXGC1Rsd4hRXVTIKWUdPY8.jpeg');background-size:cover;">
-        <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
-            <div class="d-block">
-                <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
-                    alt="مستند کیهان" class="w-100px mb-3">
-                <h2 class="text-white font-weight-boldest display4-md">تحلیل بازار بورس</h2>
-                <p class="text-white mt-4">شنبه تا جهارشنبه ساعت ۹:۰۰ از شبکه ایران</p>
-                <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+        @isset($slider[0])
+        <div class="slider h-lg-700px h-500px"
+            style='background: url("{{ asset("/images/poster/".$slider[0]->poster) }}");background-size:cover;'>
+            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+                <div class="d-block">
+                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
+                        alt="{{ $slider[0]->title }}" class="w-100px mb-3">
+                    <h2 class="text-white font-weight-boldest display4-md">{{ $slider[0]->title }}</h2>
+                    <p class="text-white mt-4">{{ explode('-',$dbvalue[0]->name)[0] }}</p>
+                    <a href="{{ asset('course/'.$slider[0]->slug) }}">
+                        <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="slider h-lg-700px h-500px"
-        style="background: url('https://static1.gostaresh.news/thumbnail/2dCZoCCXyj3M/MPG-GGKSFzLCrjpM5307pPl6zF97oQefSuk2EILNlfl7G4Pvga5InJXRBeqa6Tcp/%DA%A9%D9%86%DA%A9%D9%88%D8%B1-99.jpg');background-size:cover;">
-        <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
-            <div class="d-block">
-                <img src="https://lh3.googleusercontent.com/proxy/UavANmdY46VQuxVlKyLVanyQoTgP9rPeQSg6WtZq9mLtVzK1w7NgSbKSvdKgfptoA5mTgIdLqay0vzsk5f_aSa1bfRuqr41dVu5DxjJMsbW2jz9nuTMII-O7vZ5t2CU37OtuUVhGbHSfS01O2eYnMZLmPKeQyaJB-22T9AKHcx7E6m2vUCMeZE3m5Pn1TkM8JgtgwePHxTl4H3QMI18bF6ifZG_dK0bW"
-                    alt="ویژه برنامه کنکور" class="w-100px mb-3" style="filter: invert(100%);">
-                <h2 class="text-white font-weight-boldest display4-md">ویژه‌برنامه کنکور</h2>
-                <p class="text-white mt-4">جمعه ساعت ۱۸:۰۰ از شبکه ایران</p>
-                <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+        @endisset
+
+        @isset($slider[1])
+        <div class="slider h-lg-700px h-500px"
+            style='background: url("{{ asset("/images/poster/".$slider[1]->poster) }}");background-size:cover;'>
+            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+                <div class="d-block">
+                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
+                        alt="{{ $slider[1]->title }}" class="w-100px mb-3">
+                        <h2 class="text-white font-weight-boldest display4-md">{{ $slider[1]->title }}</h2>
+                        <p class="text-white mt-4">{{ explode('-',$dbvalue[1]->name)[0] }}</p>
+                        <a href="{{ asset('course/'.$slider[1]->slug) }}">
+                            <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                        </a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="slider h-lg-700px h-500px"
-        style="background: url('https://i.pinimg.com/originals/2a/2f/1e/2a2f1e3537dd2b92256e21a719a87537.jpg');background-size:cover;">
-        <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
-            <div class="d-block">
-                <img src="https://fanart.tv/fanart/tv/260586/hdtvlogo/cosmos-a-space-time-odyssey-531c4d5473d05.png"
-                    alt="مستند کیهان" class="w-100px mb-3">
-                <h2 class="text-white font-weight-boldest display4-md">مستند کیهان</h2>
-                <p class="text-white mt-4">پنجشنبه ها ساعت ۲۳:۰۰ از شبکه ایران</p>
-                <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+        @endisset
+
+        @isset($slider[2])
+        <div class="slider h-lg-700px h-500px"
+            style='background: url("{{ asset("/images/poster/".$slider[2]->poster) }}");background-size:cover;'>
+            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+                <div class="d-block">
+                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
+                    alt="{{ $slider[2]->title }}" class="w-100px mb-3">
+                        <h2 class="text-white font-weight-boldest display4-md">{{ $slider[2]->title }}</h2>
+                        <p class="text-white mt-4">{{ explode('-',$dbvalue[2]->name)[0] }}</p>
+                        <a href="{{ asset('course/'.$slider[2]->slug) }}">
+                            <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                        </a>
+                </div>
             </div>
         </div>
-    </div>
+        @endisset
+
+        @isset($slider[3])
+        <div class="slider h-lg-700px h-500px"
+            style='background: url("{{ asset("/images/poster/".$slider[3]->poster) }}");background-size:cover;'>
+            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+                <div class="d-block">
+                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
+                    alt="{{ $slider[3]->title }}" class="w-100px mb-3">
+                        <h2 class="text-white font-weight-boldest display4-md">{{ $slider[3]->title }}</h2>
+                        <p class="text-white mt-4">{{ explode('-',$dbvalue[3]->name)[0] }}</p>
+                        <a href="{{ asset('course/'.$slider[3]->slug) }}">
+                            <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        @endisset
+
+        @isset($slider[4])
+            <div class="slider h-lg-700px h-500px"
+            style='background: url("{{ asset("/images/poster/".$slider[4]->poster) }}");background-size:cover;'>
+            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+                <div class="d-block">
+                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
+                    alt="{{ $slider[4]->title }}" class="w-100px mb-3">
+                        <h2 class="text-white font-weight-boldest display4-md">{{ $slider[4]->title }}</h2>
+                        <p class="text-white mt-4">{{ explode('-',$dbvalue[4]->name)[0] }}</p>
+                        <a href="{{ asset('course/'.$slider[4]->slug) }}">
+                            <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+        @endisset
+        
 </div>
 
 <div class="container-fluid my-10">

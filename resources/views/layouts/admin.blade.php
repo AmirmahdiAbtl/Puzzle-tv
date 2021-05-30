@@ -280,6 +280,7 @@
 							@endcan
 
 
+							@can('setting CRUD')
 							<li class="menu-section">
 								<h4 class="menu-text">مدیریت</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
@@ -307,8 +308,9 @@
 									<span class="menu-text">تنظیمات محتوایی</span>
 								</a>
 							</li>
+								
 							<li class="menu-item" aria-haspopup="true">
-								<a target="_blank" href="https://preview.keenthemes.com/metronic/demo1/builder.html"
+								<a target="_blank" href="{{ route('setting.index') }}"
 									class="menu-link">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
@@ -330,6 +332,7 @@
 									<span class="menu-text">تنظیمات صفحه اصلی</span>
 								</a>
 							</li>
+							@endcan
 						</ul>
 						<!--end::Menu Nav-->
 					</div>

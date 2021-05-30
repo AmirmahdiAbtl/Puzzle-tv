@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController as UserAdminController;
 use App\Http\Controllers\EpisodeController;
+use App\Http\Controllers\settingController;
 use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\User\UserController;
 
@@ -56,7 +57,8 @@ Route::delete('admin/episode/delete/{slug}', [EpisodeController::class, 'destroy
 Route::get('admin/course/episodes/{id}',[EpisodeController::class, 'index'])->middleware('auth')->name('episode.index');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-
+    Route::get('setting',[settingController::class ,'index'])->name('setting.index');
+    Route::post('setting',[settingController::class ,'store'])->name('setting.store');
     Route::group(['middleware' => 'can:permission CRUD'], function () {
         Route::resource('permission', PermissionController::class);
         Route::resource('role', RoleController::class);

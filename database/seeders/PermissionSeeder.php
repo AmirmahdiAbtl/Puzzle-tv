@@ -64,6 +64,13 @@ class PermissionSeeder extends Seeder
             'updated_at'=>now(),
         ]);
 
+        DB::table('permissions')->insert([
+            'name' => 'setting CRUD',
+            'persian_name' => 'مدیریت تنظیمات',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+
         DB::table('permission_role')->insert([
             'permission_id' => '1',
             'role_id' => '1',
@@ -102,6 +109,12 @@ class PermissionSeeder extends Seeder
         ]);
         DB::table('permission_role')->insert([
             'permission_id' => '7',
+            'role_id' => '1',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+        ]);
+        DB::table('permission_role')->insert([
+            'permission_id' => '8',
             'role_id' => '1',
             'created_at'=>now(),
             'updated_at'=>now(),
