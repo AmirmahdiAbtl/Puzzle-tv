@@ -19,7 +19,7 @@
                         <h3 class="opacity-40 font-weight-normal">اطلاعات حساب کاربری </h3>
                     </div>
                     @include('partials.alerts')
-                    <form class="form text-center fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signup_form" method="post" action="{{ route('register') }}">
+                    <form class="form text-center fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signup_form" method="post" action="{{ route('edit_user_save') }}">
                         @if (count($errors)>0)
                         <div class="alert alert-danger">
                                 <ul>
@@ -29,33 +29,39 @@
                                 </ul>
                             </div>
                         @endif
+                        @method('put')
                         @csrf
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="text" placeholder="نام" name="fname">
+                                type="text" placeholder="نام" name="fname" value="{{$user->fname}}">
                             <div class="fv-plugins-message-container"></div>
                         </div>
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="text" placeholder="نام خانوادگی" name="lname">
+                                type="text" placeholder="نام خانوادگی" name="lname" value="{{$user->lname}}">
+                            <div class="fv-plugins-message-container"></div>
+                        </div>
+                        
+                        <div class="form-group fv-plugins-icon-container">
+                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
+                                type="text" placeholder="سن" name="age" value="{{$user->age}}">
                             <div class="fv-plugins-message-container"></div>
                         </div>
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="tel" placeholder="شماره موبایل" name="mobile" autocomplete="off">
+                                type="text" placeholder="کشور" name="country" value="{{$user->country}}">
                             <div class="fv-plugins-message-container"></div>
                         </div>
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="password" placeholder="رمز عبور" name="password">
+                                type="text" placeholder="شهر" name="city" value="{{$user->city}}">
                             <div class="fv-plugins-message-container"></div>
                         </div>
                         <div class="form-group fv-plugins-icon-container">
                             <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8"
-                                type="password" placeholder=" تکرار رمز عبور " name="password">
+                                type="text" placeholder="کد ملی" name="national_code" value="{{$user->national_code}}">
                             <div class="fv-plugins-message-container"></div>
                         </div>
-                     
 
                         <div class="form-group mb-2">
                             <button id="kt_login_signup_submit"

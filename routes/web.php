@@ -93,4 +93,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     
 });
 
+Route::get('user/edit',[UserAdminController::class,'edit_user'])->name('edit_user');
+
+Route::put('user/edit/update',[UserAdminController::class,'update_user'])->name('edit_user_save');
+
+Route::get('fu', function () {
+    return view('user.payment.payment');
+});
 require __DIR__.'/auth.php';

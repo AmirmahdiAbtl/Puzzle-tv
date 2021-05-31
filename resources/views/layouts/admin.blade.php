@@ -187,9 +187,60 @@
 									</ul>
 								</div>
 							</li>
-							
-							@endcan
 
+									@endcan
+									@can('setting CRUD')
+							
+									<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<a href="javascript:;" class="menu-link menu-toggle">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Devices/TV1.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M4.5,6 L19.5,6 C20.8807119,6 22,6.97004971 22,8.16666667 L22,16.8333333 C22,18.0299503 20.8807119,19 19.5,19 L4.5,19 C3.11928813,19 2,18.0299503 2,16.8333333 L2,8.16666667 C2,6.97004971 3.11928813,6 4.5,6 Z M4,8 L4,17 L20,17 L20,8 L4,8 Z"
+													fill="#000000" fill-rule="nonzero" />
+												<polygon fill="#000000" opacity="0.3" points="4 8 4 17 20 17 20 8" />
+												<rect fill="#000000" opacity="0.3" x="7" y="20" width="10" height="1"
+													rx="0.5" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">مدیریت اشتراک ها</span>
+									<i class="menu-arrow"></i>
+								</a>
+								<div class="menu-submenu">
+									<i class="menu-arrow"></i>
+									<ul class="menu-subnav">
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('subscription.index')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">لیست اشتراک ها </span>
+											</a>
+										</li>
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('subscription.create')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">افزودن اشتراک</span>
+											</a>
+										</li>
+							
+
+									</ul>
+								</div>
+							</li>
+
+							@endcan
+							
+							
 							@can('user CRUD')
                         <li class="menu-section">
                             <h4 class="menu-text">کاربران</h4>
@@ -283,6 +334,7 @@
 
 
 							@can('setting CRUD')
+							
 							<li class="menu-section">
 								<h4 class="menu-text">مدیریت</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>

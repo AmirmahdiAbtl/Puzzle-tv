@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -30,8 +31,38 @@ class UserController extends Controller
     }
 
 
+    public function edit_user()
+    {
+        return view('auth.edit', ['user'=>Auth::user()]);
+    }
+
+    public function update_user(Request $request)
+    {
+        $user =Auth::user();
+        $request->validate([
+            'fname' => 'required|string|max:255',
+            'lname' => 'required|string|max:255',
+            'age' =>'integer|nullable',
+            'country' =>'string|nullable',
+            'city' => 'string|nullable',
+            'national_code'=>'string|nullable',
+        ]);
+
+        $user->update([
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'age' => $request->age,
+            'country' => $request->country,
+            'city' => $request->city,
+            'national_code' => $request->nathional_code,
+        ]);
+
+        return back()->with('success', true);
+    }
+
     public function update(Request $request, User $user)
     {
+        
         $request->validate([
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
