@@ -34,9 +34,7 @@ Route::get('/course/{slug}/{seasonId}/{episode}',[CourseController::class ,'play
 
 Route::get('/category/{slug}',[CategoryController::class ,'show'])->name('category.single');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['isverify','auth'])->name('dashboard');
+Route::get('/dashboard',[UserAdminController::class,'dashboard'] )->middleware(['isverify','auth'])->name('dashboard');
 
 Route::get('/admin/subscription/index', [SubscriptionController::class,'index'])->middleware('auth')->name('subscription.index');
 Route::get('/admin/subscription/create', [SubscriptionController::class,'create'])->middleware('auth')->name('subscription.create');
@@ -44,9 +42,9 @@ Route::post('/admin/subscription/create', [SubscriptionController::class,'store'
 Route::get('/admin/subscription/edit/{id}', [SubscriptionController::class,'edit'])->middleware('auth')->name('subscription.edit');
 Route::put('/admin/subscription/update/{id}', [SubscriptionController::class,'update'])->middleware('auth')->name('subscription.update');
 Route::delete('/admin/subscription/delete/{id}', [SubscriptionController::class,'delete'])->middleware('auth')->name('subscription.delete');
-Route::get('/admin/payment/create', [PaymentController::class,'create'])->middleware('auth')->name('payment.create');
-Route::post('/admin/payment/create', [PaymentController::class,'store'])->middleware('auth')->name('payment.store');
-Route::get('/admin/payment/index', [PaymentController::class,'index'])->middleware('auth')->name('payment.index');
+
+Route::get('/user/payment', [PaymentController::class,'create'])->middleware('auth')->name('payment.create');
+Route::post('/user/payment', [PaymentController::class,'store'])->middleware('auth')->name('payment.store');
 
 Route::get('admin/episode/create/{id}', [EpisodeController::class, 'create'])->middleware('auth')->name('episode.create');
 Route::post('admin/episode/create/{id}', [EpisodeController::class, 'store'])->middleware('auth')->name('episode.store');
@@ -93,11 +91,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     
 });
 
-Route::get('user/edit',[UserAdminController::class,'edit_user'])->name('edit_user');
+Route::get('user/edit',[UserAdminController::class,'edit_user'])->middleware('auth')->name('edit_user');
 
-Route::put('user/edit/update',[UserAdminController::class,'update_user'])->name('edit_user_save');
+Route::put('user/edit/update',[UserAdminController::class,'update_user'])->middleware('auth')->name('edit_user_save');
 
 Route::get('fu', function () {
     return view('user.payment.payment');
+});
+Route::get('fu1', function () {
+    return view('player');
 });
 require __DIR__.'/auth.php';

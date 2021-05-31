@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Carbon;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -141,4 +142,10 @@ class UserController extends Controller
         return back()->with('success',true);
     }
 
+    public function dashboard()
+    {
+        $user=Auth::user();
+        $payments=$user->payments;
+        return view('dashboard', ['payments'=>$payments,'user'=>$user]);
+    }
 }

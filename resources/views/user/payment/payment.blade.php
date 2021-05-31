@@ -17,20 +17,31 @@
                         <h3 class="opacity-40 font-weight-normal">خرید اشتراک </h3>
                     </div>
                     @include('partials.alerts')
+                    <form action="{{route('payment.store') }}" method="POST">
+                        @csrf
+                        <div class="form-group ">
+                            @foreach ($subscription as $item)
+                            <div class="form-check  d-flex  ">
+                                <div class=" btn btn-white col-12 ">
 
-                    <div class="form-group ">
-                    <a href="{{ route('login') }}" class="btn btn-outline-white opacity-70 px-15 py-3 mt-5 mb-0 w-100  d-flex ">
-                    <input style="display: inline; float:right" type="checkbox" class="  form-check-input rounded" id="exampleCheck1">
-                    اشتراک 1 و قیمت
-                    </a>
-                       
-                    </div>
+                                    <input  class=" float-right form-check-input mt-4   " type="radio" name="subscriptions_title" id="exampleRadios1" value="{{$item->title}}">
+                                    <label class="form-check-label text-white mr-60 ml-60 " for="exampleRadios1">
+                                        <span class=" btn-white"> {{$item->title}} </span>
+                                        </br>
 
-                    <div class="form-group mb-2">
-                        <button id="kt_login_signup_submit" class="btn btn-danger opacity-90 px-15 py-3 w-100">خرید</button>
-                        <a href="{{ route('login') }}" class="btn btn-outline-white opacity-70 px-15 py-3 mt-5 mb-0 w-100">خرید اشتراک</a>
-                    </div>
-                    <div></div>
+                                        <span class="  btn-white"> {{$item->time}} روزه</span>
+                                        </br>
+                                        <span class="  btn-white">{{$item->price}}</span>
+
+                                    </label>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        <div class="form-group mb-2">
+                            <button id="kt_login_signup_submit" class="btn btn-danger opacity-90 px-15 py-3 w-100">خرید</button>
+                        </div>
+                    </form>
 
                 </div>
                 <!--end::Login Sign in form-->
