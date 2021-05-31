@@ -98,4 +98,7 @@ Route::put('user/edit/update',[UserAdminController::class,'update_user'])->middl
 Route::get('fu', function () {
     return view('user.payment.payment');
 });
+Route::get('fu1', function () {
+    return view('player');
+});
 require __DIR__.'/auth.php';
