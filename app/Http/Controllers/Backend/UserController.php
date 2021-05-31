@@ -33,7 +33,7 @@ class UserController extends Controller
 
     public function edit_user()
     {
-        return view('auth.edit', ['user'=>Auth::user()]);
+        return view('auth.Dashboard.edit', ['user'=>Auth::user()]);
     }
 
     public function update_user(Request $request)
