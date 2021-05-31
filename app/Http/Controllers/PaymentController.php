@@ -17,7 +17,7 @@ class PaymentController extends Controller
     public function create()
     {
         $subscription = Subscription::all();
-        return view('create_payment',compact('subscription'));
+        return view('user.payment.payment',compact('subscription'));
     }
     
     public function store(Request $request)
@@ -30,7 +30,7 @@ class PaymentController extends Controller
         $request->validate([
             'subscriptions_title' => ['required','string','max:255'],
         ]);
-        $subscriptions = Subscription::find('title',$request->subscriptions_title)->get()[0];
+        $subscriptions = Subscription::where('title',$request->subscriptions_title)->get()[0];
         $payment=new Payment;
         $payment->user_id = $user->id;
         $payment->title = $subscriptions->title;
@@ -43,12 +43,6 @@ class PaymentController extends Controller
             'expire_subscription' => $payment->expire_sub
         ]);
 
-        return redirect()->route('payment.index');
-    }
-    public function show()
-    {
-        $user=Auth::user();
-        $payments=$user->payments;
-        return view('', ['payments'=>$payments]);
+        return redirect()->route('dashboard');
     }
 }

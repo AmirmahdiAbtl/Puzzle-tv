@@ -169,7 +169,7 @@
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
 							<li class="menu-item {{ request()->is('admin/user') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-								<a href="{{ route('user.index') }}" class="menu-link">
+								<a href="{{ route('dashboard') }}" class="menu-link">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -185,7 +185,7 @@
 								</a>
 							</li>
 							<li class="menu-item {{ request()->is('admin/user') ? 'menu-item-active' : '' }}" aria-haspopup="true">
-								<a href="{{ route('user.index') }}" class="menu-link">
+								<a href="{{ route('edit_user') }}" class="menu-link">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">

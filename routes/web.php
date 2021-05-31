@@ -42,9 +42,9 @@ Route::post('/admin/subscription/create', [SubscriptionController::class,'store'
 Route::get('/admin/subscription/edit/{id}', [SubscriptionController::class,'edit'])->middleware('auth')->name('subscription.edit');
 Route::put('/admin/subscription/update/{id}', [SubscriptionController::class,'update'])->middleware('auth')->name('subscription.update');
 Route::delete('/admin/subscription/delete/{id}', [SubscriptionController::class,'delete'])->middleware('auth')->name('subscription.delete');
-Route::get('/admin/payment/create', [PaymentController::class,'create'])->middleware('auth')->name('payment.create');
-Route::post('/admin/payment/create', [PaymentController::class,'store'])->middleware('auth')->name('payment.store');
-Route::get('/admin/payment/index', [PaymentController::class,'index'])->middleware('auth')->name('payment.index');
+
+Route::get('/user/payment', [PaymentController::class,'create'])->middleware('auth')->name('payment.create');
+Route::post('/user/payment', [PaymentController::class,'store'])->middleware('auth')->name('payment.store');
 
 Route::get('admin/episode/create/{id}', [EpisodeController::class, 'create'])->middleware('auth')->name('episode.create');
 Route::post('admin/episode/create/{id}', [EpisodeController::class, 'store'])->middleware('auth')->name('episode.store');
