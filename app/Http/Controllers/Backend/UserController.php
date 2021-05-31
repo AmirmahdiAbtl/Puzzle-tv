@@ -36,8 +36,9 @@ class UserController extends Controller
         return view('auth.edit', ['user'=>Auth::user()]);
     }
 
-    public function update_user(Request $request, User $user)
+    public function update_user(Request $request)
     {
+        $user =Auth::user();
         $request->validate([
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
@@ -61,6 +62,7 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
+        
         $request->validate([
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
