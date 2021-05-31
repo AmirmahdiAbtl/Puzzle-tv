@@ -197,7 +197,7 @@
 										</svg>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-text">ویرایش اطلاعان</span>
+									<span class="menu-text">ویرایش اطلاعات</span>
 								</a>
 							</li>
 							@can('setting CRUD')

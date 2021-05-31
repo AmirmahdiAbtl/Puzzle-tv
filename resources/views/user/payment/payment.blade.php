@@ -17,20 +17,23 @@
                         <h3 class="opacity-40 font-weight-normal">خرید اشتراک </h3>
                     </div>
                     @include('partials.alerts')
-
-                    <div class="form-group ">
-                    <a href="{{ route('login') }}" class="btn btn-outline-white opacity-70 px-15 py-3 mt-5 mb-0 w-100  d-flex ">
-                    <input style="display: inline; float:right" type="checkbox" class="  form-check-input rounded" id="exampleCheck1">
-                    اشتراک 1 و قیمت
-                    </a>
+                    <form action="">
+                        
+                        <div class="form-group   ">
+                            <div class="form-check d-flex">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label text-white" for="exampleRadios1">
+                                    اشتراک و قیمت
+                                </label>
+                            </div>
+                        </div>
                        
-                    </div>
 
-                    <div class="form-group mb-2">
-                        <button id="kt_login_signup_submit" class="btn btn-danger opacity-90 px-15 py-3 w-100">خرید</button>
-                        <a href="{{ route('login') }}" class="btn btn-outline-white opacity-70 px-15 py-3 mt-5 mb-0 w-100">خرید اشتراک</a>
-                    </div>
-                    <div></div>
+                        <div class="form-group mb-2">
+                            <button id="kt_login_signup_submit" class="btn btn-danger opacity-90 px-15 py-3 w-100">خرید</button>
+                            <a href="{{ route('login') }}" class="btn btn-outline-white opacity-70 px-15 py-3 mt-5 mb-0 w-100">خرید اشتراک</a>
+                        </div>
+                    </form>
 
                 </div>
                 <!--end::Login Sign in form-->

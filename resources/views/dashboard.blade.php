@@ -12,8 +12,8 @@
             </div>
 
         </div>
-        <div class="card-body rounded col-12 col-md-12  py-3 col-sm-8">
-            <div style="display: inline" class="col-md-3  col-12">
+        <div class="card-body flex-row rounded col-12 col-md-12  py-3 col-sm-8">
+            <div   class=" d-flex col-12 col-md-3  ">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -42,7 +42,7 @@
                     </tbody>
                 </table>
             </div>
-            <div style="display: inline" class="col-md-9 col-12">
+            <div  class="d-flex col-md-9 col-12">
                 <div class="card">
                     <h5 class="card-header">اشتراک شما</h5>
                     <div class="card-body">
