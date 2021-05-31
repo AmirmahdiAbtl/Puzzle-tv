@@ -20,28 +20,23 @@
                 </ul>
             </div>
             @endif
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('setting.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
                     
                     <div class="col-md-6 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">ویدیو اول </label>
-                        <select name="categories[]" class="form-control selectpicker" multiple>
+                        <select name="slider1_CID" class="form-control selectpicker">
                             <option value=null selected disabled>دسته بندی دوره را انتخاب کنید.
                             </option>
-                            <!-- @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->title }}</option>
-                            @if (count($category->childrenRecursive) > 0)
-                            @include('partials.category',
-                            ['categories'=>$category->childrenRecursive,
-                            'level'=>1])
-                            @endif
-                            @endforeach -->
+                             @foreach ($courses as $course)
+                            <option value="{{ $course->id }}">{{ $course->title }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">توضیحات ویدیو</label>
-                        <textarea name="discription" class="form-control" value="{{ old('discription') }}"
+                        <textarea name="slider1_DESC" class="form-control" value="{{ old('discription') }}"
                             placeholder="توضیحات"></textarea>
                     </div>
                 </div>
@@ -49,22 +44,17 @@
                     
                     <div class="col-md-6 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">ویدیو دوم </label>
-                        <select name="categories[]" class="form-control selectpicker" multiple>
-                            <option value=null selected disabled>دسته بندی دوره را انتخاب کنید.
-                            </option>
-                            <!-- @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->title }}</option>
-                            @if (count($category->childrenRecursive) > 0)
-                            @include('partials.category',
-                            ['categories'=>$category->childrenRecursive,
-                            'level'=>1])
-                            @endif
-                            @endforeach -->
+                            <select name="slider2_CID" class="form-control selectpicker">
+                                <option value=null selected disabled>دسته بندی دوره را انتخاب کنید.
+                                </option>
+                                 @foreach ($courses as $course)
+                                <option value="{{ $course->id }}">{{ $course->title }}</option>
+                                @endforeach
                         </select>
                     </div>
                     <div class="col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">توضیحات ویدیو</label>
-                        <textarea name="discription" class="form-control" value="{{ old('discription') }}"
+                        <textarea name="slider2_DESC" class="form-control" value="{{ old('discription') }}"
                             placeholder="توضیحات"></textarea>
                     </div>
                 </div>
@@ -72,22 +62,17 @@
                     
                     <div class="col-md-6 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">ویدیو سوم </label>
-                        <select name="categories[]" class="form-control selectpicker" multiple>
+                        <select name="slider3_CID" class="form-control selectpicker">
                             <option value=null selected disabled>دسته بندی دوره را انتخاب کنید.
                             </option>
-                            <!-- @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->title }}</option>
-                            @if (count($category->childrenRecursive) > 0)
-                            @include('partials.category',
-                            ['categories'=>$category->childrenRecursive,
-                            'level'=>1])
-                            @endif
-                            @endforeach -->
-                        </select>
+                             @foreach ($courses as $course)
+                            <option value="{{ $course->id }}">{{ $course->title }}</option>
+                            @endforeach
+                    </select>
                     </div>
                     <div class="col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">توضیحات ویدیو</label>
-                        <textarea name="discription" class="form-control" value="{{ old('discription') }}"
+                        <textarea name="slider3_DESC" class="form-control" value="{{ old('discription') }}"
                             placeholder="توضیحات"></textarea>
                     </div>
                 </div>
@@ -95,22 +80,17 @@
                     
                     <div class="col-md-6 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">ویدیو چهارم </label>
-                        <select name="categories[]" class="form-control selectpicker" multiple>
+                        <select name="slider4_CID" class="form-control selectpicker">
                             <option value=null selected disabled>دسته بندی دوره را انتخاب کنید.
                             </option>
-                            <!-- @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->title }}</option>
-                            @if (count($category->childrenRecursive) > 0)
-                            @include('partials.category',
-                            ['categories'=>$category->childrenRecursive,
-                            'level'=>1])
-                            @endif
-                            @endforeach -->
-                        </select>
+                             @foreach ($courses as $course)
+                            <option value="{{ $course->id }}">{{ $course->title }}</option>
+                            @endforeach
+                    </select>
                     </div>
                     <div class="col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">توضیحات ویدیو</label>
-                        <textarea name="discription" class="form-control" value="{{ old('discription') }}"
+                        <textarea name="slider4_DESC" class="form-control" value="{{ old('discription') }}"
                             placeholder="توضیحات"></textarea>
                     </div>
                 </div>
@@ -118,22 +98,17 @@
                     
                     <div class="col-md-6 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">ویدیو پنجم </label>
-                        <select name="categories[]" class="form-control selectpicker" multiple>
+                        <select name="slider5_CID" class="form-control selectpicker">
                             <option value=null selected disabled>دسته بندی دوره را انتخاب کنید.
                             </option>
-                            <!-- @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->title }}</option>
-                            @if (count($category->childrenRecursive) > 0)
-                            @include('partials.category',
-                            ['categories'=>$category->childrenRecursive,
-                            'level'=>1])
-                            @endif
-                            @endforeach -->
-                        </select>
+                             @foreach ($courses as $course)
+                            <option value="{{ $course->id }}">{{ $course->title }}</option>
+                            @endforeach
+                    </select>
                     </div>
                     <div class="col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">توضیحات ویدیو</label>
-                        <textarea name="discription" class="form-control" value="{{ old('discription') }}"
+                        <textarea name="slider5_DESC" class="form-control" value="{{ old('discription') }}"
                             placeholder="توضیحات"></textarea>
                     </div>
                 </div>

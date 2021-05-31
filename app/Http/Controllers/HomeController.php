@@ -13,11 +13,16 @@ class HomeController extends Controller
 
         $course = Course::all();
 
-        $dbvalue = Setting::where('name',"LIKE",'%slider%')->get();
-        $dbId = Setting::pluck('value');
-        $slider = Course::whereIn('id',$dbId)->get();
-        
-        return view('index',compact('course','dbvalue','slider'));
+        $sliderList = [1,2,3,4,5];
+        $sliderDESC = Setting::whereIn('id',$sliderList)->get();
+        $sliderCID = $sliderDESC->pluck('value');
+        $sliderCourse = Course::whereIn('id',$sliderCID)->get();
+
+        return view('index',[
+            'course' => $course,
+            'dbvalue' => $sliderDESC,
+            'slider' => $sliderCourse
+        ]);
     }
     
 }

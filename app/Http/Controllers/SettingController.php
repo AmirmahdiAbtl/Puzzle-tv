@@ -10,22 +10,28 @@ class SettingController extends Controller
 {
     public function index(){
         $courses = Course::get();
-        return view('setting_manager',compact('courses'));
+        return view('admin.slider.index',compact('courses'));
     }
     public function store(Request $request){
-        for ($i=1; $i < 6 ; $i++) { 
-            if($request->get('name'.$i) && $request->get('value'.$i)){
-                Setting::firstOrCreate(
-                    [ 
-                        'name' => $request->get('name'.$i),
-                        'value' => $request->get('value'.$i)
-                     ]
-                );
-                $change = explode('-',$request->get('name'.$i))[1];
-                $attribute = Setting::where('name','LIKE',"%$change%")->get();
-                if ($change == 'slider' && count($attribute) > 5){
-                    $attribute->first()->delete();
+        $setting = Setting::get();
+        for ($i = 1; $i < 6; $i++) { 
+            if($request->get("slider".$i."_DESC") != $setting[$i-1]->name){
+                if(count($setting) >= 5){
+                    $setting[$i-1]->update([
+                        'name' => $request->get("slider".$i."_DESC"),
+                        'value' => $request->get("slider".$i."_CID"),
+                    ]);
+                }else{
+                    Setting::create([
+                        'name' => $request->get("slider".$i."_DESC"),
+                        'value' => $request->get("slider".$i."_CID"),
+                    ]);
                 }
+            }
+            if($request->get("slider".$i."_DESC") == $setting[$i-1]->name && $request->get("slider".$i."_CID") != $setting[$i-1]->value){
+                $setting[$i-1]->update([
+                    'value' => $request->get("slider".$i."_CID"),
+                ]);
             }
         }
     }
