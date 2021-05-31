@@ -187,7 +187,11 @@
 									</ul>
 								</div>
 							</li>
-							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+
+									@endcan
+									@can('setting CRUD')
+							
+									<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Devices/TV1.svg--><svg
@@ -206,8 +210,6 @@
 										</svg>
 										<!--end::Svg Icon-->
 									</span>
-									@endcan
-									@can('setting CRUD')
 									<span class="menu-text">مدیریت اشتراک ها</span>
 									<i class="menu-arrow"></i>
 								</a>
@@ -215,7 +217,7 @@
 									<i class="menu-arrow"></i>
 									<ul class="menu-subnav">
 										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('course.index')}}" class="menu-link">
+											<a href="{{route('subscription.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
@@ -223,7 +225,7 @@
 											</a>
 										</li>
 										<li class="menu-item" aria-haspopup="true">
-											<a href="{{route('course.create')}}" class="menu-link">
+											<a href="{{route('subscription.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
 													<span></span>
 												</i>
