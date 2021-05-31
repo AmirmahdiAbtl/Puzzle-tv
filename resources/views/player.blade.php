@@ -7,111 +7,116 @@
             <div class="header card-header bg-auto h-10">film name or nmidonam</div>
             <div class="card-body p-0">
                 <div class=" d-flex flex-row flex-wrap overflow-y-scroll  ">
-                    <div class="flex-col   text-white bg-secondary-100 col-4 col-md-3 col-sm-3  " style="height: 45em; overflow-y:scroll; direction:ltr " id="suggest">
+                    <div  class="flex-col   text-white bg-secondary-100 col-12 col-md-3 col-sm-3  " style="height: 45em; overflow-y:scroll; direction:ltr " id="suggest">
                         <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
                                 <button class=" btn  btn-hover-bg-dark "> 
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="75px" width="200px" class=" rounded" alt="">
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
                                 </button>
                             </div>
                         </div>
                         <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
                                 <button class=" btn  btn-hover-bg-dark "> 
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="75px" width="200px" class=" rounded" alt="">
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
                                 </button>
                             </div>
                         </div>
                         <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
                                 <button class=" btn  btn-hover-bg-dark "> 
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="75px" width="200px" class=" rounded" alt="">
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
                                 </button>
                             </div>
                         </div>
-                        <div class=" d-flex rounded mt-5 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                        <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="100px" width="150px" class=" rounded" alt="">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
+                                <button class=" btn  btn-hover-bg-dark "> 
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
+                                </button>
                             </div>
-
                         </div>
-                        <div class=" d-flex rounded mt-5 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                        <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="100px" width="150px" class=" rounded" alt="">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
+                                <button class=" btn  btn-hover-bg-dark "> 
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
+                                </button>
                             </div>
-
                         </div>
-                        <div class=" d-flex rounded mt-5 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                        <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="100px" width="150px" class=" rounded" alt="">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
+                                <button class=" btn  btn-hover-bg-dark "> 
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
+                                </button>
                             </div>
-
                         </div>
-                        <div class=" d-flex rounded mt-5 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                        <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="100px" width="150px" class=" rounded" alt="">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
+                                <button class=" btn  btn-hover-bg-dark "> 
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
+                                </button>
                             </div>
-
                         </div>
-                        <div class=" d-flex rounded mt-5 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                        <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="100px" width="150px" class=" rounded" alt="">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
+                                <button class=" btn  btn-hover-bg-dark "> 
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
+                                </button>
                             </div>
-
                         </div>
-                        <div class=" d-flex rounded mt-5 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                        <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="100px" width="150px" class=" rounded" alt="">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
+                                <button class=" btn  btn-hover-bg-dark "> 
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
+                                </button>
                             </div>
-
                         </div>
-                        <div class=" d-flex rounded mt-5 mb-5 ml-1 bg-secondary-o-25 w-100  ">
-                            <div class=" d-flex text-white    " id="suggested text">
+                        <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
+                            <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                 yakamozom sun benim sevdigim7
                             </div>
-                            <div id=" d-flex suggested_image  justify-contenr-start      ">
-                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="100px" width="150px" class=" rounded" alt="">
+                            <div class=" d-flex suggested_image  justify-contenr-start       ">
+                                <button class=" btn  btn-hover-bg-dark "> 
+                                <img src="https://www.doostihaa.com/img/uploads/2017/07/National-Geographic-Monster-Moves.jpg" height="150px" width="100px" class="  rounded" alt="">
+                                </button>
                             </div>
-
-                        </div>
+                        </div>               
                     </div>
-                    <div class="overlay-wrapper col-12 col-md-9 col-sm-12 mt-1 d-flex flex-wrap   " id="player">
+                    <div  class="overlay-wrapper col-12 col-md-9 col-sm-12 mt-1 d-flex flex-wrap    " id="player">
                         <div class="embed-responsive embed-responsive-16by9 w-100  rounded   " style="height: 45em;">
-                            {{-- <iframe class="embed-responsive-item" src="https://www.aparat.com/video/video/embed/videohash/Mm4Ko/vt/frame" allowfullscreen></iframe> --}}
-                            <video width="320" height="240" controls>
+                             <iframe class="embed-responsive-item" src="https://www.aparat.com/video/video/embed/videohash/Mm4Ko/vt/frame" allowfullscreen></iframe> 
+                           {{-- <video width="320" height="240" controls>
                                 <source src="{{ asset("/video/episode/$ep->video") }}" type="video/mp4">
-                              </video>
+                              </video>--}}
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

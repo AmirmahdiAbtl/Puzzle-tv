@@ -97,7 +97,10 @@ Route::get('user/edit',[UserAdminController::class,'edit_user'])->name('edit_use
 
 Route::put('user/edit/update',[UserAdminController::class,'update_user'])->name('edit_user_save');
 
-Route::get('کیر تو شیخ عطار', function () {
+Route::get('fu', function () {
     return view('user.payment.payment');
+});
+Route::get('fu1', function () {
+    return view('player');
 });
 require __DIR__.'/auth.php';
