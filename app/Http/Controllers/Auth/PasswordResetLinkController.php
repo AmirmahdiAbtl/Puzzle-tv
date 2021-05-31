@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
+use Kavenegar;
+use Kavenegar\Exceptions\ApiException;
+use Kavenegar\Exceptions\HttpException;
+use App\Models\User;
+use App\Models\Password;
 
 class PasswordResetLinkController extends Controller
 {
@@ -28,20 +32,36 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
-            'email' => 'required|email',
+            'number' => 'required|numeric|digits:11',
         ]);
 
         // We will send the password reset link to this user. Once we have attempted
         // to send the link, we will examine the response then see the message we
         // need to show to the user. Finally, we'll send out a proper response.
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
+        $user = User::where('mobile',$request->number)->get();
+        if(!count($user)){
+            return redirect()->back()->with('wrong_number');
+        }else {
+            $phone = $user[0]->mobile;
+            $text = rand(10000,99999);
+            $receptor =  "$phone";
+            $template =  "newlogin";
+            $type =  "sms";
+            $token = $text;
+            $token2 =  "";
+            $token3 =  "";
+            $result = Kavenegar::VerifyLookup($receptor, $token, $token2, $token3, $template, $type);
+            
+            $data = [
+                'number' => $user[0]->mobile,
+                'token' => $text,
+                'created_at' => now()
+            ];
+            Password::create($data);
 
-        return $status == Password::RESET_LINK_SENT
-                    ? back()->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+            return redirect()->route('password.reset',['id'=> $user[0]->id]);
+        }
     }
 }
