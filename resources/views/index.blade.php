@@ -179,7 +179,7 @@
     <div class="row main-slider">
 
         @foreach ($course as $item)
-        <div class="col-md rounded first" id="{{ $item->id }}">
+        <div class="col-12  rounded first" id="{{ $item->id }}">
             <img src="{{ asset("/images/poster/$item->poster") }}" class="w-100 rounded" alt="">
             <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $item->title }}</h4>
             <h4 class="small text-white">قسمت ۳</h4>
@@ -219,7 +219,7 @@
     <div class="row main-slider">
 
         @foreach ($course as $item)
-        <div class="col-md rounded first2" id="{{ $item->id }}">
+        <div class="col-12 rounded first2" id="{{ $item->id }}">
             <img src="{{ asset("/images/poster/$item->poster") }}" class="w-100 rounded" alt="">
             <h4 class="font-size-h6 mt-3 mb-1 font-weight-bolder text-white">{{ $item->title }}</h4>
             <h4 class="small text-white">قسمت ۳</h4>
