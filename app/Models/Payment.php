@@ -10,7 +10,7 @@ class Payment extends Model
     public $fillable = [
         "start_sub",
         'expire_sub',
-        "name",
+        "title",
         "price",
     ];
     public function user(){

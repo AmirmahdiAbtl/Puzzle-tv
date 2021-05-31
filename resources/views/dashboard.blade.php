@@ -13,7 +13,7 @@
 
         </div>
         <div class="card-body rounded col-12 col-md-12  py-3 col-sm-8">
-            <div class="col-md-3 col-12">
+            <div style="display: inline" class="col-md-3  col-12">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -27,10 +27,10 @@
                     <tbody>
                         @foreach ($payments as $payment)
                             <tr>
-                                <td>{{$payment->subscriptions->name}}</td>
+                                <td>{{$payment->title}}</td>
                                 <td>{{$payment->start_sub}}</td>
                                 <td>{{$payment->expire_sub}}</td>
-                                <td></td>
+                                <td>{{$payment->price}}</td>
                             </tr>  
                         @endforeach
                         
@@ -42,14 +42,17 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-9 col-12">
+            <div style="display: inline" class="col-md-9 col-12">
                 <div class="card">
                     <h5 class="card-header">اشتراک شما</h5>
                     <div class="card-body">
-                        <h5 class="card-title">{{}}</h5>
-                        <p class="card-text"></p>
-                        
-                        <a href="#" class="btn btn-primary">مدت زمان</a>
+                        {{-- @if ($user->expire_subscription == Null)
+                            <h5 class="card-title">0روز </h5>
+                        @else    
+                            <h5 class="card-title">{{$user->expire_subscription->diffInDays(now())}}</h5>
+                        @endif --}}
+                        <h5 class="card-title">{{$user->expire_subscription}} تاریخ پایان اشتراک</h5>
+                        <a href="" class="btn btn-primary">خرید اشتراک</a>
                     </div>
                 </div>ّ
 

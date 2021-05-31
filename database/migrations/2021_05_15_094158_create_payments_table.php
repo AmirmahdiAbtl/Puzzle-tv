@@ -16,7 +16,8 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onUpdate('CASCADE')->onDelete('CASCADE');
-            $table->foreignId('subscriptions_id')->constrained()->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->string('title');
+            $table->string('price');
             $table->date('start_sub');
             $table->date('expire_sub');
             $table->timestamps();

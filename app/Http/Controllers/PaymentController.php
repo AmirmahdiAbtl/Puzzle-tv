@@ -33,7 +33,8 @@ class PaymentController extends Controller
         $subscriptions = Subscription::find('title',$request->subscriptions_title)->get()[0];
         $payment=new Payment;
         $payment->user_id = $user->id;
-        $payment->subscriptions_id = $subscriptions->id;
+        $payment->title = $subscriptions->title;
+        $payment->price = $subscriptions->price;
         $payment->start_sub = Carbon\Carbon::now();
         $payment->expire_sub =Carbon\Carbon::now()->addDays($subscriptions->time);
         $payment->save();
