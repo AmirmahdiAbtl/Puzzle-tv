@@ -32,7 +32,7 @@ class PaymentController extends Controller
         ]);
         $subscriptions = Subscription::where('title',$request->subscriptions_title)->get()[0];
         $payment=new Payment;
-        $payment->user_id = Auth::user()->id;
+        $payment->user_id = $user->id;
         $payment->subscriptions_id = $subscriptions->id;
         $payment->start_sub = Carbon\Carbon::now();
         $payment->expire_sub =Carbon\Carbon::now()->addDays($subscriptions->time);
@@ -43,5 +43,11 @@ class PaymentController extends Controller
         ]);
 
         return redirect()->route('payment.index');
+    }
+    public function show()
+    {
+        $user=Auth::user();
+        $payments=$user->payments;
+        return view('', ['payments'=>$payments]);
     }
 }
