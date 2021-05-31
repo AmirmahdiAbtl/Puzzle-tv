@@ -206,6 +206,8 @@
 										</svg>
 										<!--end::Svg Icon-->
 									</span>
+									@endcan
+									@can('setting CRUD')
 									<span class="menu-text">مدیریت اشتراک ها</span>
 									<i class="menu-arrow"></i>
 								</a>
