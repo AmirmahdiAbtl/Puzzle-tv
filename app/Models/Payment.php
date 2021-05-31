@@ -10,12 +10,11 @@ class Payment extends Model
     public $fillable = [
         "start_sub",
         'expire_sub',
+        "name",
+        "price",
     ];
     public function user(){
         return $this->belongsTo(User::class);
-    }
-    public function subscriptions(){
-        return $this->belongsTo(Subscription::class,'subscriptions_id','id');
     }
     use HasFactory;
 }

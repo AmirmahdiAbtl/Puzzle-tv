@@ -34,9 +34,7 @@ Route::get('/course/{slug}/{seasonId}/{episode}',[CourseController::class ,'play
 
 Route::get('/category/{slug}',[CategoryController::class ,'show'])->name('category.single');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['isverify','auth'])->name('dashboard');
+Route::get('/dashboard',[UserAdminController::class,'dashboard'] )->middleware(['isverify','auth'])->name('dashboard');
 
 Route::get('/admin/subscription/index', [SubscriptionController::class,'index'])->middleware('auth')->name('subscription.index');
 Route::get('/admin/subscription/create', [SubscriptionController::class,'create'])->middleware('auth')->name('subscription.create');
@@ -93,9 +91,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     
 });
 
-Route::get('user/edit',[UserAdminController::class,'edit_user'])->name('edit_user');
+Route::get('user/edit',[UserAdminController::class,'edit_user'])->middleware('auth')->name('edit_user');
 
-Route::put('user/edit/update',[UserAdminController::class,'update_user'])->name('edit_user_save');
+Route::put('user/edit/update',[UserAdminController::class,'update_user'])->middleware('auth')->name('edit_user_save');
 
 Route::get('fu', function () {
     return view('user.payment.payment');

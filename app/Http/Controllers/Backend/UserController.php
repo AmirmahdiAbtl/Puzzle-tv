@@ -141,4 +141,10 @@ class UserController extends Controller
         return back()->with('success',true);
     }
 
+    public function dashboard()
+    {
+        $user=Auth::user();
+        $payments=$user->payments;
+        return view('dashboard', ['payments'=>$payments,'user'=>$user]);
+    }
 }

@@ -30,7 +30,7 @@ class PaymentController extends Controller
         $request->validate([
             'subscriptions_title' => ['required','string','max:255'],
         ]);
-        $subscriptions = Subscription::where('title',$request->subscriptions_title)->get()[0];
+        $subscriptions = Subscription::find('title',$request->subscriptions_title)->get()[0];
         $payment=new Payment;
         $payment->user_id = $user->id;
         $payment->subscriptions_id = $subscriptions->id;
