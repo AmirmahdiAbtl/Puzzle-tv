@@ -56,7 +56,7 @@
                             <h5 class="card-title">{{$user->expire_subscription->diffInDays(now())}}</h5>
                             @endif --}}
                             <h5 class="card-title">{{$user->expire_subscription}} تاریخ پایان اشتراک</h5>
-                            <a href="" class="btn btn-primary">خرید اشتراک</a>
+                            <a href="{{route('payment.create')}}" class="btn btn-primary">خرید اشتراک</a>
                         </div>
                     </div>ّ
 
