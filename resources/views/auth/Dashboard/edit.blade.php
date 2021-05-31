@@ -60,7 +60,7 @@
                     <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">ویرایش اطلاعات</button>
                 </div>
             </form>
-            <form action="" method="post">
+            <form action="{{ route('admin.reset.password',['id' => auth()->user()->id]) }}" method="POST">
                 @csrf
                 <div class="form-group row">
                     <div class="col-md-3 col-12">

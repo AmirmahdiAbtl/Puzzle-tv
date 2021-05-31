@@ -48,16 +48,6 @@
                             <button id="kt_login_signin_submit" class="btn btn-danger w-100 text-white px-15 py-3">تایید</button>
                         </div>
                     <input type="hidden"><div></div></form>
-                    <div class="mt-10">
-                        <span class="opacity-40 mr-1">هنوز در سایت حساب کاربری ندارید?</span>
-                        <a href="{{ route('register') }}" class="text-danger font-weight-normal">ثبت نام</a>
-                    </div>
-                    @if (session('messages'))
-                        <form action="{{ route('verification.resend',['id'=>$user->id]) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-danger">ارسال مجدد</button>
-                        </form>
-                    @endif
                 </div>
                 <!--end::Login Sign in form-->
             </div>

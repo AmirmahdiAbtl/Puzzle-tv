@@ -48,6 +48,10 @@
                         <span class="opacity-40 mr-1">هنوز در سایت حساب کاربری ندارید?</span>
                         <a href="{{ route('register') }}" class="text-danger font-weight-normal">ثبت نام</a>
                     </div>
+                    <div class="mt-10">
+                        <span class="opacity-40 mr-1">رمز عبور خودتو</span>
+                        <a href="{{ route('password.request') }}" class="text-danger font-weight-normal">فراموش کردی ؟</a>
+                    </div>
                 </div>
                 <!--end::Login Sign in form-->
             </div>
