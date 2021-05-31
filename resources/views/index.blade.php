@@ -2,91 +2,81 @@
 
 @section('content')
 <div class="top-slider w-100">
-        @isset($slider[0])
-        <div class="slider h-lg-700px h-500px"
-            style='background: url("{{ asset("/images/poster/".$slider[0]->poster) }}");background-size:cover;'>
-            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
-                <div class="d-block">
-                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
-                        alt="{{ $slider[0]->title }}" class="w-100px mb-3">
-                    <h2 class="text-white font-weight-boldest display4-md">{{ $slider[0]->title }}</h2>
-                    <p class="text-white mt-4">{{ explode('-',$dbvalue[0]->name)[0] }}</p>
-                    <a href="{{ asset('course/'.$slider[0]->slug) }}">
-                        <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
-                    </a>
-                </div>
+    @isset($slider[0])
+    <div class="slider h-lg-700px h-500px" style='background: url("{{ asset("/images/poster/".$slider[0]->poster) }}");background-size:cover;'>
+        <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+            <div class="d-block">
+                <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy" alt="{{ $slider[0]->title }}" class="w-100px mb-3">
+                <h2 class="text-white font-weight-boldest display4-md">{{ $slider[0]->title }}</h2>
+                <p class="text-white mt-4">{{ explode('-',$dbvalue[0]->name)[0] }}</p>
+                <a href="{{ asset('course/'.$slider[0]->slug) }}">
+                    <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                </a>
             </div>
         </div>
-        @endisset
+    </div>
+    @endisset
 
-        @isset($slider[1])
-        <div class="slider h-lg-700px h-500px"
-            style='background: url("{{ asset("/images/poster/".$slider[1]->poster) }}");background-size:cover;'>
-            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
-                <div class="d-block">
-                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
-                        alt="{{ $slider[1]->title }}" class="w-100px mb-3">
-                        <h2 class="text-white font-weight-boldest display4-md">{{ $slider[1]->title }}</h2>
-                        <p class="text-white mt-4">{{ explode('-',$dbvalue[1]->name)[0] }}</p>
-                        <a href="{{ asset('course/'.$slider[1]->slug) }}">
-                            <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
-                        </a>
-                </div>
+    @isset($slider[1])
+    <div class="slider h-lg-700px h-500px" style='background: url("{{ asset("/images/poster/".$slider[1]->poster) }}");background-size:cover;'>
+        <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+            <div class="d-block">
+                <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy" alt="{{ $slider[1]->title }}" class="w-100px mb-3">
+                <h2 class="text-white font-weight-boldest display4-md">{{ $slider[1]->title }}</h2>
+                <p class="text-white mt-4">{{ explode('-',$dbvalue[1]->name)[0] }}</p>
+                <a href="{{ asset('course/'.$slider[1]->slug) }}">
+                    <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                </a>
             </div>
         </div>
-        @endisset
+    </div>
+    @endisset
 
-        @isset($slider[2])
-        <div class="slider h-lg-700px h-500px"
-            style='background: url("{{ asset("/images/poster/".$slider[2]->poster) }}");background-size:cover;'>
-            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
-                <div class="d-block">
-                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
-                    alt="{{ $slider[2]->title }}" class="w-100px mb-3">
-                        <h2 class="text-white font-weight-boldest display4-md">{{ $slider[2]->title }}</h2>
-                        <p class="text-white mt-4">{{ explode('-',$dbvalue[2]->name)[0] }}</p>
-                        <a href="{{ asset('course/'.$slider[2]->slug) }}">
-                            <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
-                        </a>
-                </div>
+    @isset($slider[2])
+    <div class="slider h-lg-700px h-500px" style='background: url("{{ asset("/images/poster/".$slider[2]->poster) }}");background-size:cover;'>
+        <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+            <div class="d-block">
+                <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy" alt="{{ $slider[2]->title }}" class="w-100px mb-3">
+                <h2 class="text-white font-weight-boldest display4-md">{{ $slider[2]->title }}</h2>
+                <p class="text-white mt-4">{{ explode('-',$dbvalue[2]->name)[0] }}</p>
+                <a href="{{ asset('course/'.$slider[2]->slug) }}">
+                    <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                </a>
             </div>
         </div>
-        @endisset
+    </div>
+    @endisset
 
-        @isset($slider[3])
-        <div class="slider h-lg-700px h-500px"
-            style='background: url("{{ asset("/images/poster/".$slider[3]->poster) }}");background-size:cover;'>
-            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
-                <div class="d-block">
-                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
-                    alt="{{ $slider[3]->title }}" class="w-100px mb-3">
-                        <h2 class="text-white font-weight-boldest display4-md">{{ $slider[3]->title }}</h2>
-                        <p class="text-white mt-4">{{ explode('-',$dbvalue[3]->name)[0] }}</p>
-                        <a href="{{ asset('course/'.$slider[3]->slug) }}">
-                            <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
-                        </a>
-                </div>
+    @isset($slider[3])
+    <div class="slider h-lg-700px h-500px" style='background: url("{{ asset("/images/poster/".$slider[3]->poster) }}");background-size:cover;'>
+        <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+            <div class="d-block">
+                <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy" alt="{{ $slider[3]->title }}" class="w-100px mb-3">
+                <h2 class="text-white font-weight-boldest display4-md">{{ $slider[3]->title }}</h2>
+                <p class="text-white mt-4">{{ explode('-',$dbvalue[3]->name)[0] }}</p>
+                <a href="{{ asset('course/'.$slider[3]->slug) }}">
+                    <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                </a>
             </div>
         </div>
-        @endisset
+    </div>
+    @endisset
 
-        @isset($slider[4])
-            <div class="slider h-lg-700px h-500px"
-            style='background: url("{{ asset("/images/poster/".$slider[4]->poster) }}");background-size:cover;'>
-            <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
-                <div class="d-block">
-                    <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy"
-                    alt="{{ $slider[4]->title }}" class="w-100px mb-3">
-                        <h2 class="text-white font-weight-boldest display4-md">{{ $slider[4]->title }}</h2>
-                        <p class="text-white mt-4">{{ explode('-',$dbvalue[4]->name)[0] }}</p>
-                        <a href="{{ asset('course/'.$slider[4]->slug) }}">
-                            <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
-                        </a>
-                </div>
+    @isset($slider[4])
+    <div class="slider h-lg-700px h-500px" style='background: url("{{ asset("/images/poster/".$slider[4]->poster) }}");background-size:cover;'>
+        <div class="col-md-6 bg-slider align-items-center px-20 d-flex h-100">
+            <div class="d-block">
+                <img src="https://lh3.googleusercontent.com/proxy/--DkDznWOPqdXAvdPsjccL2OC9KCrF4-oeff7sJMmhMknzE1K3hAQUqSnZlnrpRt1RkFrhL_W4y5GybhvO7rk-97yj8okqgTmynNw7mFYXBAanDNP4aT6cAHvhpidekvgSPy" alt="{{ $slider[4]->title }}" class="w-100px mb-3">
+                <h2 class="text-white font-weight-boldest display4-md">{{ $slider[4]->title }}</h2>
+                <p class="text-white mt-4">{{ explode('-',$dbvalue[4]->name)[0] }}</p>
+                <a href="{{ asset('course/'.$slider[4]->slug) }}">
+                    <button class="btn btn-light btn-text-dark mt-5">نمایش قسمت‌ها</button>
+                </a>
             </div>
         </div>
-        @endisset
-        
+    </div>
+    @endisset
+
 </div>
 
 <div class="container-fluid my-10">
@@ -163,12 +153,11 @@
         <div class="card card-custom overlay">
             <div class="card-body p-0">
                 <div class="overlay-wrapper">
-                    <img src=""
-                        width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage1"/>
+                    <img src="" width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage1" />
                 </div>
-                <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start" >
+                <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start">
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
-                             <span class=" text-white" aria-hidden="true">&times;</span>
+                        <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
                         <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle1">فیلم ها </a>
@@ -293,11 +282,15 @@
         $(".top-slider").owlCarousel({
             items: 1,
             rtl: true,
+            autoplay: true,
+            autoplayTimeout: 3000
 
         });
         $(".main-slider").owlCarousel({
             items: 7,
             rtl: true,
+            autoplay: true,
+            autoplayTimeout: 3000
 
         });
         // async function courses(proms) {
