@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                <div class="col-md-6 col-12">
+                    <div class="col-md-6 col-12">
                         <label class="font-size-h6 font-weight-bolder text-dark">سن</label>
                         <input value="{{ $course->title }} " type="text" name="title" class="form-control">
                     </div>
@@ -55,7 +55,12 @@
                         <input value="{{ $course->title }} " type="text" name="title" class="form-control">
                     </div>
                 </div>
-               
+                <div class="form-group row">
+                    <div class="col-md-3 col-12">
+                    <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">فراموشی رمز عبور</button>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg font-weight-bolder mt-3">ویرایش اطلاعات</button>
                 </div>
