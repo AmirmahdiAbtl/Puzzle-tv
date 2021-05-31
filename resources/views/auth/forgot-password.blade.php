@@ -1,36 +1,54 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+@section('content')
+<div class="d-flex flex-column flex-root mt-24">
+    <!--begin::Login-->
+    <div class="login login-5 login-signin-on d-flex flex-row-fluid my-10" id="kt_login">
+        <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid" style="background-image: url(/metronic/theme/html/demo1/dist/assets/media/bg/bg-2.jpg);">
+            <div class="login-form text-center text-white p-7 position-relative overflow-hidden bg-white-o-50 w-400px rounded">
+                <!--begin::Login Header-->
+                <div class="d-flex flex-center mb-3">
+                    <a class="font-weight-boldest display-3 text-white" href="#">ایران&zwnj;تی&zwnj;وی</a>
+                </div>
+                <!--end::Login Header-->
+                <!--begin::Login Sign in form-->
+                <div class="login-signin">
+                    <div class="mb-20">
+                        <h3 class="opacity-40 font-weight-normal">تایید شماره همراه</h3>
+                    </div>
+                    <form  action="{{ route('password.email') }}" class="form fv-plugins-bootstrap fv-plugins-framework" id="kt_login_signin_form" novalidate="novalidate" method="POST">
+
+                        @if (session('wrong_number'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li class="text-left pt-2">شماره همراه شما در سامانه موجود نمی باشد</li>
+                                </ul>
+                            </div>
+                        @endif
+                        
+                        @csrf
+                        <div class="form-group fv-plugins-icon-container">
+                            <input class="form-control h-auto text-white bg-white-o-5 rounded border-0 py-4 px-8" type="text" placeholder="تاییدیه شماره همراه" name="number" autocomplete="off">
+                        <div class="fv-plugins-message-container"></div></div>
+                        <div class="form-group text-center mt-10">
+                            <button id="kt_login_signin_submit" class="btn btn-danger w-100 text-white px-15 py-3">تایید</button>
+                        </div>
+                    <input type="hidden"><div></div></form>
+                    <div class="mt-10">
+                        <span class="opacity-40 mr-1">هنوز در سایت حساب کاربری ندارید?</span>
+                        <a href="{{ route('register') }}" class="text-danger font-weight-normal">ثبت نام</a>
+                    </div>
+                    @if (session('messages'))
+                        <form action="{{ route('verification.resend',['id'=>$user->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">ارسال مجدد</button>
+                        </form>
+                    @endif
+                </div>
+                <!--end::Login Sign in form-->
+            </div>
         </div>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+    </div>
+    <!--end::Login-->
+</div>
+@endsection
