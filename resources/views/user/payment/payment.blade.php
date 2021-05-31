@@ -21,13 +21,21 @@
                         @csrf
                         <div class="form-group ">
                             @foreach ($subscription as $item)
-                                <div class="form-check d-flex">
-                                    <input class="form-check-input" type="radio" name="subscriptions_title" id="exampleRadios1" value="{{$item->title}}" >
-                                    <label class="form-check-label text-white" for="exampleRadios1">
-                                        {{$item->title}} : {{$item->time}} روزه
-                                        {{$item->price}} 
+                            <div class="form-check  d-flex  ">
+                                <div class=" btn btn-white col-12 ">
+
+                                    <input  class=" float-right form-check-input mt-4   " type="radio" name="subscriptions_title" id="exampleRadios1" value="{{$item->title}}">
+                                    <label class="form-check-label text-white mr-60 ml-60 " for="exampleRadios1">
+                                        <span class=" btn-white"> {{$item->title}} </span>
+                                        </br>
+
+                                        <span class="  btn-white"> {{$item->time}} روزه</span>
+                                        </br>
+                                        <span class="  btn-white">{{$item->price}}</span>
+
                                     </label>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
                         <div class="form-group mb-2">
