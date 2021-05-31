@@ -313,13 +313,13 @@
                 let currentId = this.getAttribute("id");
 
                 async function ajax() {
-                    let url = '{{ URL::to(' / ') }}/api/coursebanner/' + currentId;
+                    let url = '{{ URL::to('/') }}/api/coursebanner/' + currentId;
                     const response = await fetch(url);
                     const json = await response.json();
 
                     $("#contentTitle").text(json.title)
                     $("#contentDetail").text(json.discription)
-                    $("#contentLink a").attr('href', '{{ URL::to(' / ') }}/course/' + json.slug)
+                    $("#contentLink a").attr('href', '{{ URL::to('/') }}/course/' + json.slug)
                     $("#contentImage").attr('src', "{{ URL::to('/') }}/images/banner/" + json.banner)
                 }
                 ajax()
@@ -343,14 +343,14 @@
 
                 async function ajax() {
                     console.log(currentId)
-                    let url = '{{ URL::to(' / ') }}/api/coursebanner/' + currentId;
+                    let url = '{{ URL::to('/') }}/api/coursebanner/' + currentId;
                     const response = await fetch(url);
                     const json = await response.json();
 
                     $("#contentTitle1").text(json.title)
                     $("#contentDetail1").text(json.discription)
-                    $("#contentLink1 a").attr('href', '{{ URL::to(' / ') }}/course/' + json.slug)
-
+                    $("#contentLink1 a").attr('href', '{{ URL::to('/') }}/course/' + json.slug)
+                   
                     $("#contentImage1").attr('src', "{{ URL::to('/') }}/images/banner/" + json.banner)
                 }
                 ajax()
@@ -373,13 +373,13 @@
                 let currentId = this.getAttribute("id");
 
                 async function ajax() {
-                    let url = '{{ URL::to(' / ') }}/api/coursebanner/' + currentId;
+                    let url = '{{ URL::to('/') }}/api/coursebanner/' + currentId;
                     const response = await fetch(url);
                     const json = await response.json();
 
                     $("#contentTitle2").text(json.title)
                     $("#contentDetail2").text(json.discription)
-                    $("#contentLink2 a").attr('href', '{{ URL::to(' / ') }}/course/' + json.slug)
+                    $("#contentLink2 a").attr('href', '{{ URL::to('/') }}/course/' + json.slug)
                     $("#contentImage2").attr('src', "{{ URL::to('/') }}/images/banner/" + json.banner)
                 }
                 ajax()
