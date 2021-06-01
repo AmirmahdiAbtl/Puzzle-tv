@@ -152,10 +152,8 @@
     <div class="container-fluid my-10 ">
         <div class="card card-custom overlay">
             <div class="card-body p-0">
-                <div class="overlay-wrapper">
-                    <img src="" width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage1" />
-                </div>
-                <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start">
+                
+                <div class="  rounded align-items-start  justify-content-start w-100 h-100" style="position: absolute; z-index: 1;">
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
@@ -166,6 +164,9 @@
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
                     </div>
+                </div>
+                <div class=" " style="position: relative; z-index: initial;">
+                    <img src="" width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage1" />
                 </div>
             </div>
         </div>
@@ -192,10 +193,8 @@
     <div class="container-fluid my-10 ">
         <div class="card card-custom overlay">
             <div class="card-body p-0">
-                <div class="overlay-wrapper">
-                    <img src="" id="contentImage" width="100%" height="500px" alt="" class="w-100 rounded" />
-                </div>
-                <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start">
+               
+                <div class="   rounded align-items-start  justify-content-start w-100 h-100" style="position: absolute; z-index: 1;"">
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
@@ -206,6 +205,9 @@
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
                     </div>
+                </div>
+                <div class="" style="position: relative; z-index: initial;">
+                    <img src="" id="contentImage" width="100%" height="500px" alt="" class="w-100 rounded" />
                 </div>
             </div>
         </div>
@@ -232,10 +234,8 @@
     <div class="container-fluid my-10 ">
         <div class="card card-custom overlay">
             <div class="card-body p-0">
-                <div class="overlay-wrapper">
-                    <img src="" width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage2" />
-                </div>
-                <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start">
+               
+                <div class="   rounded align-items-start  justify-content-start w-100 h-100" style="position: absolute; z-index: 1;" >
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
@@ -246,6 +246,9 @@
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
                     </div>
+                </div>
+                <div class="overlay-wrapper" style="position: relative; z-index: initial;">
+                    <img src="" width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage2" />
                 </div>
             </div>
         </div>
