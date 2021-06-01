@@ -99,6 +99,6 @@ Route::get('fu', function () {
     return view('user.payment.payment');
 });
 Route::get('fu1', function () {
-    return view('player');
+    return view('dashboard');
 });
 require __DIR__.'/auth.php';
