@@ -35,8 +35,8 @@
                         </div>
                     <input type="hidden"><div></div></form>
                     <div class="mt-10">
-                        <span class="opacity-40 mr-1">هنوز در سایت حساب کاربری ندارید?</span>
-                        <a href="{{ route('register') }}" class="text-danger font-weight-normal">ثبت نام</a>
+                        <span class="opacity-40 mr-1">برای باز گشت به صفحه اصلی</span>
+                        <a href="{{ route('register') }}" class="text-danger font-weight-normal">کلیک کنید</a>
                     </div>
                     @if (session('messages'))
                         <form action="{{ route('verification.resend',['id'=>$user->id]) }}" method="POST">

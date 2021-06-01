@@ -44,7 +44,8 @@ class NewPasswordController extends Controller
             $user->update([
                 "password" => Hash::make($request->password)
             ]);
-        }else{
+        }
+        else{
             return redirect()->back()->with('wrong_number');
         }
         return redirect()->route('dashboard');

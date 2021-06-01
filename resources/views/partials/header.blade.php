@@ -21,7 +21,7 @@
                     <span><i class="flaticon2-search-1 icon-md"></i></span>
                 </div>
             </div> --}}
-            <button class="btn btn-light mr-2 ml-3 btn-text-dark px-md-15 px-3">خرید اشتراک</button>
+            <a class="btn btn-light mr-2 ml-3 btn-text-dark px-md-15 px-3" href="{{route('payment.create')}}">خرید اشتراک</a>
             @auth
             <a href="{{ route('dashboard') }}" class="btn btn-outline-light btn-text-light btn-hover-text-dark px-md-5 px-3">حساب کاربری</a>
             @endauth
