@@ -4,8 +4,8 @@
 <div class="container   mt-30 text-white  ">
     <div class="row">
         @include('layouts.Dashboard')
-
-        <div class="card card-custom rounded col-6    border-1 border-white  ml-7" style="height: 80%;">
+        <!-- <div class="col-md-10"></div> -->
+        <div class="card card-custom rounded col-md-9 border-1 border-white" style="height: 80%;">
             <div class="card-header rounded">
                 <div class="card-title rounded">
                     <h3 class="card-label rounded font-weight-bolder text-white">
