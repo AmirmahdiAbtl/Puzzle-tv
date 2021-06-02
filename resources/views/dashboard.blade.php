@@ -27,7 +27,7 @@
 
                                     <a href="{{route('payment.create')}}" class="btn btn-white text-black">خرید اشتراک</a>
                                 </div>
-                            </div>ّ
+                            </div> 
                         </div>
 
                     </div>
