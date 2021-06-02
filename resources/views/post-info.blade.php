@@ -5,7 +5,6 @@
     <div class=" coontainer-fluid ">
         <div class=" overlay">
             <div class="overlay-wrapper">
-               
                 <div class="   rounded align-items-start w-100 h-100  justify-content-start pt-20"  style="position: absolute; z-index: 1;" >
                     
                     <div class="d-flex flex-column  mt-35   align-items-start ">

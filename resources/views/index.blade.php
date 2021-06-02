@@ -158,8 +158,8 @@
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle1">فیلم ها </a>
-                        <p class=" mb-2  ml-10  mt-11" id="contentDetail1">hello</p>
+                        <a href="#" class="text-white font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle1">فیلم ها </a>
+                        <p class=" mb-2  ml-10  mt-11 text-white" id="contentDetail1">hello</p>
                         <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink1">
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
@@ -199,8 +199,8 @@
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle">فیلم ها </a>
-                        <p class=" mb-2  ml-10  mt-11" id="contentDetail">hello</p>
+                        <a href="#" class="text-white font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle">فیلم ها </a>
+                        <p class="text-white mb-2  ml-10  mt-11" id="contentDetail">hello</p>
                         <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink">
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
@@ -240,8 +240,8 @@
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle2">فیلم ها </a>
-                        <p class=" mb-2  ml-10  mt-11" id="contentDetail2">hello</p>
+                        <a href="#" class=" text-white font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle2">فیلم ها </a>
+                        <p class=" text-white mb-2  ml-10  mt-11" id="contentDetail2">hello</p>
                         <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink2">
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
