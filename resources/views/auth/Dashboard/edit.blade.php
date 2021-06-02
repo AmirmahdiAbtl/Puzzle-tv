@@ -5,7 +5,7 @@
     <div class="row">
         @include('layouts.Dashboard')
         <!-- <div class="col-md-10"></div> -->
-        <div class="card card-custom rounded col-md-9 border-1 border-white" style="height: 80%;">
+        <div class="card card-custom rounded col-md-8 border-1 border-white ml-10  " style="height: 80%;">
             <div class="card-header rounded">
                 <div class="card-title rounded">
                     <h3 class="card-label rounded font-weight-bolder text-white">

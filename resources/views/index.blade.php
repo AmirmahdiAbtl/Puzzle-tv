@@ -194,7 +194,7 @@
         <div class="card card-custom overlay">
             <div class="card-body p-0">
                
-                <div class="   rounded align-items-start  justify-content-start w-100 h-100" style="position: absolute; z-index: 1;"">
+                <div class="rounded align-items-start  justify-content-start w-100 h-100" style="position: absolute; z-index: 1;"">
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>

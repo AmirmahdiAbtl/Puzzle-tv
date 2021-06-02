@@ -12,7 +12,7 @@
             <div class=" col-7 col-md-7 ">
 
                 <div class=" ">
-                    <div class="card rounded ">
+                    <div class=" rounded ">
                         <div class=" col-12   mt-5">
                             <div class="card rounded ">
                                 <h5 class="card-header">اشتراک شما</h5>
