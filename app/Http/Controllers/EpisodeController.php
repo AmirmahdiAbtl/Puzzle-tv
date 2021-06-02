@@ -115,7 +115,7 @@ class EpisodeController extends Controller
             $data['video'] = $file_name;
         }
         $episode->update($data);
-        return redirect()->route('episode.index');
+        return redirect()->back();
     }
 
     public function destroy($slug)
@@ -126,6 +126,6 @@ class EpisodeController extends Controller
             $season->delete();
         }
         $episode->delete();
-        return redirect()->route('episode.index');
+        return redirect()->back();
     }
 }

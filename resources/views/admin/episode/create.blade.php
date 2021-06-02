@@ -7,7 +7,7 @@
                 <h3 class="card-label rounded ">
                     افزودن قسمت
                 </h3>
-                <button class="btn btn-bg-secondary btn-hover-bg-danger rounded-circle" id="add">+</button>
+                {{-- <button class="btn btn-bg-secondary btn-hover-bg-danger rounded-circle" id="add">+</button> --}}
             </div>
             <div class="card-body rounded col-12 col-md-12  py-3 col-sm-8">
                 @if (count($errors) > 0)
@@ -73,49 +73,7 @@
                                     رایگان
                                 </label>
                             </div>
-                            @endif
-                            @csrf
-                            <td>
-                                <div class=" rounded">
-                                    <input value="" class="form-controller" type="text" placeholder="title" name="title">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input class="form-controller" type="text" placeholder="discription" name="slug">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input class="form-controller" type="file" placeholder="title" name="video">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <select name="season_id" id="seasons-select">
-                                        <option value=""></option>
-                                        @foreach ($course->seasons as $item)
-                                        <option value="{{ $item->id }}">{{ $item->title }}</option>
-                                        @endforeach
-                                        <option value="0">فصل جدید</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input type="text" value="{{ $course->seasons->count() + 1 }}" name="season_id" placeholder="شماره فصل" class="new-seasons" disabled>
-                                    <input type="text" name="season_title" class="new-seasons" placeholder="نام فصل" disabled>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <select name="status" id="">
-                                        <option value="0">Free</option>
-                                        <option value="1">Premioum</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
+                            <td> 
                                 <div>
                                     <button class=" btn btn-transparent-danger font-weight-bold mr-2" type="submit">اضافه کردن</button>
                                 </div>
