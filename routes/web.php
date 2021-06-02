@@ -45,11 +45,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::post('setting',[settingController::class ,'store'])->name('setting.store');
     
     Route::group(['middleware' => 'can:video CRUD'],function () {
-        Route::get('admin/episode/create/{id}', [EpisodeController::class, 'create'])->name('episode.create');
-        Route::post('admin/episode/create/{id}', [EpisodeController::class, 'store'])->name('episode.store');
-        Route::get('admin/episode/edit/{slug}', [EpisodeController::class, 'edit'])->name('episode.edit');
-        Route::put('admin/episode/update/{slug}', [EpisodeController::class, 'update'])->name('episode.update');
-        Route::delete('admin/episode/delete/{slug}', [EpisodeController::class, 'destroy'])->name('episode.delete');
+        Route::get('episode/create/{id}', [EpisodeController::class, 'create'])->name('episode.create');
+        Route::post('episode/create/{id}', [EpisodeController::class, 'store'])->name('episode.store');
+        Route::get('episode/edit/{slug}', [EpisodeController::class, 'edit'])->name('episode.edit');
+        Route::put('episode/update/{slug}', [EpisodeController::class, 'update'])->name('episode.update');
+        Route::delete('episode/delete/{slug}', [EpisodeController::class, 'destroy'])->name('episode.delete');
     
     });
 

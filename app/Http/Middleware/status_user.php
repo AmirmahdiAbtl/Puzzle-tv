@@ -19,9 +19,12 @@ class status_user
      */
     public function handle(Request $request, Closure $next)
     {
-        
+        $roles = Auth::user()->roles->pluck('name')->toArray();
+        if (in_array('admin',$roles)) {
+            return $next($request);
+        }
         $ep = Episode::where('slug',$request->episode)->first();
-        if (Auth::user()->expire_subscription >= now() or $ep->freeable==0){
+        if (Auth::user()->expire_subscription >= now() or $ep->freeable==0 ){
             return $next($request);
         }
         return redirect()->back()->with('error', 'اشتراک شما به پایان رسیده است');

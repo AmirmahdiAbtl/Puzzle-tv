@@ -102,7 +102,7 @@ class EpisodeController extends Controller
         $data = [
             'title' => $request->title,
             'slug' => $request->slug,
-            'status' => $request->status,
+            'freeable' => $request->status,
             'season_id' => $season_id
         ];
         if($request->hasFile('video')){    

@@ -24,13 +24,13 @@
 
                 <!--begin::Username-->
                 <a  href="#" class="card-title font-weight-bolder text-dark-75 text-hover-primary font-size-h4 m-0 pt-7 pb-1 text-white">
-                    a a
+                    {{Auth::user()->fname}} {{Auth::user()->lname}}
                 </a>
                 <!--end::Username-->
 
                 <!--begin::Info-->
                 <div class="text-muted font-size-sm pb-6 faNum">
-                    09126196168
+                    {{Auth::user()->mobile}}
                 </div>
 
                 <div class="navi navi-bold  navi-active navi-link-rounded mt-7 rounded-xl w-100">

@@ -34,7 +34,7 @@
                             <select value="{{ $episode->season_id }}" name="season_id"  id="seasons-select" class="form-control selectpicker" multiple>
                                 </option>
                                 @foreach ($episode->course->seasons as $item)
-                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                    <option value="{{ $item->id }}" @if($item->id == $episode->season_id) selected @endif >{{ $item->title }}</option>
                                 @endforeach
                                 <option value="0">فصل جدید</option>
                             </select>
@@ -63,12 +63,12 @@
                             <label class="font-size-h6 font-weight-bolder text-dark">وضعیت ویدیو</label>
                             <div class="radio-inline mt-2">
                                 <label class="radio radio-lg">
-                                    <input type="radio" name="status" value="1" @if ($episode->status == 1) checked="checked" @endif />
+                                    <input type="radio" name="status" value="1" @if ($episode->freeable == 1) checked="checked" @endif />
                                     <span></span>
                                     اشتراکی
                                 </label>
                                 <label class="radio radio-lg">
-                                    <input type="radio" name="status" value="0" @if ($episode->status == 0) checked="checked" @endif />
+                                    <input type="radio" name="status" value="0" @if ($episode->freeable == 0) checked="checked" @endif />
                                     <span></span>
                                     رایگان
                                 </label>
