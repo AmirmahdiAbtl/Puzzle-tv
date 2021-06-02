@@ -41,6 +41,7 @@ Route::post('/user/payment', [PaymentController::class,'store'])->middleware('au
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['middleware' => 'can:admin dashboard'],function () {
+        Route::view('/', 'admin.dashboard')->name('admin.dashboard');
         Route::get('setting',[settingController::class ,'index'])->name('setting.index');
         Route::post('setting',[settingController::class ,'store'])->name('setting.store');
         
