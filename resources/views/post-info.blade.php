@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class=" coontainer-fluid ">
         <div class=" overlay">
             <div class="overlay-wrapper">
@@ -115,6 +114,9 @@
             @endforeach
         </div>
     </div>
+    @if (Session::has('error'))
+        <div class="alert alert-danger">اشتراک شما به پایان رسیده است</div>
+    @endif
 @endsection
 @section('css')
 

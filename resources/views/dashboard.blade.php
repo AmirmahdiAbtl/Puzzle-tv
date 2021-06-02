@@ -17,14 +17,15 @@
                             <div class="card rounded ">
                                 <h5 class="card-header">اشتراک شما</h5>
                                 <div class="card-body">
-                                    {{-- @if ($user->expire_subscription == Null)
-                            <h5 class="card-title">0روز </h5>
-                        @else    
-                            <h5 class="card-title">{{$user->expire_subscription->diffInDays(now())}}</h5>
-                                    @endif --}}
-                                    <h5 class="card-title">{{$user->expire_subscription}} تاریخ پایان اشتراک</h5>
+                                    @if ($user->expire_subscription == Null or $user->expire_subscription < now())
+                                        <h5 class="card-title">در حال حاضر اشتراک ندارید. </h5>
+                                     @else    
+                                        <h5 class="card-title">{{Carbon\Carbon::parse($user->expire_subscription)->diffInDays(now())}}
+                                        روز تا پایان اشتراک مانده است.
+                                        </h5>
+                                    @endif
 
-                                    <a href="" class="btn btn-white text-black">خرید اشتراک</a>
+                                    <a href="{{route('payment.create')}}" class="btn btn-white text-black">خرید اشتراک</a>
                                 </div>
                             </div>ّ
                         </div>

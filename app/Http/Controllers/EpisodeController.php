@@ -65,7 +65,7 @@ class EpisodeController extends Controller
             'course_id' => $course->id,
             'episode_number' => $course->episodes_count + 1
         ]);
-        return redirect()->route('episode.index');
+        return redirect()->back();
     }
 
     public function edit($slug)
@@ -102,7 +102,7 @@ class EpisodeController extends Controller
         $data = [
             'title' => $request->title,
             'slug' => $request->slug,
-            'status' => $request->status,
+            'freeable' => $request->status,
             'season_id' => $season_id
         ];
         if($request->hasFile('video')){    

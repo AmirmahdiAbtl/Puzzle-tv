@@ -25,7 +25,7 @@ class PaymentController extends Controller
         $user = Auth::user();
 
         if($user->expire_subscription > now()){
-            return redirect()->route('home');
+            return redirect()->back()->with('danger','danger');
         }
         $request->validate([
             'subscriptions_title' => ['required','string','max:255'],
