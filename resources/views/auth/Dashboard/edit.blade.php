@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid col-12  mt-30 text-white form-group row offset-1">
+<div class="container-fluid col-12  mt-30 text-white form-group row ">
    
         @include('layouts.Dashboard')
    
-    <div class="card card-custom rounded col-6   h-75  border-1 border-white offset-1">
+    <div class="card card-custom rounded col-6    border-1 border-white  ml-7" style="height: 77%;">
         <div class="card-header rounded">
             <div class="card-title rounded">
                 <h3 class="card-label rounded font-weight-bolder text-white">

@@ -17,7 +17,7 @@
             
              @include('layouts.Dashboard')
             
-            <div class=" form-group column col-md-5">
+            <div class=" form-group column offset-2 col-md-5">
                 <div class="col-12    ">
                     <div class="card rounded border-1   border-white ">
                         <h5 class="card-header">لیست تراکنش ها</h5>
@@ -54,31 +54,3 @@
         </div>
     </div>
 </div>
-
-
-
-@endsection
-
-@section('js')
-<script src="{{ asset('js/pages/widgets.js') }}"></script>
-@endsection
-@section('css')
-<style>
-    #dashboard>div,
-    h5,
-    table,
-    thead,
-    tbody {
-        background-color: rgb(38, 38, 38) !important;
-        color: white;
-    }
-
-    .card,
-    h5 {
-        background-color: rgb(70, 70, 75) !important;
-        color: white;
-    }
-</style>
-
-
-@endsection
