@@ -26,7 +26,7 @@
                         <div class="form-group ">
                             @foreach ($subscription as $item)
                             <div class="form-check  d-flex  ">
-                                <div class=" btn btn-white col-12 ">
+                                <div class=" btn btn-white col-12 mt-2 ">
 
                                     <input  class=" float-right form-check-input mt-4   " type="radio" name="subscriptions_title" id="exampleRadios1" value="{{$item->title}}">
                                     <label class="form-check-label text-white mr-60 ml-60 " for="exampleRadios1">
