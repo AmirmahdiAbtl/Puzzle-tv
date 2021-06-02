@@ -52,8 +52,10 @@
                             <span class="navi-text font-size-lg font-weight-normal text-white">داشبورد</span>
                         </a>
                     </div>
+
+                    @can('admin dashboard')
                     <div class="navi-item rounded-0 mt-4 border-bottom border-light">
-                        <a href="https://puzzle-stu.com/dashboard" class="navi-link py-4 rounded-0">
+                        <a href="#" class="navi-link py-4 rounded-0">
                             <span class="navi-icon mr-2">
                                 <span class="svg-icon">
                                     <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
@@ -67,9 +69,11 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </span>
-                            <span class="navi-text font-size-lg font-weight-normal text-white">ویرایش اطلاعات</span>
+                            <span class="navi-text font-size-lg font-weight-normal text-white">داشبورد مدیریت </span>
                         </a>
-                    </div>
+                    </div>    
+                    @endcan
+                    
                     <div class="navi-item rounded-0 mt-4 border-bottom border-light">
                         <a href="{{route('user_payments')}}" class="navi-link py-4 rounded-0">
                             <span class="navi-icon mr-2">
