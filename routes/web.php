@@ -14,6 +14,7 @@ use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\settingController;
 use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Middleware\status_user;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,33 +31,37 @@ Route::get('/', [HomeController::class ,'index'])->name('home');
 
 Route::get('/course/{slug}',[CourseController::class ,'show'])->name('course');
 
-Route::get('/course/{slug}/{seasonId}/{episode}',[CourseController::class ,'player'])->name('player');
+Route::get('/course/{slug}/{seasonId}/{episode}',[CourseController::class ,'player'])->middleware(['auth','status_user'])->name('player');
 
 Route::get('/category/{slug}',[CategoryController::class ,'show'])->name('category.single');
 
 Route::get('/dashboard',[UserAdminController::class,'dashboard'] )->middleware(['isverify','auth'])->name('dashboard');
 
-Route::get('/admin/subscription/index', [SubscriptionController::class,'index'])->middleware('auth')->name('subscription.index');
-Route::get('/admin/subscription/create', [SubscriptionController::class,'create'])->middleware('auth')->name('subscription.create');
-Route::post('/admin/subscription/create', [SubscriptionController::class,'store'])->middleware('auth')->name('subscription.store');
-Route::get('/admin/subscription/edit/{id}', [SubscriptionController::class,'edit'])->middleware('auth')->name('subscription.edit');
-Route::put('/admin/subscription/update/{id}', [SubscriptionController::class,'update'])->middleware('auth')->name('subscription.update');
-Route::delete('/admin/subscription/delete/{id}', [SubscriptionController::class,'delete'])->middleware('auth')->name('subscription.delete');
-
 Route::get('/user/payment', [PaymentController::class,'create'])->middleware('auth')->name('payment.create');
 Route::post('/user/payment', [PaymentController::class,'store'])->middleware('auth')->name('payment.store');
-
-Route::get('admin/episode/create/{id}', [EpisodeController::class, 'create'])->middleware('auth')->name('episode.create');
-Route::post('admin/episode/create/{id}', [EpisodeController::class, 'store'])->middleware('auth')->name('episode.store');
-Route::get('admin/episode/edit/{slug}', [EpisodeController::class, 'edit'])->middleware('auth')->name('episode.edit');
-Route::put('admin/episode/update/{slug}', [EpisodeController::class, 'update'])->middleware('auth')->name('episode.update');
-Route::delete('admin/episode/delete/{slug}', [EpisodeController::class, 'destroy'])->middleware('auth')->name('episode.delete');
-
-Route::get('admin/course/episodes/{id}',[EpisodeController::class, 'index'])->middleware('auth')->name('episode.index');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('setting',[settingController::class ,'index'])->name('setting.index');
     Route::post('setting',[settingController::class ,'store'])->name('setting.store');
+    
+    Route::group(['middleware' => 'can:video CRUD'],function () {
+        Route::get('admin/episode/create/{id}', [EpisodeController::class, 'create'])->name('episode.create');
+        Route::post('admin/episode/create/{id}', [EpisodeController::class, 'store'])->name('episode.store');
+        Route::get('admin/episode/edit/{slug}', [EpisodeController::class, 'edit'])->name('episode.edit');
+        Route::put('admin/episode/update/{slug}', [EpisodeController::class, 'update'])->name('episode.update');
+        Route::delete('admin/episode/delete/{slug}', [EpisodeController::class, 'destroy'])->name('episode.delete');
+    
+    });
+
+    Route::group(['middleware' => 'can:setting CRUD'],function () {
+        Route::get('subscription/index', [SubscriptionController::class,'index'])->name('subscription.index');
+        Route::get('subscription/create', [SubscriptionController::class,'create'])->name('subscription.create');
+        Route::post('subscription/create', [SubscriptionController::class,'store'])->name('subscription.store');
+        Route::get('subscription/edit/{id}', [SubscriptionController::class,'edit'])->name('subscription.edit');
+        Route::put('subscription/update/{id}', [SubscriptionController::class,'update'])->name('subscription.update');
+        Route::delete('subscription/delete/{id}', [SubscriptionController::class,'delete'])->name('subscription.delete');
+    });
+
     Route::group(['middleware' => 'can:permission CRUD'], function () {
         Route::resource('permission', PermissionController::class);
         Route::resource('role', RoleController::class);
@@ -78,6 +83,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['middleware' => 'can:course CRUD'], function () {
         Route::resource('course', CourseController::class);
         Route::post('add_category' ,[CategoryController::class,'add_category'])->name('course.add_category');
+        Route::get('course/episodes/{id}',[EpisodeController::class, 'index'])->name('episode.index');
 
         // Route::get('/admin/course', [CourseController::class,'index'])->middleware('auth')->name('course.index');
         // Route::get('/admin/course/create', [CourseController::class,'create'])->middleware('auth')->name('course.create');
@@ -87,8 +93,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         // Route::delete('/admin/course/delete/{id}', [CourseController::class,'delete'])->middleware('auth')->name('course.delete');
     });
 
-
-    
 });
 
 Route::get('user/edit',[UserAdminController::class,'edit_user'])->middleware('auth')->name('edit_user');

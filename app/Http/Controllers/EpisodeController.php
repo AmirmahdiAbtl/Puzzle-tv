@@ -65,7 +65,7 @@ class EpisodeController extends Controller
             'course_id' => $course->id,
             'episode_number' => $course->episodes_count + 1
         ]);
-        return redirect()->route('episode.index');
+        return redirect()->back();
     }
 
     public function edit($slug)
