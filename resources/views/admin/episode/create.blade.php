@@ -9,6 +9,7 @@
                 </h3>
                 {{-- <button class="btn btn-bg-secondary btn-hover-bg-danger rounded-circle" id="add">+</button> --}}
             </div>
+        
             <div class="card-body rounded col-12 col-md-12  py-3 col-sm-8">
                 @if (count($errors) > 0)
                     <div class="alert rounded bg-white">
@@ -78,12 +79,10 @@
                                     <button class=" btn btn-transparent-danger font-weight-bold mr-2" type="submit">اضافه کردن</button>
                                 </div>
                             </td>
-                        </form>
-                    </tr>
-                </tbody>
-
-            </table>
-
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
