@@ -11,16 +11,15 @@
             </div>
             <div class="card-body rounded col-12 col-md-12  py-3 col-sm-8">
                 @if (count($errors) > 0)
-                    <div class="alert rounded bg-white">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert rounded bg-white">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
-                <form action="{{ route('episode.store', ['id' => $course->id]) }}" class="padding-30" method="POST"
-                    enctype="multipart/form-data">
+                <form action="{{ route('episode.store', ['id' => $course->id]) }}" class="padding-30" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <div class="col-md-6 col-12">
@@ -29,11 +28,11 @@
                         </div>
                         <div class="col-md-3 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">فصل ها </label>
-                            <select name="season_id"  id="seasons-select" class="form-control selectpicker" multiple>
-                                <option value=null  disabled>فصل دوره را انتخاب کنید.
+                            <select name="season_id" id="seasons-select" class="form-control selectpicker" multiple>
+                                <option value=null disabled>فصل دوره را انتخاب کنید.
                                 </option>
                                 @foreach ($course->seasons as $item)
-                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                <option value="{{ $item->id }}">{{ $item->title }}</option>
                                 @endforeach
                                 <option value="0">فصل جدید</option>
                             </select>
@@ -52,8 +51,7 @@
                         <div class="col-md-6 col-12">
                             <label class="font-size-h6 font-weight-bolder text-dark">فایل فیلم</label>
                             <div class="custom-file mb-3">
-                                <input type="file" name="video" class="custom-file-input"
-                                    id="customFile">
+                                <input type="file" name="video" class="custom-file-input" id="customFile">
                                 <label class="custom-file-label" for="customFile">فایل خود را انتخاب کنید</label>
                             </div>
                         </div>
@@ -68,13 +66,13 @@
                                     اشتراکی
                                 </label>
                                 <label class="radio radio-lg">
-                                    <input type="radio" name="status" value="0" @if($course->status == 0) checked="checked" @endif  />
+                                    <input type="radio" name="status" value="0" @if($course->status == 0) checked="checked" @endif />
                                     <span></span>
                                     رایگان
                                 </label>
                             </div>
-                            @endif
-                            @csrf
+
+
                             <td>
                                 <div class=" rounded">
                                     <input value="" class="form-controller" type="text" placeholder="title" name="title">
@@ -120,24 +118,24 @@
                                     <button class=" btn btn-transparent-danger font-weight-bold mr-2" type="submit">اضافه کردن</button>
                                 </div>
                             </td>
-                        </form>
-                    </tr>
+                </form>
+                </tr>
                 </tbody>
 
-            </table>
+                </table>
 
+            </div>
         </div>
     </div>
-</div>
 
-@endsection
-@section('js')
+    @endsection
+    @section('js')
 
-<script>
-    $(document).ready(function() {
-        let i = 0;
-        $("#add").click(function() {
-            $("#forms").append(`
+    <script>
+        $(document).ready(function() {
+            let i = 0;
+            $("#add").click(function() {
+                $("#forms").append(`
             <tr class=" rounded  " id="${i}">
                         <form action="{{ route('episode.store',['id'=>$course->id]) }}" class="padding-30" method="POST" enctype="multipart/form-data">
                             @if (count($errors)>0)
@@ -198,23 +196,23 @@
                         </form>
                     </tr>
             `)
-            i += 1;
+                i += 1;
+            });
+
+            $(`#delete${i}`).click(function() {
+
+                $("#forms").remove(`#${i}`);
+                i -= 1
+            });
+            $('#seasons-select').change((e) => {
+                if (e.target.value == "0") {
+                    $('.new-seasons').removeAttr('disabled')
+                } else {
+                    $('.new-seasons').attr('disabled', '')
+                }
+            });
+
         });
+    </script>
 
-        $(`#delete${i}`).click(function() {
-
-            $("#forms").remove(`#${i}`);
-            i -= 1
-        });
-        $('#seasons-select').change((e) => {
-            if (e.target.value == "0") {
-                $('.new-seasons').removeAttr('disabled')
-            } else {
-                $('.new-seasons').attr('disabled', '')
-            }
-        });
-
-    });
-</script>
-
-@endsection
+    @endsection

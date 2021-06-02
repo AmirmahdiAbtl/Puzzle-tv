@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid col-12 col-md-7 mt-30 text-white">
-    <div class="card card-custom rounded">
+<div class="container-fluid col-12  mt-30 text-white form-group row offset-1">
+   
+        @include('layouts.Dashboard')
+   
+    <div class="card card-custom rounded col-6   h-75  border-1 border-white offset-1">
         <div class="card-header rounded">
             <div class="card-title rounded">
                 <h3 class="card-label rounded font-weight-bolder text-white">
@@ -60,14 +63,7 @@
                     <button type="submit" class="btn btn-danger w-100 text-white px-15 py-3">ویرایش اطلاعات</button>
                 </div>
             </form>
-            <form action="{{ route('admin.reset.password',['id' => auth()->user()->id]) }}" method="POST">
-                @csrf
-                <div class="form-group row">
-                    <div class="col-md-3 col-12 offset-5">
-                    <button type="submit" class="btn btn-danger w-100 text-white px-15 py-3">فراموشی رمز عبور</button>
-                    </div>
-                </div>
-            </form>
+      
         </div>
     </div>
 </div>
