@@ -1,5 +1,5 @@
-<div class="col-md-3 col-12 rounded" style="height: 78%;">
-    <div class="d-flex justify-content-between flex-column pt-4 h-100 rounded" style="background-color: rgb(70, 70, 75) !important;">
+<div class="col-md-3 col-12 rounded" style="height: 78%; background-color:rgb(38, 38, 38)">
+    <div class="d-flex justify-content-between flex-column pt-4 h-100 rounded" >
         <!--begin::Container-->
         <div class="pb-5">
             <!--begin::Header-->
@@ -146,7 +146,7 @@
 
     .card,
     h5 {
-        background-color: rgb(70, 70, 75) !important;
+        background-color: rgb(38, 38, 38) !important;
         color: white;
     }
 </style>
