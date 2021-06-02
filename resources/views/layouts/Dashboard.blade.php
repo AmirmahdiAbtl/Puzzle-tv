@@ -1,4 +1,4 @@
-<div class="   col-md-2 col-12  form-group column  rounded" style="height: 78%;">
+<div class="   col-md-3 col-12  form-group column  rounded" style="height: 78%;">
     <div class="d-flex justify-content-between flex-column pt-4 h-100 rounded" style="background-color: rgb(70, 70, 75) !important;">
         <!--begin::Container-->
         <div class="pb-5">
