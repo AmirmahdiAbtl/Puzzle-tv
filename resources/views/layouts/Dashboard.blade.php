@@ -71,7 +71,7 @@
                         </a>
                     </div>
                     <div class="navi-item rounded-0 mt-4 border-bottom border-light">
-                        <a href="#" class="navi-link py-4 rounded-0">
+                        <a href="{{route('user_payments')}}" class="navi-link py-4 rounded-0">
                             <span class="navi-icon mr-2">
                                 <span class="svg-icon">
                                     <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->

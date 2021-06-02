@@ -95,9 +95,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 });
 
-Route::get('user/edit',[UserAdminController::class,'edit_user'])->middleware('auth')->name('edit_user');
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
+    Route::get('edit',[UserAdminController::class,'edit_user'])->name('edit_user');
+    Route::put('edit/update',[UserAdminController::class,'update_user'])->name('edit_user_save');
+    Route::get('payments',[UserAdminController::class,'payments'])->name('user_payments');
+    Route::get('payment', [PaymentController::class,'create'])->name('payment.create');
+    Route::post('payment', [PaymentController::class,'store'])->name('payment.store');
+});
 
-Route::put('user/edit/update',[UserAdminController::class,'update_user'])->middleware('auth')->name('edit_user_save');
 
 Route::get('fu', function () {
     return view('user.payment.payment');
