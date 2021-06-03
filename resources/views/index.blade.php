@@ -152,20 +152,21 @@
     <div class="container-fluid my-10 ">
         <div class="card card-custom overlay">
             <div class="card-body p-0">
-                <div class="overlay-wrapper">
-                    <img src="" width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage1" />
-                </div>
-                <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start">
+                
+                <div class="  rounded align-items-start  justify-content-start w-100 h-100" style="position: absolute; z-index: 1;">
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle1">فیلم ها </a>
-                        <p class=" mb-2  ml-10  mt-11" id="contentDetail1">hello</p>
+                        <a href="#" class="text-white font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle1">فیلم ها </a>
+                        <p class=" mb-2  ml-10  mt-11 text-white" id="contentDetail1">hello</p>
                         <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink1">
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
                     </div>
+                </div>
+                <div class=" " style="position: relative; z-index: initial;">
+                    <img src="" width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage1" />
                 </div>
             </div>
         </div>
@@ -192,20 +193,21 @@
     <div class="container-fluid my-10 ">
         <div class="card card-custom overlay">
             <div class="card-body p-0">
-                <div class="overlay-wrapper">
-                    <img src="" id="contentImage" width="100%" height="500px" alt="" class="w-100 rounded" />
-                </div>
-                <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start">
+               
+                <div class="rounded align-items-start  justify-content-start w-100 h-100" style="position: absolute; z-index: 1;"">
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle">فیلم ها </a>
-                        <p class=" mb-2  ml-10  mt-11" id="contentDetail">hello</p>
+                        <a href="#" class="text-white font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle">فیلم ها </a>
+                        <p class="text-white mb-2  ml-10  mt-11" id="contentDetail">hello</p>
                         <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink">
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
                     </div>
+                </div>
+                <div class="" style="position: relative; z-index: initial;">
+                    <img src="" id="contentImage" width="100%" height="500px" alt="" class="w-100 rounded" />
                 </div>
             </div>
         </div>
@@ -232,20 +234,21 @@
     <div class="container-fluid my-10 ">
         <div class="card card-custom overlay">
             <div class="card-body p-0">
-                <div class="overlay-wrapper">
-                    <img src="" width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage2" />
-                </div>
-                <div class="overlay-layer bg-dark-o-95  rounded align-items-start  justify-content-start">
+               
+                <div class="   rounded align-items-start  justify-content-start w-100 h-100" style="position: absolute; z-index: 1;" >
                     <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
                         <span class=" text-white" aria-hidden="true">&times;</span>
                     </button>
                     <div class="d-flex flex-column   align-items-start ">
-                        <a href="#" class="font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle2">فیلم ها </a>
-                        <p class=" mb-2  ml-10  mt-11" id="contentDetail2">hello</p>
+                        <a href="#" class=" text-white font-size-h3 font-weight-bolder text-black mb-2  ml-10  mt-11" id="contentTitle2">فیلم ها </a>
+                        <p class=" text-white mb-2  ml-10  mt-11" id="contentDetail2">hello</p>
                         <button class="btn btn-light btn-text-danger mt-5  me-11 me-5 ms-11 ml-10 btn-hover-bg-dark" id="contentLink2">
                             <a href="">نمایش قسمت‌ها</a>
                         </button>
                     </div>
+                </div>
+                <div class="overlay-wrapper" style="position: relative; z-index: initial;">
+                    <img src="" width="100%" height="500px" alt="" class="w-100 rounded" id="contentImage2" />
                 </div>
             </div>
         </div>

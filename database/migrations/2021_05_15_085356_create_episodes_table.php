@@ -20,7 +20,7 @@ class CreateEpisodesTable extends Migration
             $table->string('title');
             $table->string('video');
             $table->integer('episode_number');
-            $table->string('slug')->uniqe();
+            $table->string('slug')->unique();
             $table->boolean('freeable')->default(0);
             $table->timestamps();
         });

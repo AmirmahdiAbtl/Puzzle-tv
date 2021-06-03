@@ -101,7 +101,7 @@ class EpisodeController extends Controller
         $data = [
             'title' => $request->title,
             'slug' => $request->slug,
-            'status' => $request->status,
+            'freeable' => $request->status,
             'season_id' => $season_id
         ];
         if($request->hasFile('video')){    
@@ -114,7 +114,7 @@ class EpisodeController extends Controller
             $data['video'] = $file_name;
         }
         $episode->update($data);
-        return redirect()->route('episode.index');
+        return redirect()->back();
     }
 
     public function destroy($slug)
@@ -125,6 +125,6 @@ class EpisodeController extends Controller
             $season->delete();
         }
         $episode->delete();
-        return redirect()->route('episode.index');
+        return redirect()->back();
     }
 }

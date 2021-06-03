@@ -69,7 +69,7 @@
                     const json = await response.json();
                     $("#contentTitle").text(json.title)
                     $("#contentDetail").text(json.discription)
-                    $("#contentLink a").attr('href', '{{ URL::to(' / ') }}/course/' + json.slug)
+                    $("#contentLink a").attr('href', '{{ URL::to('/') }}/course/' + json.slug)
                     $("#contentImage").attr('src', "{{ URL::to('/') }}/images/banner/" + json.banner)
                 }
                 ajax()

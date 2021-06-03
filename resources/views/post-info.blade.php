@@ -1,19 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class=" coontainer-fluid ">
         <div class=" overlay">
             <div class="overlay-wrapper">
-                <div class="slider h-lg-700px h-500px"
-                    style="background: url('{{ asset("/images/poster/$course->poster") }}');background-size:cover;">
-                    <div class="col-md-8 bg-slider align-items-center px-20 d-flex h-100">
-                    </div>
-                </div>
-                <div class="overlay-layer bg-dark-o-100  rounded align-items-start  justify-content-start">
-                    <button type="button" class="close mt-1 ml-1" id="close1" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="   rounded align-items-start w-100 h-100  justify-content-start pt-20"  style="position: absolute; z-index: 1;" >
+                    
                     <div class="d-flex flex-column  mt-35   align-items-start ">
                         <a href="#" class="font-size-h3 font-weight-bolder text-white mb-5  ml-10  mt-11"> {{ $course->title }} </a>
                         <span class="font-size-h5 text-white mb-5  ml-10  mt-1 col-md-4 text-justify"> {{ $course->discription }} </span>
@@ -45,6 +37,11 @@
                                 </a>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="slider h-lg-700px h-500px"
+                    style="background: url('{{ asset("/images/poster/$course->poster") }}');background-size:cover; position: relative; z-index: initial;">
+                    <div class="col-md-8 bg-slider align-items-center px-20 d-flex h-100">
                     </div>
                 </div>
 
@@ -117,6 +114,9 @@
             @endforeach
         </div>
     </div>
+    @if (Session::has('error'))
+        <div class="alert alert-danger">اشتراک شما به پایان رسیده است</div>
+    @endif
 @endsection
 @section('css')
 

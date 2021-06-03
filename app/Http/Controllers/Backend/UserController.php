@@ -148,4 +148,11 @@ class UserController extends Controller
         $payments=$user->payments;
         return view('dashboard', ['payments'=>$payments,'user'=>$user]);
     }
+
+    public function payments()
+    {
+        $user=Auth::user();
+        $payments=$user->payments;
+        return view('auth.Dashboard.index', ['payments'=>$payments,'user'=>$user]);
+    }
 }
