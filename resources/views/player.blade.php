@@ -15,11 +15,11 @@
                                 dd($item->season->id)
                             @endphp --}}
                             <a href="{{ route('player',['slug'=>$item->course->slug,'seasonId'=>$item->season->id,'episode'=>$item->slug]) }}">
-                                <div class=" d-flex rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100  ">
+                                <div class="d-flex justify-content-end rounded mt-1 mb-5 ml-1 bg-secondary-o-25 w-100">
                                     <div class=" d-flex text-white mt-7 pr-17    " id="suggested text">
                                         {{$item->title}}
                                     </div>
-                                    <div class=" d-flex suggested_image  justify-contenr-start       ">
+                                    <div class="suggested_image">
                                         <button class=" btn  btn-hover-bg-dark "> 
                                         <img src="{{ asset("/images/poster/$course->poster") }}" height="150px" width="100px" class="  rounded" alt="">
                                         </button>
