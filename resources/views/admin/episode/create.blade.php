@@ -73,48 +73,8 @@
                                     رایگان
                                 </label>
                             </div>
-                            @endif
                             @csrf
-                            <td>
-                                <div class=" rounded">
-                                    <input value="" class="form-controller" type="text" placeholder="title" name="title">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input class="form-controller" type="text" placeholder="discription" name="slug">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input class="form-controller" type="file" placeholder="title" name="video">
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <select name="season_id" id="seasons-select">
-                                        <option value=""></option>
-                                        @foreach ($course->seasons as $item)
-                                        <option value="{{ $item->id }}">{{ $item->title }}</option>
-                                        @endforeach
-                                        <option value="0">فصل جدید</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <input type="text" value="{{ $course->seasons->count() + 1 }}" name="season_id" placeholder="شماره فصل" class="new-seasons" disabled>
-                                    <input type="text" name="season_title" class="new-seasons" placeholder="نام فصل" disabled>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" rounded">
-                                    <select name="status" id="">
-                                        <option value="0">Free</option>
-                                        <option value="1">Premioum</option>
-                                    </select>
-                                </div>
-                            </td>
+                            
                             <td>
                                 <div>
                                     <button class=" btn btn-transparent-danger font-weight-bold mr-2" type="submit">اضافه کردن</button>

@@ -27,7 +27,22 @@ class CourseController extends Controller
         $course = Course::with('seasons')->where('slug' ,$slug)->first();
         $season = $course->seasons->where('id',$seasonId)->first();
         $ep = $season->episodes->where('slug',$episode)->first();
-        return view('player',compact('ep'));
+
+        $allCategories = $ep->course->category;
+        $categoriesCount = count($allCategories);
+        
+        $array = [];
+        if($categoriesCount > 0){
+            for ($i=0; $i <12 ; $i++) { 
+                $randomCategory = rand(0,$categoriesCount-1);
+                $coursesCategory = $allCategories[$randomCategory]->courses;
+                $randomCourse = rand(0,count($coursesCategory) - 1);
+                $episdoesCategory = $coursesCategory[$randomCourse]->episodes;
+                $randomEpisode = rand(0,count($episdoesCategory) - 1);
+                $array[$i] = $episdoesCategory[$randomEpisode];
+            }
+        }
+        return view('player',compact(['ep','array']));
     }
    
     public function create()

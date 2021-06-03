@@ -25,7 +25,6 @@ class EpisodeController extends Controller
 
     public function store(Request $request,$id)
     {
-        // dd($request->all());
         $course = Course::with('episodes')->withCount(['seasons','episodes'])->find($id);
         $validation = $request->validate([
             'title' => 'required|max:255|string',
@@ -65,7 +64,7 @@ class EpisodeController extends Controller
             'course_id' => $course->id,
             'episode_number' => $course->episodes_count + 1
         ]);
-        return redirect()->route('episode.index');
+        return redirect()->route('episode.index',['id' => $course->id]);
     }
 
     public function edit($slug)
